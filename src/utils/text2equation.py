@@ -14,7 +14,7 @@ def solv_equation(var_and_val : dict,
     Args:
         var_and_val (dict): A dictionary containing the last known values for variables.
         list_equations (dict): A dictionary of equations, where keys are variables and values are equations.
-        delimeter (str): character uses to delimeter variable name 
+        delimeter (str): character uses to delimeter variable name
 
     Returns:
         dict: A dictionary with the solved values of terms from the equations.
