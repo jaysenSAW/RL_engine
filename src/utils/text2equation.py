@@ -40,37 +40,34 @@ def solve_equations(features_values : dict,
         # convert string to SymPy expressions
         expr = sympify(equation.replace(delimeter, ''))
         # flag "subs": take a dictionary of Sylmbol: point pairs.
-        try:
-            # check we get goot format
-            if all([isinstance(value, np.ndarray) for key, value in features_values.items()]):
-                solved_values[term.replace(delimeter, '')] = np.array([float(
-                        sympify(expr).evalf(
-                            subs={
-                                key: value.item() for key, value in features_values.items()
-                                }
-                        )
-                    )])
-            elif all([isinstance(value, list) for key, value in features_values.items()]):
-                solved_values[term.replace(delimeter, '')] = np.array([float(
-                        sympify(expr).evalf(
-                            subs={
-                                key: np.array(value).item() for key, value in features_values.items()
-                                }
-                        )
-                    )])
-            else:
-                solved_values[term.replace(delimeter, '')] = np.array([float(
-                        sympify(expr).evalf(
-                            subs={
-                                key: value for key, value in features_values.items()
-                                }
-                        )
-                    )])
-            if term.replace(delimeter, '') not in features_values.keys():
-                # if term is not in features_values it means it temporary variable we add it
-                features_values[term.replace('$', '')] = np.array(
-                    [solved_values[term.replace('$', '')]]
+        # check we get goot format
+        if all([isinstance(value, np.ndarray) for key, value in features_values.items()]):
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: value.item() for key, value in features_values.items()
+                            }
                     )
-        except ValueError:
-            print("Value is not define")
+                )])
+        elif all([isinstance(value, list) for key, value in features_values.items()]):
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: np.array(value).item() for key, value in features_values.items()
+                            }
+                    )
+                )])
+        else:
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: value for key, value in features_values.items()
+                            }
+                    )
+                )])
+        if term.replace(delimeter, '') not in features_values.keys():
+            # if term is not in features_values it means it temporary variable we add it
+            features_values[term.replace('$', '')] = np.array(
+                [solved_values[term.replace('$', '')]]
+                )
     return solved_values

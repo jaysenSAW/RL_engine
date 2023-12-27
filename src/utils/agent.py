@@ -4,8 +4,19 @@ import os
 import sys
 from sympy import sympify
 import re
+import copy
+from text2equation import solve_equations
 
 class Environment():
+
+    def compute_reward_for_agents(self, start = -1, end = None, trigger_variables = None):
+        if trigger_variables is None:
+            trigger_variables = self.trigger_variables
+        return {trigger_var : solve_equations(
+            self.select_states(start, end),
+            self.json["equations_rewards"])[trigger_var]
+            for trigger_var in trigger_variables }
+
     def __init__(self, json_file, delimiter = "$"):
         """
         Initialize the environment and its rules.
@@ -17,16 +28,19 @@ class Environment():
             syst_dic = json_file
         else:
             print("expect JSON file or a dictionary")
+        self.json = syst_dic
+        self.target_variable = syst_dic["target_variable"]
+        self.trigger_variables = syst_dic["trigger_variables"]
+        self.variable_names = tuple([key.replace(delimiter, '') for key in syst_dic["initial_values"].keys()])
+        self.action_to_take = syst_dic["action_to_take"]
         initial_system = {tmpkey.replace(delimiter, ''): value for tmpkey, value in syst_dic["initial_values"].items()}
         for key, value in initial_system.items():
-            if key == "rewards":
-                print("Fatal error feature name in initial_values cannot be reward")
-                sys.exit()
             setattr(self, key, np.array(value))
         # gloabal score for each step
         self.global_reward = np.array([np.nan])
         # reward for each agents
-        self.rewards = {key : [] for key in syst_dic["trigger_variables"]}
+        # self.rewards = {key : [np.nan] for key in syst_dic["trigger_variables"]}
+        self.rewards = self.compute_reward_for_agents()
         self.start_pos = initial_system
         self.current_pos = np.array([value for tmpkey, value in self.start_pos.items()]).flatten()
         self.goal_pos = syst_dic["goal_pos"]
@@ -40,11 +54,13 @@ class Environment():
         else:
             # use upper and lower limit to discretize space with 1 unit step
             self.n_bins = self.upper_lim - self.lower_lim + 1
-        self.target_variable = syst_dic["target_variable"]
-        self.trigger_variables = syst_dic["trigger_variables"]
-        self.variable_names = tuple([key.replace(delimiter, '') for key in syst_dic["initial_values"].keys()])
-        self.json = syst_dic
-        self.action_to_take = syst_dic["action_to_take"]
+
+    def reset(self):
+        for key, value in env.select_states(0,1).items():
+            setattr(self, key, np.array(value))
+        self.global_reward = np.array([np.nan])
+        self.rewards = {key : [] for key in self.json["trigger_variables"]}
+        self.current_pos = copy.deepcopy(self.start_pos)
 
     def all_states(self, colnames = None):
         """
@@ -139,3 +155,78 @@ class Environment():
         for attr_name in colnames:
             current_value = getattr(self, attr_name)
             setattr(self, attr_name, current_value[:-1])
+
+    def discretized_space(self, dico = False):
+        """
+        Discretizes the system space.
+
+        Returns:
+            numpy.ndarray: Discretized bins.
+        """
+        low = self.lower_lim
+        high = self.upper_lim
+        if dico:
+            tmp = [np.linspace(l, h, b) for l, h, b in
+                         zip(low, high, self.n_bins)]
+            return {key : val for key, val in zip(self.start_pos.keys(), tmp)}
+        else:
+            return [np.linspace(l, h, b) for l, h, b in
+                         zip(low, high, self.n_bins)]
+
+
+    def discretized_observation(self, dico = False, start = -1, end = None):
+        """
+        Discretizes the current position for observation.
+
+        Returns:
+            numpy.ndarray: Discretized position
+        """
+        # if len(self.frame.all_states()['reward']) < start or len(self.frame.all_states()['reward']) < end:
+        #     print('index error. Please give valid index')
+        #     return  None
+        val_bins = self.discretized_space()
+        list_pos = []
+        for i, key in zip(range(len(self.start_pos.keys())), self.start_pos.keys()):
+            dist = val_bins[i] - self.frame.select_states(start,end)[key][:, np.newaxis]
+            index = [np.argmin(array) for array in np.abs(dist)]
+            list_pos.append([val_bins[i][val] for val in index])
+        if dico:
+            return {key : list_pos[i]
+                    for key, i in zip(self.start_pos.keys(),
+                                      range(len(self.start_pos.keys()))
+                                      )
+                    }
+        else:
+            if len(index) == 1:
+                #return only array
+                return np.array(list_pos).reshape(len(index), len(self.start_pos.keys()))[0]
+            else:
+                # return array of array
+                return np.array(list_pos).reshape(len(index), len(self.start_pos.keys()))
+
+    def state_for_q_table(self, start = -1, end = None) -> tuple:
+        # get coordinate without trigger variables
+        labels = set(self.start_pos.keys()) - set(self.trigger_variables)
+        obs = self.discretized_observation(dico = True, start = start, end = end)
+        return tuple(obs[key] for key in labels)
+
+    def move_agent(self, action_key, trigger_variable):
+        if isinstance(action_key, str):
+            temporary_state["action"] = np.array([self.actions[trigger_variable][action_key]])
+        else:
+            temporary_state["action"] = np.array([self.actions[trigger_variable][str(action_key)]])
+        temporary_state[trigger_variable] = solve_equations(
+            temporary_state,
+            self.action_to_take
+        )
+        return temporary_state
+
+    def step(self, actions, trigger_variables = None):
+        solv_eq = {}
+        # Evaluate new environment variables
+        for action_key, trigger_variable in zip(actions, trigger_variables):
+            solv_eq = solve_equations(
+                self.move_agent(action_key, trigger_variable),
+                self.json["equations"]
+            )
+        return solv_eq
