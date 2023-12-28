@@ -56,7 +56,7 @@ class Environment():
             self.n_bins = self.upper_lim - self.lower_lim + 1
 
     def reset(self):
-        for key, value in env.select_states(0,1).items():
+        for key, value in self.select_states(0,1).items():
             setattr(self, key, np.array(value))
         self.global_reward = np.array([np.nan])
         self.rewards = {key : [] for key in self.json["trigger_variables"]}
@@ -182,13 +182,10 @@ class Environment():
         Returns:
             numpy.ndarray: Discretized position
         """
-        # if len(self.frame.all_states()['reward']) < start or len(self.frame.all_states()['reward']) < end:
-        #     print('index error. Please give valid index')
-        #     return  None
         val_bins = self.discretized_space()
         list_pos = []
         for i, key in zip(range(len(self.start_pos.keys())), self.start_pos.keys()):
-            dist = val_bins[i] - self.frame.select_states(start,end)[key][:, np.newaxis]
+            dist = val_bins[i] - self.select_states(start,end)[key][:, np.newaxis]
             index = [np.argmin(array) for array in np.abs(dist)]
             list_pos.append([val_bins[i][val] for val in index])
         if dico:
@@ -274,5 +271,5 @@ class Environment():
                 problem.append(False)
             # store new state only if we are in mono agent
             if len(trigger_variables) > 1:
-                self.frame.delete_last_state()
+                self.delete_last_state()
         return new_states, {key: values[-1] for key, values in self.rewards.items()}, done, problem, info
