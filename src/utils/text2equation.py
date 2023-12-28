@@ -3,7 +3,43 @@ import re
 import numpy as np
 from sympy import sympify
 
-
+def resolve_equations(features_values : dict,
+                  list_equations : dict,
+                  delimeter : str= "$") -> dict:
+    solved_values = {}
+    for term, equation in list_equations.items():
+        # convert string to SymPy expressions
+        expr = sympify(equation.replace(delimeter, ''))
+        # flag "subs": take a dictionary of Sylmbol: point pairs.
+        # check we get goot format
+        if all([isinstance(value, np.ndarray) for key, value in features_values.items()]):
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: value.item() for key, value in features_values.items()
+                            }
+                    )
+                )])
+        elif all([isinstance(value, list) for key, value in features_values.items()]):
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: np.array(value).item() for key, value in features_values.items()
+                            }
+                    )
+                )])
+        else:
+            solved_values[term.replace(delimeter, '')] = np.array([float(
+                    sympify(expr).evalf(
+                        subs={
+                            key: value for key, value in features_values.items()
+                            }
+                    )
+                )])
+        features_values[term.replace('$', '')] = np.array(
+            [solved_values[term.replace('$', '')]]
+            ).flatten()
+    return features_values
 
 def solve_equations(features_values : dict,
                   list_equations : dict,
@@ -31,7 +67,7 @@ def solve_equations(features_values : dict,
                              '$x$': '$v$ + $z$'}
 
         >>> list_equations = {'$term1$': '$a$*$x$**2 + $b$*$x$ + $c$'}
-        >>> solved_values = solv_equation(features_values, list_equations)
+        >>> solved_values = solve_equations(features_values, list_equations)
         >>> print(solved_values)
         {"term1": array([-3.0])}
     """

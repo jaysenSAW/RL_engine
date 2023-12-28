@@ -5,7 +5,7 @@ import sys
 from sympy import sympify
 import re
 import copy
-from text2equation import solve_equations
+from text2equation import solve_equations, resolve_equations
 
 class Environment():
 
@@ -210,23 +210,54 @@ class Environment():
         obs = self.discretized_observation(dico = True, start = start, end = end)
         return tuple(obs[key] for key in labels)
 
-    def move_agent(self, action_key, trigger_variable):
+    def move_agent(self, action_key : str,
+        trigger_variable : str,
+        temporary_state : dict = None):
+        """
+        """
+        if temporary_state is None:
+            temporary_state = self.last_state()
         if isinstance(action_key, str):
             temporary_state["action"] = np.array([self.actions[trigger_variable][action_key]])
         else:
             temporary_state["action"] = np.array([self.actions[trigger_variable][str(action_key)]])
-        temporary_state[trigger_variable] = solve_equations(
-            temporary_state,
-            self.action_to_take
-        )
-        return temporary_state
+        return resolve_equations(
+            copy.deepcopy(temporary_state),
+            self.action_to_take[trigger_variable]
+        )[trigger_variable]
 
-    def step(self, actions, trigger_variables = None):
+    def step(self, actions : list[str],
+        trigger_variables : list[str] = None):
+        """
+        """
+        if trigger_variables is None:
+            trigger_variables = self.trigger_variables
         solv_eq = {}
+        new_states = {}
         # Evaluate new environment variables
         for action_key, trigger_variable in zip(actions, trigger_variables):
-            solv_eq = solve_equations(
-                self.move_agent(action_key, trigger_variable),
-                self.json["equations"]
+            # move agent according to action
+            temporary_state = self.last_state()
+            # new trigger value
+            temporary_state[trigger_variable] = self.move_agent(
+                action_key,
+                trigger_variable
             )
-        return solv_eq
+            # Evaluate new environment variables
+            solv_eq = resolve_equations(temporary_state, self.json["equations_variables"])
+            for key in set(solv_eq.keys()) & set(temporary_state.keys()):
+                temporary_state[key] = solv_eq[key]
+            # Add new current position keys to use the same ones in the initial values field
+            self.uppdate_state_variables(temporary_state)
+            self.current_pos = np.array([
+                temporary_state[tmpkey.replace('$', '')]
+                for tmpkey in self.json["initial_values"].keys()
+            ]).flatten()
+            new_states[trigger_variable] = copy.deepcopy(self)
+            if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
+                print(("new position is out of bound"))
+            else:
+                print("new position")
+            # store new state only if we are in mono agent
+            if len(trigger_variables) > 1:
+                self.delete_last_state()
