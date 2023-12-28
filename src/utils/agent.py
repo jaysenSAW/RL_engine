@@ -155,6 +155,7 @@ class Environment():
         for attr_name in colnames:
             current_value = getattr(self, attr_name)
             setattr(self, attr_name, current_value[:-1])
+        setattr(self, "rewards", {key: values[:-1] for key, values in self.rewards.items()})
 
     def discretized_space(self, dico = False):
         """
@@ -234,6 +235,10 @@ class Environment():
             trigger_variables = self.trigger_variables
         solv_eq = {}
         new_states = {}
+        rewards = {}
+        done = []
+        problem = []
+        info = []
         # Evaluate new environment variables
         for action_key, trigger_variable in zip(actions, trigger_variables):
             # move agent according to action
@@ -254,10 +259,20 @@ class Environment():
                 for tmpkey in self.json["initial_values"].keys()
             ]).flatten()
             new_states[trigger_variable] = copy.deepcopy(self)
+            # compute reward for trigger_variable
+            self.rewards[trigger_variable] = np.append(
+                self.rewards[trigger_variable],
+                self.compute_reward_for_agents()[trigger_variable])
+            rewards[trigger_variable] = self.rewards[trigger_variable][-1]
             if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
-                print(("new position is out of bound"))
+                info.append("new position is out of bound")
+                done.append(True)
+                problem.append(True)
             else:
-                print("new position")
+                info.append("new position")
+                done.append(False)
+                problem.append(False)
             # store new state only if we are in mono agent
             if len(trigger_variables) > 1:
-                self.delete_last_state()
+                self.frame.delete_last_state()
+        return new_states, {key: values[-1] for key, values in self.rewards.items()}, done, problem, info
