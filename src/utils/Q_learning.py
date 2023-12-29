@@ -16,7 +16,7 @@ class QLearningTrainer:
         and creates an empty Pandas DataFrame with a MultiIndex representing the Q-table structure.
 
         Args:
-            env (Environment): The Environment environment.
+            env (Environment): The environment.
 
         Returns:
             pd.DataFrame: An empty Pandas DataFrame with a MultiIndex representing the Q-table structure.
@@ -338,7 +338,7 @@ class QLearningTrainer:
                         self.env.delete_last_state()
                     continue
             # Update Q-values bsssased on the Q-learning update rule.
-            #   env.action_space.keys() -> dict_keys(['GLC', 'GLN', 'GLU'])
+            #   env.action_space.keys() -> dict_keys(['X', 'B', 'D'])
             #   actions -> [0, 1, 1]
             for trigger_variable, action in zip(self.env.action_space.keys() , actions):
                 new_row = self.global_q_tables(next_env[trigger_variable])
