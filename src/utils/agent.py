@@ -41,7 +41,7 @@ class Environment():
         # reward for each agents
         self.rewards = self.compute_reward_for_agents()
         self.start_pos = initial_system
-        self.current_pos = np.array([value for tmpkey, value in self.start_pos.items()]).flatten()
+        self.current_pos = np.array([np.round(value, 6) for tmpkey, value in self.start_pos.items()]).flatten()
         self.goal_pos = syst_dic["goal_pos"]
         self.action_space = {tmpkey.replace(delimiter, '') : len(value) for tmpkey, value in syst_dic["n_action"].items()}
         self.actions = {tmpkey.replace(delimiter, '') : value for tmpkey, value in syst_dic["n_action"].items()}
@@ -211,7 +211,7 @@ class Environment():
         for i, key in zip(range(len(self.start_pos.keys())), self.start_pos.keys()):
             dist = val_bins[i] - self.select_states(start,end)[key][:, np.newaxis]
             index = [np.argmin(array) for array in np.abs(dist)]
-            list_pos.append([val_bins[i][val] for val in index])
+            list_pos.append([np.round(val_bins[i][val], 6) for val in index])
         if dico:
             return {key : list_pos[i]
                     for key, i in zip(self.start_pos.keys(),
@@ -228,9 +228,12 @@ class Environment():
 
     def state_for_q_table(self, start = -1, end = None) -> tuple:
         # get coordinate without trigger variables
-        labels = set(self.start_pos.keys()) - set(self.trigger_variables)
+        coord = []
+        labels = set(self.variable_names) - set(self.trigger_variables)
         obs = self.discretized_observation(dico = True, start = start, end = end)
-        return tuple(obs[key] for key in labels)
+        # return tuple(obs[key] for key in labels)
+        return tuple([elmnt for key, elmnt in obs.items() if key in labels])
+
 
     def move_agent(self, action_key : str,
         trigger_variable : str,
@@ -276,7 +279,7 @@ class Environment():
             # Add new current position keys to use the same ones in the initial values field
             self.uppdate_state_variables(temporary_state)
             self.current_pos = np.array([
-                temporary_state[tmpkey.replace('$', '')]
+                np.round(temporary_state[tmpkey.replace('$', '')], 6)
                 for tmpkey in self.json["initial_values"].keys()
             ]).flatten()
             new_states[trigger_variable] = copy.deepcopy(self)

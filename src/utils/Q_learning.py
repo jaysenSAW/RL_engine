@@ -349,11 +349,16 @@ class QLearningTrainer:
                     str(states[trigger_variable]),
                     str(next_env[trigger_variable].state_for_q_table()),
                     str(action),
-                    sum(rewards.values()))
+                    sum(rewards[trigger_variable].values()))
             # if we have more than 1 trigger variable
             # next state is choose as state with higher score
             if len(self.env.trigger_variables) > 1:
-                indice = np.where(list(rewards.values()) == np.max(list(rewards.values())))[0][0]
+                indice = np.where(
+                    [
+                        sum(values.values()) for key, values in rewards.items()
+                    ] == np.max([
+                        sum(values.values()) for key, values in rewards.items()
+                    ]))[0][0]
                 self.env = next_env[list(next_env.keys())[indice]]
                 #  states = {list(next_env.keys())[indice] : self.env.state_for_q_table()}
                 states = {key : self.env.state_for_q_table() for key in next_env.keys()}
