@@ -1,0 +1,46 @@
+{
+  "initial_values" : {
+    "position_x" : [400.0],
+    "position_y" : [950.0],
+    "vitesse_x" : [20.0],
+    "vitesse_y" : [-30.0],
+    "angle" : [0.3],
+    "booster" : [0.0]
+  },
+  "limit" : {
+    "position_x" : [0.0, 800],
+    "position_y" : [0.0, 1000.0],
+    "vitesse_x" : [-50.0, 50.0],
+    "vitesse_y" : [-50.0, 50.0],
+    "angle" : [-0.8, 0.8],
+    "booster" : [0.0, 1.0]
+  },
+  "n_action" : {
+    "angle" : {"0" : -0.1, "1" : 0.0, "2" : 0.1},
+    "booster": {"0" : 0.0, "1" : 1.0}
+  },
+  "_action_to_take" : "How action change trigger_variable, value is taken from n_action dictionary",
+  "action_to_take" : {
+    "angle" : {"$angle$" : "$angle$ + $action$"},
+    "booster" : {"$booster$" : "$action$"}
+  },
+  "n_bins" : [100, 200, 20, 20, 2, 17],
+  "goal_pos" : 5.0,
+  "target_variable" : "position_y",
+  "trigger_variables" : ["angle", "booster"],
+  "_equations" : "compute values for each equation. Variable are updated after the loop",
+  "equations_variables": {
+      "$time_step$" : "0.1",
+      "$g$" : "9.81",
+      "$acceleration_x$" : "$g$ * cos($angle$)",
+      "$acceleration_y$" : "$g$ * sin($angle$)",
+      "$vitesse_x$" : "$vitesse_x$ + $booster$ * 5.0 * cos($angle$)",
+      "$vitesse_y$" : "$vitesse_y$ + $booster$ * 5.0 * sin($angle$)",
+      "$position_x$": "$position_x$ + $vitesse_x$ * $time_step$ + 0.5 * $acceleration_x$ * $time_step$^2",
+      "$position_y$": "$position_y$ + $vitesse_y$ * $time_step$ + 0.5 * $acceleration_y$ * $time_step$^2"
+  },
+  "equations_rewards": {
+    "$angle$" : "-($angle$ * 10)^2 - abs($vitesse_x$) -1 * abs($position_x$ - 200)/10",
+    "$booster$" : "-($position_y$ - 5)^2 - abs($vitesse_y)$"
+  }
+}

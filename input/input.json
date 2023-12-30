@@ -1,33 +1,33 @@
 {
   "initial_values" : {
-    "$X1$" : [0.0],
-    "$U1$" : [0.0]
+    "X1" : [0.0],
+    "U1" : [0.0]
   },
   "limit" : {
-    "$X1$" : [0.0, 10.0],
-    "$U1$" : [0.0, 1.0]
+    "X1" : [0.0, 10.0],
+    "U1" : [0.0, 1.0]
   },
   "_equations" : "compute values for each equation. Variable are updated after the loop",
   "equations_variables": {
       "$l$" : "10.0",
       "$target$" : "5.0",
       "$dX1$" : "1 - $U1$ - ($X1$ - $target$)/$l$",
-      "$reward$" : "-1 * ($X1$ + $dX1$ - $target$)^2",
       "$X1$": "$X1$ + $dX1$",
       "$U1$": "$U1$"
+  },
+  "equations_rewards": {
+    "$target$" : "5.0",
+    "$U1$" : "-1 * ($X1$ - $target$)^2"
+  },
+  "n_action" : {
+    "U1": {"0" : 0.0, "1" : 1.0}
+  },
+  "_action_to_take" : "How action change trigger_variable, value is taken from n_action dictionary",
+  "action_to_take" : {
+    "U1": {"$U1$" : "$action$"}
   },
   "n_bins" : [11, 2],
   "goal_pos" : 5.0,
   "target_variable" : "X1",
-  "trigger_variables" : ["U1"],
-  "n_action" : {
-    "$U1$": {"0" : 0.0, "1" : 1.0}
-  },
-  "_action_to_take" : "How action change trigger_variable, value is taken from n_action dictionary",
-  "action_to_take" : {
-    "$U1$" : "$action$"
-  },
-  "equations_rewards": {
-      "$U1$" : "-1 * ($X1$ - $target$)^2"
-  }
+  "trigger_variables" : ["U1"]
 }
