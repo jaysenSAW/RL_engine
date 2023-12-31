@@ -17,6 +17,12 @@ class Environment():
             self.json["equations_rewards"])[trigger_var]
             for trigger_var in trigger_variables }
 
+    def check_input(self, syst_dic):
+        # check limit number of field
+        if not (np.array([len(val) for key, val in syst_dic['limit'].items()]).flatten() == 3).all():
+            print("Error ! Expect 3 filed for limit. [minimum, maximum, number_bins]")
+            sys.exit()
+
     def __init__(self, json_file, delimiter = "$"):
         """
         Initialize the environment and its rules.
@@ -28,8 +34,9 @@ class Environment():
             syst_dic = json_file
         else:
             print("expect JSON file or a dictionary")
+        self.check_input(syst_dic)
         self.json = syst_dic
-        self.target_variable = syst_dic["target_variable"]
+        self.states_variables = syst_dic["states_variables"]
         self.trigger_variables = syst_dic["trigger_variables"]
         self.variable_names = tuple([key.replace(delimiter, '') for key in syst_dic["initial_values"].keys()])
         self.action_to_take = syst_dic["action_to_take"]
@@ -42,14 +49,13 @@ class Environment():
         self.rewards = self.compute_reward_for_agents()
         self.start_pos = initial_system
         self.current_pos = np.array([np.round(value, 6) for tmpkey, value in self.start_pos.items()]).flatten()
-        self.goal_pos = syst_dic["goal_pos"]
         self.action_space = {tmpkey.replace(delimiter, '') : len(value) for tmpkey, value in syst_dic["n_action"].items()}
         self.actions = {tmpkey.replace(delimiter, '') : value for tmpkey, value in syst_dic["n_action"].items()}
         # Define the observation space based on your state variables
-        self.lower_lim = np.array([np.min(val) for key, val in syst_dic['limit'].items()]).flatten()
-        self.upper_lim = np.array([np.max(val) for key, val in syst_dic['limit'].items()]).flatten()
+        self.lower_lim = np.array([list(val)[0] for key, val in syst_dic['limit'].items()]).flatten()
+        self.upper_lim = np.array([list(val)[1] for key, val in syst_dic['limit'].items()]).flatten()
         if 'n_bins' in syst_dic.keys():
-            self.n_bins = syst_dic["n_bins"]
+            self.n_bins = np.array([list(val)[2] for key, val in syst_dic['limit'].items()]).flatten()
         else:
             # use upper and lower limit to discretize space with 1 unit step
             self.n_bins = self.upper_lim - self.lower_lim + 1
@@ -191,11 +197,11 @@ class Environment():
         low = self.lower_lim
         high = self.upper_lim
         if dico:
-            tmp = [np.linspace(l, h, b) for l, h, b in
+            tmp = [np.linspace(float(l), float(h), int(b)) for l, h, b in
                          zip(low, high, self.n_bins)]
             return {key : val for key, val in zip(self.start_pos.keys(), tmp)}
         else:
-            return [np.linspace(l, h, b) for l, h, b in
+            return [np.linspace(float(l), float(h), int(b)) for l, h, b in
                          zip(low, high, self.n_bins)]
 
 
@@ -229,7 +235,7 @@ class Environment():
     def state_for_q_table(self, start = -1, end = None) -> tuple:
         # get coordinate without trigger variables
         coord = []
-        labels = set(self.variable_names) - set(self.trigger_variables)
+        labels = self.states_variables
         obs = self.discretized_observation(dico = True, start = start, end = end)
         # return tuple(obs[key] for key in labels)
         return tuple([elmnt for key, elmnt in obs.items() if key in labels])

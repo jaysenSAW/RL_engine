@@ -52,9 +52,9 @@ class QLearningTrainer:
 
     def __init__(self, env: Environment, num_episodes: int = 50, learning_rate: float = 0.1, discount_factor: float = 0.99,
                  exploration_prob: list[float] = [0.2, 1], run_limit: int = 1000, decrease_prob_exp: float = 0.05,
-                 convergence_criterion = 0.001, decay_type : str = "linear", boundaries_strict: bool = False, verbose: bool = False):
+                 convergence_criterion = 0.001, decay_type : str = "linear", verbose: bool = False):
         self.env = env
-        if isinstance(num_episodes, list):
+        if isinstance(num_episodes, int):
             self.num_episodes = num_episodes
         else:
             print(" Expect integer for num_episodes")
