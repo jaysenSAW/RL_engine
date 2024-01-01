@@ -6,6 +6,13 @@ from sympy import sympify
 def resolve_equations(features_values : dict,
                   list_equations : dict,
                   delimeter : str= "$") -> dict:
+    """
+    example :
+    features_values = {'x': np.array([4.0]),
+                        'a': np.array([-1.0]),
+                        'c': np.array([6])}
+    list_equations = {'$z$' : '$a$ * $x$^2 + $x$ + $c$'}
+    """
     solved_values = {}
     for term, equation in list_equations.items():
         # convert string to SymPy expressions

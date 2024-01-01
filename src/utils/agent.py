@@ -100,7 +100,7 @@ class Environment():
         for key in colnames:
             # intiate state
             # state[key] = np.array([self.__dict__[key][-1]])
-        # return state
+        # return stateHah
             if isinstance(self.__dict__[key], np.ndarray):
                 state[key] = np.array([self.__dict__[key][-1]])
             else:
