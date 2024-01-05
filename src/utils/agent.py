@@ -43,8 +43,6 @@ class Environment():
         initial_system = {tmpkey.replace(delimiter, ''): value for tmpkey, value in syst_dic["initial_values"].items()}
         for key, value in initial_system.items():
             setattr(self, key, np.array(value))
-        # gloabal score for each step
-        self.global_reward = np.array([np.nan])
         # reward for each agents
         self.rewards = self.compute_reward_for_agents()
         self.start_pos = initial_system
@@ -63,7 +61,6 @@ class Environment():
     def reset(self):
         for key, value in self.select_states(0,1).items():
             setattr(self, key, np.array(value))
-        self.global_reward = np.array([np.nan])
         self.rewards = self.compute_reward_for_agents()
         self.current_pos = copy.deepcopy(self.start_pos)
 
@@ -76,9 +73,9 @@ class Environment():
         """
         if colnames is None:
             if isinstance(self.variable_names, list):
-                colnames = self.variable_names  + ["global_reward"]
+                colnames = self.variable_names
             elif isinstance(self.variable_names, tuple):
-                colnames = list(self.variable_names)  + ["global_reward"]
+                colnames = list(self.variable_names)
         state = {}
         for key in colnames:
             state[key] = self.__dict__[key]
@@ -93,9 +90,9 @@ class Environment():
         """
         if colnames is None:
             if isinstance(self.variable_names, list):
-                colnames = self.variable_names  + ["global_reward"]
+                colnames = self.variable_names
             elif isinstance(self.variable_names, tuple):
-                colnames = list(self.variable_names)  + ["global_reward"]
+                colnames = list(self.variable_names)
         state = {}
         for key in colnames:
             # intiate state
@@ -119,11 +116,13 @@ class Environment():
         """
         if colnames is None:
             if isinstance(self.variable_names, list):
-                colnames = self.variable_names  + ["global_reward"]
+                colnames = self.variable_names
             elif isinstance(self.variable_names, tuple):
-                colnames = list(self.variable_names)  + ["global_reward"]
+                colnames = list(self.variable_names)
         state = {}
         for key in colnames:
+            if key not in list(self.variable_names):
+                continue
             # intial state
             if start is None and end is None:
                 state[key] = self.__dict__[key]
@@ -150,6 +149,8 @@ class Environment():
             state = {}
             for key in colnames:
                 # intial state
+                if key not in list(self.rewards.keys()):
+                    continue
                 if start is None and end is None:
                     state[key] = self.rewards[key]
                 elif start is None and end is not None:
@@ -160,12 +161,12 @@ class Environment():
                     state[key] = self.rewards[key][start : end]
             return state
 
-    def uppdate_state_variables(self, new_state, colnames = None):
+    def uppdate_variables(self, new_state, colnames = None):
         if colnames is None:
             if isinstance(self.variable_names, list):
-                colnames = self.variable_names  + ["global_reward"]
+                colnames = self.variable_names
             elif isinstance(self.variable_names, tuple):
-                colnames = list(self.variable_names)  + ["global_reward"]
+                colnames = list(self.variable_names)
         # uppdate state variable
         for attr_name in colnames:
             setattr(self, attr_name,
@@ -179,9 +180,9 @@ class Environment():
         """Remove the last visited state from the system."""
         if colnames is None:
             if isinstance(self.variable_names, list):
-                colnames = self.variable_names  + ["global_reward"]
+                colnames = self.variable_names
             elif isinstance(self.variable_names, tuple):
-                colnames = list(self.variable_names)  + ["global_reward"]
+                colnames = list(self.variable_names)
         for attr_name in colnames:
             current_value = getattr(self, attr_name)
             setattr(self, attr_name, current_value[:-1])
@@ -240,74 +241,125 @@ class Environment():
         # return tuple(obs[key] for key in labels)
         return tuple([elmnt for key, elmnt in obs.items() if key in labels])
 
+    def move_agent(self, actions: list[str], trigger_variables: list[str], temporary_state: dict = None):
+        if temporary_state is None:
+            temporary_state = copy.deepcopy(self.last_state())
+        for action_key, trigger_variable in zip(actions, trigger_variables):
+            if isinstance(action_key, str):
+                temporary_state["action"] = np.array([self.actions[trigger_variable][action_key]])
+            else:
+                temporary_state["action"] = np.array([self.actions[trigger_variable][str(action_key)]])
 
-    def move_agent(self, action_key : str,
-        trigger_variable : str,
-        temporary_state : dict = None):
-        """
-        """
+            temporary_state[trigger_variable] = resolve_equations(
+                temporary_state,
+                self.action_to_take[trigger_variable]
+            )[trigger_variable]
+        del temporary_state['action']
+        return temporary_state
+
+    def moove_agent(self,
+                    action_key : str,
+                    trigger_var : str,
+                    temporary_state : dict = None,
+                    equation : dict[str] = None):
         if temporary_state is None:
             temporary_state = self.last_state()
+        if equation is None:
+            equation = self.action_to_take[trigger_var]
+        # Move agent and assign its new value according to action_to_take
         if isinstance(action_key, str):
-            temporary_state["action"] = np.array([self.actions[trigger_variable][action_key]])
+            temporary_state["action"] = np.array([self.actions[trigger_var][action_key]])
         else:
-            temporary_state["action"] = np.array([self.actions[trigger_variable][str(action_key)]])
-        return resolve_equations(
-            copy.deepcopy(temporary_state),
-            self.action_to_take[trigger_variable]
-        )[trigger_variable]
+            temporary_state["action"] = np.array([self.actions[trigger_var][str(action_key)]])
+        temporary_state[trigger_var] = resolve_equations(
+            temporary_state,
+            equation
+        )[trigger_var]
+        del temporary_state["action"]
+        return temporary_state
 
-    def step(self, actions : list[str],
-        trigger_variables : list[str] = None):
+    def step(self, actions, trigger_variables = None, method : str = "centralized"):
         """
+        Perform an environment step for multiple agents with different trigger variables and actions.
+
+        Args:
+            actions (list): List of chosen action keys for each agent. If the action space is discrete,
+                        provide the action index. If the action space is continuous, provide the action key.
+            trigger_variables (list): List of trigger variables for each agent.
+
+        Returns:
+            tuple: A tuple containing the following:
+                - dict: New BioreactorGym instances for each agent, with updated positions.
+                - dict: Rewards for each agent for the current step.
+                - list: Flags indicating whether the episode is done for each agent.
+                - list: Flags indicating whether there was a problem with the step for each agent.
+                - list: Additional information messages for each agent.
+
+        Note:
+            - If the action space is continuous, provide the action key as a string.
+            - The 'problem' list indicates if there was an issue with the step, e.g., new position out of bounds.
+            - The 'info' list provides additional information messages for each agent.
         """
-        if trigger_variables is None:
-            trigger_variables = self.trigger_variables
-        solv_eq = {}
-        new_states = {}
+        temporary_states = self.last_state()
         rewards = {}
         done = []
         problem = []
         info = []
-        # Evaluate new environment variables
-        for action_key, trigger_variable in zip(actions, trigger_variables):
-            # move agent according to action
-            temporary_state = self.last_state()
-            # new trigger value
-            temporary_state[trigger_variable] = self.move_agent(
-                action_key,
-                trigger_variable
-            )
+        if trigger_variables is None:
+            trigger_variables = self.trigger_variables
+        # each agent are moved before compute new state
+        # rewards are computed after update state
+        if method == "centralized" :
+            for trigger_var, action_key in zip(trigger_variables, actions):
+                temporary_state = self.moove_agent(action_key,
+                                                trigger_var,
+                                                temporary_states,
+                                                self.action_to_take[trigger_var])
             # Evaluate new environment variables
-            solv_eq = resolve_equations(temporary_state, self.json["equations_variables"])
+            solv_eq = resolve_equations(
+                copy.deepcopy(temporary_state),
+                self.json["equations_variables"]
+            )
             for key in set(solv_eq.keys()) & set(temporary_state.keys()):
                 temporary_state[key] = solv_eq[key]
-            # Add new current position keys to use the same ones in the initial values field
-            self.uppdate_state_variables(temporary_state)
-            self.current_pos = np.array([
-                np.round(temporary_state[tmpkey.replace('$', '')], 6)
-                for tmpkey in self.json["initial_values"].keys()
-            ]).flatten()
-            new_states[trigger_variable] = copy.deepcopy(self)
-            # compute reward for trigger_variable
-            tmp = self.compute_reward_for_agents()
-            for var in trigger_variables:
-                self.rewards[var] = np.append(
-                    self.rewards[var],
-                    tmp[var])
-            rewards[trigger_variable] = self.select_rewards(start = -1)
-            if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
-                info.append("new position is out of bound")
-                done.append(True)
-                problem.append(True)
-            else:
-                info.append("new position")
-                done.append(False)
-                problem.append(False)
-            # store new state only if we are in mono agent
-            if len(trigger_variables) > 1:
-                self.delete_last_state()
-        return new_states, rewards, done, problem, info
+            rewards = {trigger_var : resolve_equations(
+                copy.deepcopy(temporary_state), self.json["equations_rewards"])[trigger_var]
+                for trigger_var in trigger_variables }
+        # Move a agent compute the new state and repeat process for next agent
+        else:
+            for trigger_var, action_key in zip(trigger_variables, actions):
+                temporary_state = self.moove_agent(action_key,
+                                                trigger_var,
+                                                temporary_states,
+                                                self.action_to_take[trigger_var])
+                # Evaluate new environment variables
+                solv_eq = resolve_equations(
+                    copy.deepcopy(temporary_state),
+                    self.json["equations_variables"]
+                )
+                for key in set(solv_eq.keys()) & set(temporary_state.keys()):
+                    temporary_state[key] = solv_eq[key]
+                rewards[trigger_var] = resolve_equations(
+                    copy.deepcopy(temporary_state),
+                    self.json["equations_rewards"])[trigger_var]
+        # Add new current position keys to use the same ones in the initial values field
+        self.uppdate_variables(temporary_state)
+        # update rewards
+        for key in self.rewards.keys():
+            self.rewards[key] = np.append(self.rewards[key], rewards[key])
+        self.current_pos = np.array([
+            temporary_state[tmpkey.replace('$', '')]
+            for tmpkey in self.json["initial_values"].keys()
+        ]).flatten()
+        if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
+            info.append("new position is out of bound")
+            done.append(True)
+            problem.append(True)
+        else:
+            info.append("new position")
+            done.append(False)
+            problem.append(False)
+        return self.last_state(), rewards, done, problem, info
 
     def check_variables_and_equations(self, delimeter = "$"):
         print("equations variables")
