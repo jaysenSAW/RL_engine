@@ -32,10 +32,10 @@
   "equations_variables": {
       "$time_step$" : "0.1",
       "$g$" : "9.81",
-      "$acceleration_x$" : "$g$ * cos($angle$)",
-      "$acceleration_y$" : "$g$ * sin($angle$)",
-      "$vitesse_x$" : "$vitesse_x$ + $booster$ * 5.0 * cos($angle$)",
-      "$vitesse_y$" : "$vitesse_y$ + $booster$ * 5.0 * sin($angle$)",
+      "$acceleration_x$" : "$g$ * sin($angle$)",
+      "$acceleration_y$" : "$g$ * cos($angle$)",
+      "$vitesse_x$" : "$vitesse_x$ + $booster$ * 5.0 * sin($angle$)",
+      "$vitesse_y$" : "$vitesse_y$ + $booster$ * 5.0 * cos($angle$)",
       "$position_x$": "$position_x$ + $vitesse_x$ * $time_step$ + 0.5 * $acceleration_x$ * $time_step$^2",
       "$position_y$": "$position_y$ + $vitesse_y$ * $time_step$ + 0.5 * $acceleration_y$ * $time_step$^2"
   },
