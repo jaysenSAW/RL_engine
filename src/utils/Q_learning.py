@@ -286,14 +286,14 @@ class QLearningTrainer:
             return True
         return False
 
-    def iterate_all_possibility(RL):
+    def iterate_all_possibility(self):
         # Generate all possible combinations
-        all_combinations = list(product(*RL.env.actions.values()))
+        all_combinations = list(product(*self.env.actions.values()))
         list_actions = []
         # Print the result
         for combination in all_combinations:
-            next_env, rewards, done, problem, info = RL.env.step(np.array(combination).flatten(), RL.env.trigger_variables)
-            RL.env.delete_last_state()
+            next_env, rewards, done, problem, info = self.env.step(np.array(combination).flatten(), self.env.trigger_variables)
+            self.env.delete_last_state()
             if any(problem):
                 continue
             else:
@@ -323,14 +323,13 @@ class QLearningTrainer:
             next_env, rewards, done, problem, info = self.env.step(actions, self.env.trigger_variables)
             if any(problem):
                 self.env.delete_last_state()
-                RL = copy.deepcopy(self)
                 #try to escape bound limit
-                done, actions = iterate_all_possibility(copy.deepcopy(RL))
+                done, actions = self.iterate_all_possibility()
                 if any(done):
                     print(done)
                     print("No action possible. Stop episode at {0}th iterations".format(current_iter))
                     continue
-                next_env, rewards, done, problem, info = RL.env.step(actions, self.env.trigger_variables)
+                next_env, rewards, done, problem, info = self.env.step(actions, self.env.trigger_variables)
                 current_iter  += 1
             # Update Q-values based on the Q-learning update rule.
             #   env.action_space.keys() -> dict_keys(['X', 'B', 'D'])
