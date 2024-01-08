@@ -177,7 +177,7 @@ class Environment():
             )
 
     def delete_last_state(self, colnames = None):
-        """Remove the last visited state from the system."""
+        """Remove the last visited states and last rewards from the system."""
         if colnames is None:
             if isinstance(self.variable_names, list):
                 colnames = self.variable_names
