@@ -7,30 +7,36 @@
     "speed_x": [0.0],
     "speed_y": [0.0],
     "m_carburant" : [100],
-    "pos_x" : [200.0],
+    "pos_x" : [100.0],
     "pos_y" : [200.0],
     "angle" : [0.0],
     "booster" : [0.0],
-    "alpha" : [0.0]
-  },
+    "alpha" : [0.0],
+    "futur_pos_y" : [0.0],
+    "max_speed" : [0.0],
+    "m_carburant_ini" : [100.0]
+    },
   "_limit" : ["min", "max", "n_bins"],
   "limit" : {
     "acceleration_x": [-10.0, 10.0, 21],
     "acceleration_y": [-10.0, 10.0, 21],
     "speed_x": [0.0, 40.0, 21],
-    "speed_y": [-30.0, 30.0, 31],
-    "m" : [0.0, 100, 201],
-    "pos_x" : [0.0, 400, 201],
+    "speed_y": [-20.0, 20.0, 21],
+    "m_carburant" : [0.0, 100, 101],
+    "pos_x" : [0.0, 200, 201],
     "pos_y" : [0.0, 300.0, 156],
     "angle" : [-0.8, 0.8, 17],
     "booster" : [0.0, 1.0, 3],
-    "alpha" : [-0.1, 0.1, 3]
+    "alpha" : [-0.1, 0.1, 3],
+    "futur_pos_y" : [0.0, 1.0, 2],
+    "max_speed" : [0.0, 1.0, 2],
+    "m_carburant_ini" : [0, 100.0, 1]
   },
   "n_action" : {
     "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0},
     "alpha": {"0" : -0.1, "1" : 0.0, "2" : 0.1}
   },
-  "_action_to_take" : "How action change trigger_variable, value is taken from n_action dictionary",
+  "_action_to_take" : "How action change agent_variables, value is taken from n_action dictionary",
   "action_to_take" : {
     "booster": {"$booster$" : "$action$"},
     "alpha": {"$alpha$" : "$alpha$ + $action$"}
@@ -54,10 +60,14 @@
       "$speed_x$" : "($F$/(5+$weight_rocket$) * sin($angle$)) * $booster$ * $dt$ + $Vx_0$",
       "$speed_y$" : "($F$/(5+$weight_rocket$) * cos($angle$)) * $booster$ * $dt$ - $G$ * $dt$ + $Vy_0$",
       "$pos_x$": "(0.5 * $F$/(5+$weight_rocket$) * sin($angle$)) * $booster$ * $dt$^2 + $Vx_0$ * $dt$ + $x_0$",
-      "$pos_y$": "(0.5 * $F$/(5+$weight_rocket$) * cos($angle$)) * $booster$ * $dt$^2 - $G$ * $dt$^2 + $Vy_0$ * $dt$ + $y_0$"
+      "$pos_y$": "(0.5 * $F$/(5+$weight_rocket$) * cos($angle$)) * $booster$ * $dt$^2 - $G$ * $dt$^2 + $Vy_0$ * $dt$ + $y_0$",
+      "$futur_pos_y$" : "$pos_y$ + 3 * $speed_y$",
+      "max_speed" : "Max(($speed_x$^2 - $speed_y$^2), $max_speed$)"
   },
   "equations_rewards": {
-    "$booster$" : "-( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2 ) -  ($speed_x$^2 - $speed_y$^2)^2/( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2  + 0.0001) + $m_carburant$",
-    "$alpha$" : "-( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2 ) - $angle$^2/( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2 + 0.0001)  - $speed_x$^2 - $speed_y$^2/( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2 + 0.0001) - ($acceleration_x$^2 - $acceleration_y$^2)^2/( ($pos_x$ - 200)^2 + ($pos_y$ - 0)^2 + 0.0001)"
+    "$dist$" : "($pos_x$ - 200)^2 + ($pos_y$ - 0)^2",
+    "$speed_norm$" : "$speed_x$^2 - $speed_y$^2",
+    "$booster$" : "-( $dist$/200^2 ) -  ($speed_norm$)^2/( $max_speed$  + 0.0001) + $m_carburant$/$m_carburant_ini$",
+    "$alpha$" : "-( $dist$ ) - $angle$^2/( $dist$ + 0.0001)  - $speed_norm$/( $dist$ + 0.0001) - ($acceleration_x$^2 - $acceleration_y$^2)^2 / ( $dist$ + 0.0001)"
   }
 }

@@ -234,13 +234,13 @@ class QLearningTrainer:
             action = 0
             out_bound_env = copy.copy(next_env[key])
             # delete last state because is out of bound
-            out_bound_env.delete_last_state()
+            out_bound_env.delete_last_states()
             while (action < action_spaces[key]) and (any(tmp_problem) is True):
                 # do all possible action
                 tmp_env, tmp_rewards, tmp_done, tmp_problem, tmp_info = out_bound_env.step([action], [key])
                 if tmp_problem[0]:
                     # system is still out of bound remove last attempt
-                    out_bound_env.delete_last_state()
+                    out_bound_env.delete_last_states()
                     # new attempt
                 else:
                     # change input values with correct state
@@ -292,8 +292,8 @@ class QLearningTrainer:
         list_actions = []
         # Print the result
         for combination in all_combinations:
-            next_env, rewards, done, problem, info = self.env.step(np.array(combination).flatten(), self.env.trigger_variables)
-            self.env.delete_last_state()
+            next_env, rewards, done, problem, info = self.env.step(np.array(combination).flatten(), self.env.agent_variables)
+            self.env.delete_last_states()
             if any(problem):
                 continue
             else:
@@ -320,22 +320,22 @@ class QLearningTrainer:
             # proba = np.max([self.min_prob, self.max_prob])
             actions = self.call_choose_action(states, proba)
             # compute new states according to agents's action
-            next_env, rewards, done, problem, info = self.env.step(actions, self.env.trigger_variables)
+            next_env, rewards, done, problem, info = self.env.step(actions, self.env.agent_variables)
             if any(problem):
-                self.env.delete_last_state()
+                self.env.delete_last_states()
                 #try to escape bound limit
                 done, actions = self.iterate_all_possibility()
                 if any(done):
                     print(done)
                     print("No action possible. Stop episode at {0}th iterations".format(current_iter))
                     continue
-                next_env, rewards, done, problem, info = self.env.step(actions, self.env.trigger_variables)
+                next_env, rewards, done, problem, info = self.env.step(actions, self.env.agent_variables)
                 current_iter  += 1
             # Update Q-values based on the Q-learning update rule.
             #   env.action_space.keys() -> dict_keys(['X', 'B', 'D'])
             #   actions -> [0, 1, 1]
             for trigger_variable, action in zip(self.env.action_space.keys() , actions):
-                new_row = self.global_q_tables(next_env)
+                new_row = self.global_q_tables()
                 # check if next states is present in dataFrame
                 if not new_row.index.to_list()[0] in self.q_table.index.to_list():
                     self.q_table = pd.concat([self.q_table, new_row])
@@ -350,7 +350,7 @@ class QLearningTrainer:
             self.q_table_old = self.q_table.copy()
         return current_iter
 
-    def give_epsilon(self,
+    def get_epsilon(self,
                      tau : float = None,
                      min_prob : float = None,
                      max_prob : float = None,
@@ -397,16 +397,13 @@ class QLearningTrainer:
         # monitor_iters = [[] for _ in range(len(env.action_space))]
         self.q_table = self.global_q_tables()
         self.q_table_old = self.global_q_tables()
-        proba = self.give_epsilon()
+        proba = self.get_epsilon()
         for episode in range(self.num_episodes):
             print("Episode {0}/{1}".format(episode+1, self.num_episodes))
             print("exploration_prob : {0:.3f}".format(proba[episode]))
             current_iter = self.training_q_learning(proba[episode])
             self.states_for_all_episodes.append(pd.DataFrame(self.env.all_states()))
             self.q_table_for_all_episodes.append(self.q_table.copy().replace(0, np.nan))
-            # self.all_episodes.append(self.q_table.copy())
-            ###############################################
-            # self.max_prob -= self.decrease_prob_exp
             print("end while loop iteration : ", current_iter)
             self.monitor_iter.append(current_iter)
             # check if we can stop training early
@@ -416,10 +413,8 @@ class QLearningTrainer:
                 if tmp == 5 and current_iter < self.run_limit -1:
                     print("Look like nothing to learn anymore, stop training")
                     break
-        #             return q_table, self.monitor_iter
         #replace 0 by nan
         self.q_table.replace(0, np.nan)
-        # return q_table, self.monitor_iter, self.all_episodes
 
     def plot_convergence(self, display_prob = True):
         # resize plot as function of iteration number
@@ -427,7 +422,7 @@ class QLearningTrainer:
         x  = np.arange(1, len(self.monitor_iter)+1)
         plt.plot(x, self.monitor_iter, 'b-o')
         if display_prob:
-            labels = self.give_epsilon(iter = len(self.monitor_iter) )
+            labels = self.get_epsilon(iter = len(self.monitor_iter) )
             plt.xticks(x, labels, rotation=45)
             plt.xlabel("Probability to choose random action")
         else:

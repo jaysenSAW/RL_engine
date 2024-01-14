@@ -9,13 +9,13 @@ from text2equation import resolve_equations, debug_resolve_equations
 
 class Environment():
 
-    def compute_reward_for_agents(self, start = -1, end = None, trigger_variables = None):
-        if trigger_variables is None:
-            trigger_variables = self.trigger_variables
+    def compute_reward_for_agents(self, start = -1, end = None, agent_variables = None):
+        if agent_variables is None:
+            agent_variables = self.agent_variables
         return {trigger_var : resolve_equations(
-            self.select_states(start, end),
+            copy.deepcopy(self.select_states(start, end)),
             self.json["equations_rewards"])[trigger_var]
-            for trigger_var in trigger_variables }
+            for trigger_var in agent_variables }
 
     def check_input(self, syst_dic):
         # check limit number of field
@@ -37,7 +37,7 @@ class Environment():
         self.check_input(syst_dic)
         self.json = syst_dic
         self.states_variables = syst_dic["states_variables"]
-        self.trigger_variables = syst_dic["trigger_variables"]
+        self.agent_variables = syst_dic["agent_variables"]
         self.variable_names = tuple([key.replace(delimiter, '') for key in syst_dic["initial_values"].keys()])
         self.action_to_take = syst_dic["action_to_take"]
         initial_system = {tmpkey.replace(delimiter, ''): value for tmpkey, value in syst_dic["initial_values"].items()}
@@ -176,7 +176,7 @@ class Environment():
                     )
             )
 
-    def delete_last_state(self, colnames = None):
+    def delete_last_states(self, colnames = None, end_index : int = -1):
         """Remove the last visited states and last rewards from the system."""
         if colnames is None:
             if isinstance(self.variable_names, list):
@@ -185,8 +185,8 @@ class Environment():
                 colnames = list(self.variable_names)
         for attr_name in colnames:
             current_value = getattr(self, attr_name)
-            setattr(self, attr_name, current_value[:-1])
-        setattr(self, "rewards", {key: values[:-1] for key, values in self.rewards.items()})
+            setattr(self, attr_name, current_value[:end_index])
+        setattr(self, "rewards", {key: values[:end_index] for key, values in self.rewards.items()})
 
     def discretized_space(self, dico = False):
         """
@@ -241,23 +241,7 @@ class Environment():
         # return tuple(obs[key] for key in labels)
         return tuple([elmnt for key, elmnt in obs.items() if key in labels])
 
-    def move_agent(self, actions: list[str], trigger_variables: list[str], temporary_state: dict = None):
-        if temporary_state is None:
-            temporary_state = copy.deepcopy(self.last_state())
-        for action_key, trigger_variable in zip(actions, trigger_variables):
-            if isinstance(action_key, str):
-                temporary_state["action"] = np.array([self.actions[trigger_variable][action_key]])
-            else:
-                temporary_state["action"] = np.array([self.actions[trigger_variable][str(action_key)]])
-
-            temporary_state[trigger_variable] = resolve_equations(
-                temporary_state,
-                self.action_to_take[trigger_variable]
-            )[trigger_variable]
-        del temporary_state['action']
-        return temporary_state
-
-    def moove_agent(self,
+    def move_agent(self,
                     action_key : str,
                     trigger_var : str,
                     temporary_state : dict = None,
@@ -278,14 +262,14 @@ class Environment():
         del temporary_state["action"]
         return temporary_state
 
-    def step(self, actions, trigger_variables = None, method : str = "centralized"):
+    def step(self, actions, agent_variables = None, method : str = "centralized"):
         """
         Perform an environment step for multiple agents with different trigger variables and actions.
 
         Args:
             actions (list): List of chosen action keys for each agent. If the action space is discrete,
                         provide the action index. If the action space is continuous, provide the action key.
-            trigger_variables (list): List of trigger variables for each agent.
+            agent_variables (list): List of trigger variables for each agent.
 
         Returns:
             tuple: A tuple containing the following:
@@ -305,13 +289,13 @@ class Environment():
         done = []
         problem = []
         info = []
-        if trigger_variables is None:
-            trigger_variables = self.trigger_variables
+        if agent_variables is None:
+            agent_variables = self.agent_variables
         # each agent are moved before compute new state
         # rewards are computed after update state
         if method == "centralized" :
-            for trigger_var, action_key in zip(trigger_variables, actions):
-                temporary_state = self.moove_agent(action_key,
+            for trigger_var, action_key in zip(agent_variables, actions):
+                temporary_state = self.move_agent(action_key,
                                                 trigger_var,
                                                 temporary_states,
                                                 self.action_to_take[trigger_var])
@@ -324,11 +308,11 @@ class Environment():
                 temporary_state[key] = solv_eq[key]
             rewards = {trigger_var : resolve_equations(
                 copy.deepcopy(temporary_state), self.json["equations_rewards"])[trigger_var]
-                for trigger_var in trigger_variables }
+                for trigger_var in agent_variables }
         # Move a agent compute the new state and repeat process for next agent
         else:
-            for trigger_var, action_key in zip(trigger_variables, actions):
-                temporary_state = self.moove_agent(action_key,
+            for trigger_var, action_key in zip(agent_variables, actions):
+                temporary_state = self.move_agent(action_key,
                                                 trigger_var,
                                                 temporary_states,
                                                 self.action_to_take[trigger_var])
