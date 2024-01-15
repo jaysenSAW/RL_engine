@@ -45,15 +45,15 @@ class Environment():
             setattr(self, key, np.array(value))
         # reward for each agents
         self.rewards = self.compute_reward_for_agents()
-        self.start_pos = initial_system
+        self.start_pos = {key: value for key, value in initial_system.items() if key in self.states_variables + self.agent_variables}
         self.current_pos = np.array([np.round(value, 6) for tmpkey, value in self.start_pos.items()]).flatten()
         self.action_space = {tmpkey.replace(delimiter, '') : len(value) for tmpkey, value in syst_dic["n_action"].items()}
         self.actions = {tmpkey.replace(delimiter, '') : value for tmpkey, value in syst_dic["n_action"].items()}
         # Define the observation space based on your state variables
-        self.lower_lim = np.array([list(val)[0] for key, val in syst_dic['limit'].items()]).flatten()
-        self.upper_lim = np.array([list(val)[1] for key, val in syst_dic['limit'].items()]).flatten()
+        self.lower_lim = np.array([list(val)[0] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
+        self.upper_lim = np.array([list(val)[1] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
         if 'n_bins' in syst_dic.keys():
-            self.n_bins = np.array([list(val)[2] for key, val in syst_dic['limit'].items()]).flatten()
+            self.n_bins = np.array([list(val)[2] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
         else:
             # use upper and lower limit to discretize space with 1 unit step
             self.n_bins = self.upper_lim - self.lower_lim + 1
@@ -331,10 +331,14 @@ class Environment():
         # update rewards
         for key in self.rewards.keys():
             self.rewards[key] = np.append(self.rewards[key], rewards[key])
-        self.current_pos = np.array([
-            temporary_state[tmpkey.replace('$', '')]
-            for tmpkey in self.json["initial_values"].keys()
-        ]).flatten()
+        # self.current_pos = np.array([
+        #     temporary_state[tmpkey.replace('$', '')]
+        #     for tmpkey in self.json["initial_values"].keys()
+        # ]).flatten()
+        self.current_pos = np.array(
+            list(self.last_state(
+                colnames = self.states_variables + self.agent_variables
+            ).values())).reshape(-1)
         if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
             info.append("new position is out of bound")
             done.append(True)
