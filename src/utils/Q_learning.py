@@ -24,33 +24,19 @@ class QLearningTrainer:
             pd.DataFrame: An empty Pandas DataFrame with a MultiIndex representing the Q-table structure.
                         Rows are indexed by variables, columns are indexed by actions.
         """
-        list_variables = []
-        list_actions = []
         if env is None:
-            keys = self.env.actions.keys()
-            # actions = self.env.actions[key].keys()
-            for key in keys:
-                for action in self.env.actions[key].keys():
-                    list_variables.append(key)
-                    list_actions.append(action)
-            # Create MultiIndex for the DataFrame columns
-            col = pd.MultiIndex.from_arrays([list_variables, list_actions])
-            # Create an empty DataFrame with the MultiIndex columns
-            # Index value is state variables
-            return pd.DataFrame(index=[str(self.env.state_for_q_table())], columns=col, dtype=object).fillna(0)
+            arrays = [list(self.env.actions[key].keys()) for key in self.env.actions.keys()]
+            # Generate all possible combinations
+            combinations = list(product(*arrays))
+            # column is the combinason of all agent's key values
+            col = pd.MultiIndex.from_arrays([["_".join(self.env.agent_variables)]* len(combinations), combinations])
+            return pd.DataFrame(index=[str(self.env.state_for_q_table())], columns=col).fillna(0)
         else:
-            keys = env.actions.keys()
-            # actions = env.actions[key].keys()
-            # Iterate through the environment's action space to extract variables and actions
-            for key in keys:
-                for action in env.actions[key].keys():
-                    list_variables.append(key)
-                    list_actions.append(action)
-            # Create MultiIndex for the DataFrame columns
-            col = pd.MultiIndex.from_arrays([list_variables, list_actions])
-            # Create an empty DataFrame with the MultiIndex columns
-            # Index value is state variables
-            return pd.DataFrame(index=[str(env.state_for_q_table())], columns=col, dtype=object).fillna(0)
+            arrays = [list(env.actions[key].keys()) for key in env.actions.keys()]
+            # Generate all possible combinations
+            combinations = list(product(*arrays))
+            col = pd.MultiIndex.from_arrays([["_".join(env.agent_variables)]* len(combinations), combinations])
+            return pd.DataFrame(index=[str(env.state_for_q_table())], columns=col).fillna(0)
 
     def __init__(self, env: Environment, num_episodes: int = 50, learning_rate: float = 0.1, discount_factor: float = 0.99,
                  exploration_prob: list[float] = [0.2, 1], run_limit: int = 1000, decrease_prob_exp: float = 0.05,
@@ -105,34 +91,18 @@ class QLearningTrainer:
         self.q_table = self.global_q_tables(self.env)
         self.q_table_old = self.global_q_tables(self.env)
 
-    def choose_action(self,
-                      q_table : pd.DataFrame,
-                      action_space : int,
-                      exploration_prob: float):
-        """
-        Choose an action based on the current Q-values using epsilon-greedy exploration strategy.
-
-        Args:
-            q_table (pd.DataFrame): Q-values for state-action pairs.
-            action_space (int): Number of possible actions.
-            exploration_prob (float): Probability that our agent will explore the environment rather than exploit it (exploration).
-
-        Returns:
-            int: Chosen action index.
-        """
-        if np.random.uniform(0, 1) < exploration_prob:
-            return np.random.choice(action_space)
-        else:
-            return np.argmax(q_table)
-
     def call_choose_action(self,
                         states : tuple,
                         proba : float) -> list:
         # action_spaces = self.env.action_space
-        return [self.choose_action(
-            self.q_table.loc[ [str(states)], [key] ],
-            self.env.action_space[key],
-            proba) for key in self.env.action_space.keys()]
+        if np.random.uniform(0, 1) < proba:
+            return [str(np.random.choice(self.env.action_space[key]))  for key in self.env.action_space.keys()]
+        elif self.q_table.loc[[str(states)]].replace(0, np.nan).isna().sum(axis=1).to_list()[0] == self.q_table.shape[1]:
+            # if no value exist then choose random action
+            return [str(np.random.choice(self.env.action_space[key]))  for key in self.env.action_space.keys()]
+        else:
+            col = self.q_table.replace(0, np.nan).loc[str(states)].argmax()
+            return list(self.q_table.loc[ [str(states)]].columns[col][1])
 
     def reset_envrionement_multi_agent(self):
         num_agents = len(self.env.action_space.keys())
@@ -141,118 +111,42 @@ class QLearningTrainer:
         return states, [False] * len(self.env.action_space.keys()), 0, 0
 
     def update_q_values(self,
-                        trigger_variable : str,
-                        state: str,
+                        current_state : str,
                         next_state : str,
-                        action : str,
+                        actions : list,
                         reward : float):
         """
-        Update Q-values based on the Q-learning update rule.
+        Update Q-values table (pandas dataFrame) based on the Q-learning update rule.
         https://deeplizard.com/learn/video/mo96Nqlo1L8
 
         Args:
-            q_table (defaultdict): A defaultdict containing Q-values for state-action pairs.
+            trigger_variable (str): agent name
             state (tuple): Current state representation for the Q-table.
-            action (list): List of actions taken by all agents.
-            reward (float): Immediate reward.
             next_state (tuple): Next state representation for the Q-table.
-            discount_factor (float): Discount factor for future rewards.
-            learning_rate (float): Learning rate for updating Q-values.
+            action (list): List of actions taken by agent.
+            reward (float): Immediate reward.
         """
-        # q_table = q_table[trigger_variable]
+        # 1st term
+        level0_col = self.q_table.columns[0][0]
         current_q_value = self.q_table.loc[
-                        [state],
-                        ([trigger_variable], [action])
-                    ].to_numpy().flatten()[-1]
-        # next_max_q_value = q_table.loc[next_state].max()
-        next_max_q_value = self.q_table.loc[next_state, trigger_variable].max()
+            [current_state],
+            [(level0_col, tuple(actions))]
+        ].to_numpy().flatten()[-1]
+        # 2nd term
+        # get maximum value for next state
+        next_max_q_value = self.q_table.loc[str(next_state)].max()
+        # replace NaN values by zero to avoid error
         if np.isnan(current_q_value):
             current_q_value = 0
         if np.isnan(next_max_q_value):
             next_max_q_value = 0
+        # 3rd term
         updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value)
+        # update q_table
         self.q_table.loc[
-                        [state],
-                        ([trigger_variable], [action])
-                    ] = (1- self.learning_rate) * current_q_value + updated_q
-
-    def global_q_tables(self, env: Environment = None):
-        """
-        Generate a global Q-table structure for a multi-agent environment.
-
-        This function extracts information about variables and actions from the provided Environment environment
-        and creates an empty Pandas DataFrame with a MultiIndex representing the Q-table structure.
-
-        Args:
-            env (Environment): The Environment environment.
-
-        Returns:
-            pd.DataFrame: An empty Pandas DataFrame with a MultiIndex representing the Q-table structure.
-                        Rows are indexed by variables, columns are indexed by actions.
-        """
-        list_variables = []
-        list_actions = []
-        if env is None:
-            keys = self.env.actions.keys()
-            # actions = self.env.actions[key].keys()
-            for key in keys:
-                for action in self.env.actions[key].keys():
-                    list_variables.append(key)
-                    list_actions.append(action)
-            # Create MultiIndex for the DataFrame columns
-            col = pd.MultiIndex.from_arrays([list_variables, list_actions])
-            # Create an empty DataFrame with the MultiIndex columns
-            # Index value is state variables
-            return pd.DataFrame(index=[str(self.env.state_for_q_table())], columns=col).fillna(0)
-        else:
-            keys = self.env.actions.keys()
-            # actions = env.actions[key].keys()
-            # Iterate through the environment's action space to extract variables and actions
-            for key in keys:
-                for action in self.env.actions[key].keys():
-                    list_variables.append(key)
-                    list_actions.append(action)
-            # Create MultiIndex for the DataFrame columns
-            col = pd.MultiIndex.from_arrays([list_variables, list_actions])
-            # Create an empty DataFrame with the MultiIndex columns
-            # Index value is state variables
-            return pd.DataFrame(index=[str(self.env.state_for_q_table())], columns=col).fillna(0)
-
-    def check_bound(self,
-                    problem : list,
-                    next_env : dict,
-                    action_spaces : dict,
-                    rewards : dict,
-                    done : list,
-                    info : list,
-                    actions : list):
-        # get indice
-        for i in np.where(problem)[0]:
-            tmp_problem = [problem[i]]
-            # action leds system to be out of bound
-            key = list(next_env.keys())[i]
-            action = 0
-            out_bound_env = copy.copy(next_env[key])
-            # delete last state because is out of bound
-            out_bound_env.delete_last_states()
-            while (action < action_spaces[key]) and (any(tmp_problem) is True):
-                # do all possible action
-                tmp_env, tmp_rewards, tmp_done, tmp_problem, tmp_info = out_bound_env.step([action], [key])
-                if tmp_problem[0]:
-                    # system is still out of bound remove last attempt
-                    out_bound_env.delete_last_states()
-                    # new attempt
-                else:
-                    # change input values with correct state
-                    next_env[key] = tmp_env[key]
-                    rewards[key] = tmp_rewards[key]
-                    problem[i] = tmp_problem[0]
-                    done[i] = tmp_done[0]
-                    info[i] = tmp_info[0]
-                    actions[i] = action
-                # new attempt
-                action += 1
-        return next_env, rewards, done, problem, info, actions
+            [current_state],
+            [(level0_col, tuple(actions)) ]
+        ] = (1 - self.learning_rate) * current_q_value + updated_q
 
     def control_loop(self,
                     current_iter : int,
@@ -271,17 +165,13 @@ class QLearningTrainer:
         # keys = q_table.keys() & old_q_table.keys()
         if len(set(self.q_table.index) - set(self.q_table_old.index)) == 0:
             diff_q = np.abs(np.sum([self.q_table - self.q_table_old]))
-            if diff_q <= self.convergence_criterion and current_iter >= np.min([100,
-                                                                int(self.run_limit/1.5)]):
+            if diff_q <= self.convergence_criterion \
+            and current_iter >= np.min([100, int(self.run_limit/1.5)]):
                 return True
         if current_iter > self.run_limit:
             print(f"Episode did not converged. You should try to increase run_limit")
             print("stop_criterion ", current_iter)
-            print("diff_q ", diff_q)
-            return True
-        if iter_out_of_bound > 20:
-            print(f"Episode did not converged. agent is out of bound during the last 20th iterations")
-            print("stop_criterion ", current_iter)
+            diff_q = np.abs(np.sum([self.q_table - self.q_table_old]))
             print("diff_q ", diff_q)
             return True
         return False
@@ -315,39 +205,38 @@ class QLearningTrainer:
         iter_out_of_bound = 0
         # states, done, current_iter, iter_out_of_bound = self.reset_envrionement_multi_agent()
         while not any(done):
-            states = self.env.state_for_q_table()
+            #states = self.env.state_for_q_table()
             # Choose actions for each agent based on the global policy
-            # proba = np.max([self.min_prob, self.max_prob])
-            actions = self.call_choose_action(states, proba)
+            actions = self.call_choose_action(self.env.state_for_q_table(), proba)
             # compute new states according to agents's action
             next_env, rewards, done, problem, info = self.env.step(actions, self.env.agent_variables)
             if any(problem):
                 self.env.delete_last_states()
                 #try to escape bound limit
-                done, actions = self.iterate_all_possibility()
+                done, new_actions = self.iterate_all_possibility()
                 if any(done):
                     print(done)
                     print("No action possible. Stop episode at {0}th iterations".format(current_iter))
-                    continue
+                else:
+                    actions = new_actions
                 next_env, rewards, done, problem, info = self.env.step(actions, self.env.agent_variables)
-                current_iter  += 1
+            new_row = self.global_q_tables()
+            # check if next states is present in dataFrame
+            if not new_row.index.to_list()[0] in self.q_table.index.to_list():
+                self.q_table = pd.concat([self.q_table, new_row])
             # Update Q-values based on the Q-learning update rule.
-            #   env.action_space.keys() -> dict_keys(['X', 'B', 'D'])
-            #   actions -> [0, 1, 1]
-            for trigger_variable, action in zip(self.env.action_space.keys() , actions):
-                new_row = self.global_q_tables()
-                # check if next states is present in dataFrame
-                if not new_row.index.to_list()[0] in self.q_table.index.to_list():
-                    self.q_table = pd.concat([self.q_table, new_row])
-                self.update_q_values(trigger_variable,
-                    str(states),
-                    str(self.env.state_for_q_table()),
-                    str(action),
-                    sum(rewards[trigger_variable]))
-            done = [self.control_loop(current_iter, iter_out_of_bound)]
-            current_iter  += 1
-            iter_out_of_bound = 0
-            self.q_table_old = self.q_table.copy()
+            self.update_q_values(
+                str(self.env.state_for_q_table(start = -2, end = -1)),
+                str(self.env.state_for_q_table()),
+                actions,
+                sum(rewards.values())
+            )
+            if done:
+                continue
+            else:
+                done = [self.control_loop(current_iter, iter_out_of_bound)]
+                current_iter  += 1
+                self.q_table_old = self.q_table.copy()
         return current_iter
 
     def get_epsilon(self,
