@@ -2,10 +2,10 @@ import numpy as np
 import json
 import os
 import sys
-from sympy import sympify
+# from sympy import sympify
 import re
 import copy
-from text2equation import resolve_equations, debug_resolve_equations
+#from text2equation import resolve_equations, debug_resolve_equations
 
 class Environment():
 
@@ -17,16 +17,132 @@ class Environment():
             self.json["equations_rewards"])[trigger_var]
             for trigger_var in agent_variables }
 
-    def check_input(self, syst_dic):
-        # check limit number of field
-        if not (np.array([len(val) for key, val in syst_dic['limit'].items()]).flatten() == 3).all():
+    def check_input(self, delimiter):
+        import os
+        sys.path.insert(1, os.getcwd())
+        from next_state_compute import compute_equations_variables, compute_equations_rewards
+        print("check order names for states_variables")
+        for i in range(len(self.states_variables)):
+            if not self.states_variables[i] == list(self.all_states().keys())[i] == list(self.json["limit"].keys())[i]:
+                print("Warning : State variable order are not the  (not a fatal error):")
+                print("state_variables : {0}, initial_value: {1}, limit: {2}".format(
+                    self.states_variables[i], 
+                    list(self.all_states().keys())[i],
+                    list(self.json["limit"].keys())[i]
+                ))
+        print("\nCheck order names for agent_variables")
+        for i in range(len(self.agent_variables)):
+            if not self.agent_variables[i] == list(self.all_states().keys())[len(self.states_variables) + i] == list(self.json["limit"].keys())[len(self.states_variables) + i]:
+                print("Warning : agent variable order are not the same:")
+                print("Warning : agent_variables : {0}, initial_value: {1}, limit: {2}".format(
+                    self.agent_variables[i], 
+                    list(self.all_states().keys())[len(self.states_variables) + i],
+                    list(self.json["limit"].keys())[len(self.states_variables) + i]
+                ))
+        print("\ncheck limit number of field")
+        if not (np.array([len(val) for key, val in self.json['limit'].items()]).flatten() == 3).all():
             print("Error ! Expect 3 filed for limit. [minimum, maximum, number_bins]")
             sys.exit()
+        print("\nCheck limit boundaries for initial state")
+        tmp = [self.json["limit"][variable][1] < self.last_state()[variable] 
+                       for variable in self.json["limit"].keys()]
+        if any(tmp):
+            print("Error in upper limit value given")
+            print([list(self.all_states().keys())[i] for i in np.where(tmp == False)[0]] )
+        tmp = [self.json["limit"][variable][0] > self.last_state()[variable] 
+                       for variable in self.json["limit"].keys()]
+        if any(tmp):
+            print("Error in lower limit value given")
+            print([list(self.all_states().keys())[i] for i in np.where(tmp == False)[0]] )
+        print("\nSolve equations present in equations_variables field")
+        _ = compute_equations_variables(copy.deepcopy(self.last_state()))
+        print("\nSolve equations present in equations_rewards field")
+        _ = compute_equations_rewards(copy.deepcopy(self.last_state()))
+        print("\nEverything is good :)")
 
-    def __init__(self, json_file, delimiter = "$"):
+    def __init__(self, json_file, delimiter = "$", check_model = False):
         """
         Initialize the environment and its rules.
         """
+        def replace2dico(equation, state : dict, delimiter : str = "$") -> str:
+            """
+            Replace placeholders in an equation string with corresponding values from a dictionary.
+
+            Args:
+                equation (str): The equation string containing placeholders to be replaced.
+                state (dict): A dictionary containing the values to replace the placeholders.
+                delimiter (str, optional): The delimiter used to identify placeholders. Defaults to "$".
+
+            Returns:
+                str: The modified equation string with placeholders replaced by values.
+            """
+            # count number of delimiter
+            index_delimiter = [
+                i for i in range(len(equation)) 
+                if equation.startswith(delimiter, i)
+                ]
+            # check the number
+            if len(index_delimiter) % 2 != 0:
+                print("Error number of delimit is odd : "+equation)
+                sys.exit()
+            while len(index_delimiter) > 0:
+                pattern = equation[index_delimiter[0] : index_delimiter[1]+1]
+                # if pattern is not a temporary variable
+                if pattern[1:-1] in state.keys():
+                    equation = equation.replace(
+                        pattern,
+                        "state[\""+pattern[1:-1]+"\"]")
+                else:
+                    equation = equation.replace(
+                        pattern,
+                        pattern[1:-1])            
+                index_delimiter = [i for i in range(len(equation)) if equation.startswith(delimiter, i)]
+            return equation
+
+        def compile_equation(json_file : dict, last_state : dict, delimiter : str = "$") -> str:
+            """
+            Compile equations from a JSON configuration file into a Python function string.
+
+            Args:
+                json_file (dict): A dictionary containing equations and variables configurations.
+                last_state (dict): A dictionary containing the last state values.
+                delimiter (str, optional): The delimiter used in equations to identify placeholders. Defaults to "$".
+
+            Returns:
+                str: A string representing the compiled Python function.
+            """
+            tmp = "\nimport numpy as np\nimport json\n\ndef compute_equations_variables(state) -> dict:\n"
+            for key, var in json_file['equations_variables'].items():
+                tmp += "\t"+replace2dico(key, last_state, delimiter)+" = np.array([ "+replace2dico(var, last_state, delimiter)+" ]).flatten()\n"
+            tmp += "\treturn state\n"
+
+            tmp += "\n\ndef compute_equations_rewards(state) -> dict:\n"
+            for key, var in json_file['equations_rewards'].items():
+                tmp += "\t"+replace2dico(key, last_state, delimiter)+" = np.array([ "+replace2dico(var, last_state, delimiter)+" ]).flatten()\n"
+            tmp += "\treturn state\n"
+
+            tmp += "\n\ndef compute_action(state : dict, action : float, trigger_var : str) -> dict:\n"
+            for trigger_var in json_file['action_to_take'].keys():
+                tmp += '\tif trigger_var == \"'+trigger_var+'\":\n'
+                for key, var in json_file['action_to_take'][trigger_var].items():
+                    tmp += "\t\t"+replace2dico(key, last_state, delimiter)+" = np.array([ "+replace2dico(var, last_state, delimiter)+" ]).flatten()\n"
+            tmp += "\treturn state\n"
+            return tmp
+
+        def save_function_to_file(json_file : dict, last_state : dict, filename='next_state_compute.py', delimiter="$") -> None:
+            """
+            Parse equations from a JSON configuration file and save the resulting function to a Python file.
+
+            Args:
+                json_file (dict): A dictionary containing equations and variables configurations.
+                last_state (dict): A dictionary containing the last state values.
+                filename (str, optional): The name of the file to save the function to. Defaults to 'next_state_compute.py'.
+                delimiter (str, optional): The delimiter used in equations to identify placeholders. Defaults to "$".
+            """
+            function_string = compile_equation(json_file, last_state, delimiter = delimiter)
+            with open(filename, 'w') as file:
+                file.write(function_string)
+        
         if isinstance(json_file, str):
             with open(json_file, 'r') as config_file:
                 syst_dic = json.load(config_file)
@@ -34,7 +150,6 @@ class Environment():
             syst_dic = json_file
         else:
             print("expect JSON file or a dictionary")
-        self.check_input(syst_dic)
         self.json = syst_dic
         self.states_variables = syst_dic["states_variables"]
         self.agent_variables = syst_dic["agent_variables"]
@@ -43,8 +158,14 @@ class Environment():
         initial_system = {tmpkey.replace(delimiter, ''): value for tmpkey, value in syst_dic["initial_values"].items()}
         for key, value in initial_system.items():
             setattr(self, key, np.array(value))
+        save_function_to_file(self.json, self.last_state(), filename = 'next_state_compute.py', delimiter = delimiter)
+        from next_state_compute import compute_equations_variables, compute_equations_rewards, compute_action
+        if check_model:
+            self.check_input(delimiter)
         # reward for each agents
-        self.rewards = self.compute_reward_for_agents()
+        self.rewards = {agent_var : compute_equations_rewards(
+                copy.deepcopy(self.last_state()))[agent_var] 
+                       for agent_var in self.agent_variables }
         self.start_pos = {key: value for key, value in initial_system.items() if key in self.states_variables + self.agent_variables}
         self.current_pos = np.array([np.round(value, 6) for tmpkey, value in self.start_pos.items()]).flatten()
         self.action_space = {tmpkey.replace(delimiter, '') : len(value) for tmpkey, value in syst_dic["n_action"].items()}
@@ -59,9 +180,12 @@ class Environment():
             self.n_bins = self.upper_lim - self.lower_lim + 1
 
     def reset(self):
+        from next_state_compute import compute_equations_rewards
         for key, value in self.select_states(0,1).items():
             setattr(self, key, np.array(value))
-        self.rewards = self.compute_reward_for_agents()
+        self.rewards = {agent_var : compute_equations_rewards(
+                copy.deepcopy(self.last_state()))[agent_var] 
+                       for agent_var in self.agent_variables }
         self.current_pos = copy.deepcopy(self.start_pos)
 
     def all_states(self, colnames = None):
@@ -242,27 +366,21 @@ class Environment():
         return tuple([elmnt for key, elmnt in obs.items() if key in labels])
 
     def move_agent(self,
-                    action_key : str,
                     trigger_var : str,
-                    temporary_state : dict = None,
-                    equation : dict[str] = None):
+                    action_key : str,
+                    temporary_state : dict = None):
+        import os
+        sys.path.insert(1, os.getcwd())
+        from next_state_compute import compute_action
         if temporary_state is None:
             temporary_state = self.last_state()
-        if equation is None:
-            equation = self.action_to_take[trigger_var]
         # Move agent and assign its new value according to action_to_take
         if isinstance(action_key, str):
-            temporary_state["action"] = np.array([self.actions[trigger_var][action_key]])
+            return compute_action(temporary_state, self.actions[trigger_var][action_key], trigger_var)
         else:
-            temporary_state["action"] = np.array([self.actions[trigger_var][str(action_key)]])
-        temporary_state[trigger_var] = resolve_equations(
-            temporary_state,
-            equation
-        )[trigger_var]
-        del temporary_state["action"]
-        return temporary_state
+            return compute_action(temporary_state, self.actions[trigger_var][str(action_key)], trigger_var)
 
-    def step(self, actions, agent_variables = None, method : str = "centralized"):
+    def step(self, actions : list[str], agent_variables = None, method : str = "centralized"):
         """
         Perform an environment step for multiple agents with different trigger variables and actions.
 
@@ -284,7 +402,10 @@ class Environment():
             - The 'problem' list indicates if there was an issue with the step, e.g., new position out of bounds.
             - The 'info' list provides additional information messages for each agent.
         """
-        temporary_states = self.last_state()
+        import os
+        sys.path.insert(1, os.getcwd())
+        from next_state_compute import compute_equations_variables, compute_equations_rewards
+        temporary_state = self.last_state()
         rewards = {}
         done = []
         problem = []
@@ -295,51 +416,58 @@ class Environment():
         # rewards are computed after update state
         if method == "centralized" :
             for trigger_var, action_key in zip(agent_variables, actions):
-                temporary_state = self.move_agent(action_key,
-                                                trigger_var,
-                                                temporary_states,
-                                                self.action_to_take[trigger_var])
+                temporary_state = self.move_agent(trigger_var,
+                                                  action_key,
+                                                  temporary_state)                
             # Evaluate new environment variables
-            solv_eq = resolve_equations(
-                copy.deepcopy(temporary_state),
-                self.json["equations_variables"]
-            )
+            solv_eq = compute_equations_variables(copy.deepcopy(temporary_state))
             for key in set(solv_eq.keys()) & set(temporary_state.keys()):
                 temporary_state[key] = solv_eq[key]
-            rewards = {trigger_var : resolve_equations(
-                copy.deepcopy(temporary_state), self.json["equations_rewards"])[trigger_var]
+            rewards = {trigger_var : compute_equations_rewards(
+                copy.deepcopy(temporary_state)
+                )[trigger_var] 
                 for trigger_var in agent_variables }
         # Move a agent compute the new state and repeat process for next agent
         else:
             for trigger_var, action_key in zip(agent_variables, actions):
-                temporary_state = self.move_agent(action_key,
-                                                trigger_var,
-                                                temporary_states,
-                                                self.action_to_take[trigger_var])
+                temporary_state = self.move_agent(trigger_var,
+                                                  action_key,
+                                                  copy.deepcopy(temporary_state),
+                                                  self.action_to_take[trigger_var])
                 # Evaluate new environment variables
-                solv_eq = resolve_equations(
-                    copy.deepcopy(temporary_state),
-                    self.json["equations_variables"]
-                )
+                solv_eq = compute_equations_variables(copy.deepcopy(temporary_state))
                 for key in set(solv_eq.keys()) & set(temporary_state.keys()):
                     temporary_state[key] = solv_eq[key]
-                rewards[trigger_var] = resolve_equations(
-                    copy.deepcopy(temporary_state),
-                    self.json["equations_rewards"])[trigger_var]
+                rewards[trigger_var] = compute_equations_rewards(
+                    copy.deepcopy(temporary_state)
+                    )[trigger_var]
         # Add new current position keys to use the same ones in the initial values field
         self.uppdate_variables(temporary_state)
         # update rewards
         for key in self.rewards.keys():
             self.rewards[key] = np.append(self.rewards[key], rewards[key])
-        # self.current_pos = np.array([
-        #     temporary_state[tmpkey.replace('$', '')]
-        #     for tmpkey in self.json["initial_values"].keys()
-        # ]).flatten()
         self.current_pos = np.array(
             list(self.last_state(
                 colnames = self.states_variables + self.agent_variables
             ).values())).reshape(-1)
-        if any(self.upper_lim < self.current_pos) or any(self.lower_lim > self.current_pos):
+        check_upper = [self.json["limit"][variable][1] < self.last_state()[variable] 
+                       for variable in self.json["limit"].keys()]
+        check_lower = [self.json["limit"][variable][0] > self.last_state()[variable] 
+                       for variable in self.json["limit"].keys()]
+        # check if field "stop_episode" exist
+        if "stop_episode" in self.json.keys():
+            stop_episode = [
+                np.isclose(
+                    self.last_state()[variable][0], 
+                    self.json["stop_episode"][variable][0]
+                    ) for variable in self.json["stop_episode"].keys()]
+            if all(stop_episode):
+                print("stop episode because agent reach goal")
+                info.append("Reach goal")
+                done.append(True)
+                problem.append(False)
+                return self.last_state(), rewards, done, problem, info
+        if any(check_upper) or any(check_lower):
             info.append("new position is out of bound")
             done.append(True)
             problem.append(True)
@@ -349,7 +477,7 @@ class Environment():
             problem.append(False)
         return self.last_state(), rewards, done, problem, info
 
-    def check_variables_and_equations(self, delimeter = "$"):
-        print("equations variables")
-        debug_resolve_equations(self.last_state(), self.json["equations_variables"],  delimeter)
-        print("\nEverything is good :)")
+    # def check_variables_and_equations(self, delimeter = "$"):
+    #     print("equations variables")
+    #     debug_resolve_equations(self.last_state(), self.json["equations_variables"],  delimeter)
+    #     print("\nEverything is good :)")

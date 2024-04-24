@@ -8,6 +8,8 @@ import sys
 from itertools import product
 import random
 import os
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class QLearningTrainer:
     def global_q_tables(self, env: Environment = None):
@@ -82,6 +84,7 @@ class QLearningTrainer:
             self.monitor_action = pd.DataFrame(columns = self.env.state_variables + ["proba", "action"])
         else:
             self.monitor_action = None
+        self.monitor_iter = []
         self.states_for_all_episodes = []
         self.q_table_for_all_episodes = []
         self.q_table = self.global_q_tables(env)
@@ -161,7 +164,7 @@ class QLearningTrainer:
                         current_state : str,
                         next_state : str,
                         actions : list,
-                        reward : np.ndarray([float])) -> None:
+                        reward : np.ndarray) -> None:
         """
         Update Q-values table (pandas dataFrame) based on the Q-learning update rule.
         https://deeplizard.com/learn/video/mo96Nqlo1L8
@@ -256,15 +259,15 @@ class QLearningTrainer:
 
     def correct_last_attempt(self, actions : list[str], current_iter : int = 0) -> list[dict[float], float, bool, bool, str]:
         # boundaries limit. Attempt to correct it
-        self.env.frame.delete_last_state()
+        self.env.delete_last_states()
         done, new_actions  = self.iterate_all_possibility()
         if any(done):
             print("No action possible. Stop episode at {0}th iterations".format(current_iter))
             print("Save last state even is out of bound")
-            return self.env.step(list(actions), self.env.trigger_variables)
+            return self.env.step(list(actions), self.env.agent_variables)
         else:
             actions = new_actions
-            return self.env.step(actions, self.env.trigger_variables)
+            return self.env.step(actions, self.env.agent_variables)
     
     def record_actions(self, proba : float, actions : tuple) -> None:
         """
@@ -317,7 +320,7 @@ class QLearningTrainer:
                     print("diff Qtable_N - Qtable_N-1 ", np.abs(np.sum([self.q_table - self.q_table_old])))
                 else:
                     print("Q table still growths")
-                self.loss_train = np.sum([np.sum(val) for val in self.env.frame.rewards.values()])
+                self.loss_train = np.sum([np.sum(val) for val in self.env.rewards.values()])
                 print("Loss : {0}".format(self.loss_train))
                 self.q_table_old = self.q_table.copy()
                 continue
@@ -331,21 +334,21 @@ class QLearningTrainer:
         Perform Q-learning algorithm to estimate Q-values and learn an optimal policy.
 
         """
-        proba = self.give_epsilon()
+        proba = self.get_epsilon()
         for episode in range(self.num_episodes):
             print("Episode {0}/{1}".format(episode+1, self.num_episodes))
             print("exploration_prob : {0:.3f}".format(proba[episode]))
             # save information 
             current_iter = self.training_q_learning(proba[episode])
-            if episode % self.save_freq == 0:
-                self.states_for_all_episodes.append(
-                    pd.concat(
-                        [
-                            pd.DataFrame(self.env.frame.all_states()),
-                            pd.DataFrame(self.env.frame.rewards).add_prefix('reward_')
-                        ], axis = 1)
-                )
-                self.q_table_for_all_episodes.append(self.q_table.copy().replace(self.q_table.values.min() - 100, np.nan))
+            # NEXT UPDATE SAVE Q8TALBE ACCORDING A FREQUENCY
+            self.states_for_all_episodes.append(
+                pd.concat(
+                    [
+                        pd.DataFrame(self.env.all_states()),
+                        pd.DataFrame(self.env.rewards).add_prefix('reward_')
+                    ], axis = 1)
+            )
+            self.q_table_for_all_episodes.append(self.q_table.copy().replace(self.q_table.values.min() - 100, np.nan))
             # self.all_episodes.append(self.q_table.copy())
             ###############################################
             # self.max_prob -= self.decrease_prob_exp
