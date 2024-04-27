@@ -11,14 +11,14 @@
       "angle" : [0.0],
       "booster" : [0.0],
       "alpha" : [0.0],
-      "m_fuel" : [100],
-      "G" : [1.62],
       "futur_pos_x" : [100.0],
       "futur_pos_y" : [175.0],
+      "m_fuel" : [100],
+      "G" : [1.62],
+      "m_fuel_ini" : [100.0],
       "normalize_y_min" : [200.0],
       "max_speed" : [0.0],
-      "m_fuel_ini" : [100.0],
-      "pos_y_star": [220.0],
+      "pos_y_star": [0.0],
       "pos_x_star": [120.0],
       "acceleration_x_constraint" : [6],
       "acceleration_y_constraint" : [6],
@@ -40,7 +40,7 @@
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
-      "m_fuel" : [0.0, 100, 201]
+      "m_fuel" : [0.0, 100, 101]
     },
     "n_action" : {
       "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0},
@@ -54,7 +54,7 @@
     "_equations" : "compute values for each equation. Variable are updated after the loop",
     "equations_variables": {
         "$F$" : "600",
-        "$m_fuel$" : "$m_fuel$ - $booster$",
+        "$m_fuel$" : "$m_fuel$ - $booster$ *10 -$angle$ *10",
         "$weight_rocket$" : "5 + $m_fuel$",
         "dt" : "0.5",
         "$theta$" : "0.0",
@@ -77,14 +77,14 @@
     "equations_rewards": {
       "$dist_squared$" : "($pos_x$ - $pos_x_star$)**2 + ($pos_y$ - $pos_y_star$)**2",
       "$speed_norm$" : "$speed_x$**2 - $speed_y$**2",
-      "$acceleration_y_constraint$" : "np.exp(np.abs($acceleration_y$) - $acceleration_y_constraint$)",
-      "$speed_y_constraint$" : "np.exp(np.abs($speed_y$) - $speed_y_limit$)",
-      "$y_lim_constraint$" : "np.exp($y_lower_limit$ - $futur_pos_y$) - np.exp(- $y_upper_limit$ + $futur_pos_y$)",
+      "$acceleration_y_constraint$" : "-np.exp(np.abs($acceleration_y$) - $acceleration_y_constraint$)",
+      "$speed_y_constraint$" : "-np.exp(np.abs($speed_y$) - $speed_y_limit$)",
+      "$y_lim_constraint$" : "-np.exp($y_lower_limit$ - $futur_pos_y$) + np.exp(- $y_upper_limit$ + $futur_pos_y$)",
       "$_booster$" : "np.exp(-$futur_pos_y$)",
-      "$booster$" : "- $dist_squared$ - $acceleration_y_constraint$ - $speed_y_constraint$ - $y_lim_constraint$ + $m_fuel$/$m_fuel_ini$",
-      "$accele_x_constraint$" : "np.exp(np.abs($acceleration_x$) - $acceleration_x_constraint$)",
-      "$speed_x_constraint$" : "np.exp(np.abs($speed_x$) - $speed_x_limit$)",
+      "$booster$" : "- $dist_squared$ + $acceleration_y_constraint$ + $speed_y_constraint$ + $m_fuel$/$m_fuel_ini$",
+      "$accele_x_constraint$" : "-np.exp(np.abs($acceleration_x$) - $acceleration_x_constraint$)",
+      "$speed_x_constraint$" : "-np.exp(np.abs($speed_x$) - $speed_x_limit$)",
       "$x_lim_constraint$" : "np.exp($x_lower_limit$ - $futur_pos_x$) - np.exp(- $x_upper_limit$ + $futur_pos_x$)",
-      "$alpha$" : " - $dist_squared$ - $accele_x_constraint$ - $speed_x_constraint$ - $x_lim_constraint$ + $m_fuel$/$m_fuel_ini$"
+      "$alpha$" : " - $dist_squared$ + $accele_x_constraint$ + $speed_x_constraint$ + $m_fuel$/$m_fuel_ini$"
     }
   }
