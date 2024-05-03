@@ -2,14 +2,12 @@ import numpy as np
 import json
 import os
 import sys
-# from sympy import sympify
 import re
 import copy
-#from text2equation import resolve_equations, debug_resolve_equations
 
 class Environment():
 
-    def check_input(self, delimiter):
+    def check_input(self):
         import os
         sys.path.insert(1, os.getcwd())
         from next_state_compute import compute_equations_variables, compute_equations_rewards
@@ -468,7 +466,3 @@ class Environment():
             problem.append(False)
         return self.last_state(), rewards, done, problem, info
 
-    # def check_variables_and_equations(self, delimeter = "$"):
-    #     print("equations variables")
-    #     debug_resolve_equations(self.last_state(), self.json["equations_variables"],  delimeter)
-    #     print("\nEverything is good :)")
