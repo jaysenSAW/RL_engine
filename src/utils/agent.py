@@ -456,11 +456,10 @@ class Environment():
                        for variable in self.json["limit"].keys()]
         # check if field "stop_episode" exist
         if "stop_episode" in self.json.keys():
-            stop_episode = [
-                np.isclose(
-                    self.last_state()[variable][0], 
-                    self.json["stop_episode"][variable][0]
-                    ) for variable in self.json["stop_episode"].keys()]
+            stop_episode = [np.isclose(self.last_state()[key][0], value[0]) 
+                            if len(value) == 1 
+                            else self.last_state()[key][0] >= value[0] and self.last_state()[key][0] <= value[1] 
+                            for key, value in self.json["stop_episode"].items()]
             if all(stop_episode):
                 print("stop episode because agent reach goal")
                 info.append("Reach goal")
