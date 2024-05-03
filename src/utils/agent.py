@@ -9,14 +9,6 @@ import copy
 
 class Environment():
 
-    def compute_reward_for_agents(self, start = -1, end = None, agent_variables = None):
-        if agent_variables is None:
-            agent_variables = self.agent_variables
-        return {trigger_var : resolve_equations(
-            copy.deepcopy(self.select_states(start, end)),
-            self.json["equations_rewards"])[trigger_var]
-            for trigger_var in agent_variables }
-
     def check_input(self, delimiter):
         import os
         sys.path.insert(1, os.getcwd())
