@@ -1,5 +1,4 @@
 import numpy as np
-from collections import defaultdict
 from agent import Environment
 import pandas as pd
 import copy
