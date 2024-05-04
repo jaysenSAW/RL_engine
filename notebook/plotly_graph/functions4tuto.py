@@ -39,7 +39,7 @@ def plotly_all_reward(dt, df_penalty):
     fig = make_subplots(rows=3, cols=2)
 
     fig1 = px.line(dt.set_index('iter')[['pos_y', 'futur_pos_y']] )
-    fig2 = px.line(df_penalty.set_index('iter')[['futur_dist_star']] )
+    fig2 = px.line(df_penalty.set_index('iter')[['futur_dist_star', 'y_lim_constraint']] )
 
     fig3 = px.line(dt.set_index('iter')[['futur_pos_y', 'acceleration_y', 'speed_y']] )
     fig4 = px.line(df_penalty.set_index('iter')[['acceleration_constraint', 'speed_constraint']] )
@@ -81,9 +81,9 @@ def plotly_all_reward(dt, df_penalty):
 
 def booster_reward(states, acceleration_y_constraint, speed_y_limit, y_lower_limit):
     dist_squared = np.square(states["pos_y"] - states["pos_y_star"])
-    acceleration_y_constraint =  -np.exp(np.abs(states["acceleration_y"]) - acceleration_y_constraint)
-    speed_y_constraint =-np.exp(np.abs(states["speed_y"]) - speed_y_limit)
-    y_lim_constraint = -np.exp(-states["futur_pos_y"] + y_lower_limit)
+    acceleration_y_constraint =  -np.array([np.max([val, 0]) for val in np.abs(states["acceleration_y"]) - acceleration_y_constraint ])
+    speed_y_constraint =-np.array([np.max([val, 0]) for val in np.abs(states["speed_y"]) - speed_y_limit ])
+    y_lim_constraint = np.array([np.min([val, 0]) for val in states["futur_pos_y"] - y_lower_limit ])
     # return -dist_squared + acceleration_y_constraint + speed_y_constraint +y_lim_constraint + states["m_fuel"]/states["m_fuel_ini"]
     dt = pd.DataFrame({
         "futur_dist_star" : -dist_squared,
@@ -106,9 +106,6 @@ def control_fall_simulation(JOSN_file,
     """
     # Create an environment object with the rules defined previously
     env = Environment(JOSN_file, check_model = False)
-    # acceleration_y_constraint = 10
-    # speed_y_limit = 4
-    # y_lower_limit = 0
     flag = "0"
     flag_to_continue = True
     # monitor action takes for each iteration

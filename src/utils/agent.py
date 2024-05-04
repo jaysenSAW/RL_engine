@@ -151,7 +151,7 @@ class Environment():
         save_function_to_file(self.json, self.last_state(), filename = 'next_state_compute.py', delimiter = delimiter)
         from next_state_compute import compute_equations_variables, compute_equations_rewards, compute_action
         if check_model:
-            self.check_input(delimiter)
+            self.check_input()
         # reward for each agents
         self.rewards = {agent_var : compute_equations_rewards(
                 copy.deepcopy(self.last_state()))[agent_var] 
