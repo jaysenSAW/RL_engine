@@ -55,7 +55,7 @@
       "acceleration_y_reward" : "-np.max([ np.abs( $acceleration_y$ ) - acceleration_limit])",
       "distance_y_reward" : "-($pos_y$ - $pos_y_star$)**2",
       "y_lower_limit" : "0",
-      "height_boundaries" : "-np.min( [$futur_pos_y$ - $y_lower_limit$, 0] )",
+      "height_boundaries" : "-np.min( [np.min($futur_pos_y$ - y_lower_limit), 0] )",
       "$booster$" : "$distance_y_reward$ + $acceleration_y_reward$ + $speed_y_reward$ + $height_boundaries$+ $m_fuel$/$m_fuel_ini$"
     },
     "_stop_episode" : "stop episode when goal is reach.", 
