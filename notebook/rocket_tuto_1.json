@@ -14,7 +14,8 @@
       "weight_dry_rocket" : [5],
       "G" : [1.62],
       "m_fuel_ini" : [100.0],
-      "pos_y_star": [0.0]
+      "pos_y_star": [0.0],
+      "pos_y_ini" : [175.0]
       },
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
@@ -24,7 +25,7 @@
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
-      "m_fuel" : [0.0, 100, 101]
+      "m_fuel" : [0.0, 100, 201]
     },
     "n_action" : {
       "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0}
@@ -55,7 +56,7 @@
     "_stop_episode_info1" : "If feature has 1 value, its feature's value must be equal", 
     "_stop_episode_info2" : "if feature has 2 values [min_limit, max_limit]. Criterion is bounded feature >= min_limit and feature <= max_limit",
     "stop_episode" : {
-      "pos_y" : [1, 0],
+      "pos_y" : [0, 5],
       "acceleration_y" : [-2,2],
       "speed_y" : [-2,2]
   }

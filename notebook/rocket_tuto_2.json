@@ -5,26 +5,27 @@
       "pos_y" : [175.0],
       "acceleration_y": [0.0],
       "speed_y": [0.0],
-      "angle" : [0.0],
       "booster" : [0.0],
+      "angle" : [0.0],
       "alpha" : [0.0],
-      "futur_pos_y" : [175.0],
       "m_fuel" : [100],
+      "futur_pos_y" : [175.0],
       "weight_rocket" : [105],
       "weight_dry_rocket" : [5],
       "G" : [1.62],
       "m_fuel_ini" : [100.0],
-      "pos_y_star": [0.0]
+      "pos_y_star": [0.0],
+      "pos_y_ini" : [175.0]
       },
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
-      "pos_y" : [0.0, 300.0, 61],
+      "pos_y" : [0.0, 200.0, 41],
       "acceleration_y": [-20.0, 20.0, 21],
       "speed_y": [-50.0, 50.0, 21],
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
-      "m_fuel" : [0.0, 100, 101]
+      "m_fuel" : [0.0, 100, 201]
     },
     "n_action" : {
       "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0}
@@ -49,21 +50,26 @@
         "$futur_pos_y$" : "$pos_y$ + 3 * $speed_y$"
     },
     "equations_rewards": {
-      "speed_limit" : "10",
-      "speed_y_reward" : "-np.max([ np.abs( $speed_y$ ) - speed_limit])",
+      "distance_y_reward" : "np.abs( ($pos_y$ - $pos_y_star$)/($pos_y_ini$ - $pos_y_star$) )",
       "acceleration_limit" : "5",
-      "acceleration_y_reward" : "-np.max([ np.abs( $acceleration_y$ ) - acceleration_limit])",
-      "distance_y_reward" : "-($pos_y$ - $pos_y_star$)**2",
+      "acceleration_y_reward" : "np.exp(1) - np.exp( np.max([ np.max( np.abs($acceleration_y$)/acceleration_limit), 1 ]) )",
+      "speed_limit" : "17",
+      "speed_y_reward" : "np.exp(1) - np.exp( np.max([ np.max( np.abs($speed_y$)/speed_limit ), 1 ]) )",
       "y_lower_limit" : "0",
-      "height_boundaries" : "-np.min( [np.min($futur_pos_y$ - y_lower_limit), 0] )",
-      "$booster$" : "$distance_y_reward$ + $acceleration_y_reward$ + $speed_y_reward$ + $height_boundaries$+ $m_fuel$/$m_fuel_ini$"
-    },
+      "y_upper_limit" : "200",
+      "upper_boundary": "np.exp(np.min([ np.min(-$futur_pos_y$ + y_upper_limit), 0]))",
+      "lower_boundary": "np.exp(np.min([ np.min($futur_pos_y$ -y_lower_limit), 0]))",
+      "height_boundaries" : "-2 + lower_boundary + upper_boundary",
+      "ratio_fuel" : "$m_fuel$/$m_fuel_ini$",
+      "_booster" : "3 * distance_y_reward + acceleration_y_reward + speed_y_reward + 2 * height_boundaries + 0.5* ratio_fuel",
+      "$booster$" : "-distance_y_reward" 
+    }, 
     "_stop_episode" : "stop episode when goal is reach.", 
     "_stop_episode_info1" : "If feature has 1 value, its feature's value must be equal", 
     "_stop_episode_info2" : "if feature has 2 values [min_limit, max_limit]. Criterion is bounded feature >= min_limit and feature <= max_limit",
     "stop_episode" : {
-      "pos_y" : [1, 0],
+      "pos_y" : [-10, 10],
       "acceleration_y" : [-2,2],
-      "speed_y" : [-2,2]
+      "speed_y" : [-10,10]
   }
 }
