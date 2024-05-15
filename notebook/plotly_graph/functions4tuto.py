@@ -39,7 +39,7 @@ def plotly_all_reward(dt, df_penalty):
     fig = make_subplots(rows=3, cols=2)
 
     fig1 = px.line(dt.set_index('iter')[['pos_y', 'futur_pos_y']] )
-    fig2 = px.line(df_penalty.set_index('iter')[['futur_dist_star', 'y_lim_constraint']] )
+    fig2 = px.line(df_penalty.set_index('iter')[['dist_star', 'y_lim_constraint']] )
 
     fig3 = px.line(dt.set_index('iter')[['futur_pos_y', 'acceleration_y', 'speed_y']] )
     fig4 = px.line(df_penalty.set_index('iter')[['acceleration_constraint', 'speed_constraint']] )
@@ -79,20 +79,19 @@ def plotly_all_reward(dt, df_penalty):
     fig.update_layout(height=1000, width=1200, title_text="Design reward with simple simulation")
     fig.show()
 
-def booster_reward(states, acceleration_y_constraint, speed_y_limit, y_lower_limit):
-    dist_squared = np.square(states["pos_y"] - states["pos_y_star"])
-    acceleration_y_constraint =  -np.array([np.max([val, 0]) for val in np.abs(states["acceleration_y"]) - acceleration_y_constraint ])
-    speed_y_constraint =-np.array([np.max([val, 0]) for val in np.abs(states["speed_y"]) - speed_y_limit ])
-    y_lim_constraint = np.array([np.min([val, 0]) for val in states["futur_pos_y"] - y_lower_limit ])
-    # return -dist_squared + acceleration_y_constraint + speed_y_constraint +y_lim_constraint + states["m_fuel"]/states["m_fuel_ini"]
+def booster_reward(states, acceleration_y_constraint, speed_y_limit, y_lower_limit, y_upper_limit = 200):
+    dist_star = np.abs((states["pos_y"] - states["pos_y_star"])/(states["pos_y_ini"] - states["pos_y_star"]) )
+    acceleration_y_constraint =  np.array([ np.exp(1) - np.exp( np.max([val, 1]) ) for val in np.abs(states["acceleration_y"])/acceleration_y_constraint ])
+    speed_y_constraint =np.array([ np.exp(1) - np.exp( np.max([val, 1]) ) for val in np.abs(states["speed_y"])/speed_y_limit ])
+    y_lim_constraint = np.array([-2 + np.exp(np.min([val1, 0])) + np.exp(np.min([val2, 0])) for val1, val2 in zip(states["futur_pos_y"] - y_lower_limit, - states["futur_pos_y"] + y_upper_limit) ])
     dt = pd.DataFrame({
-        "futur_dist_star" : -dist_squared,
+        "dist_star" : -dist_star,
         "acceleration_constraint" : acceleration_y_constraint,
         "speed_constraint" : speed_y_constraint,
         "y_lim_constraint" : y_lim_constraint,
         "ratio_fuel" : states["m_fuel"]/states["m_fuel_ini"]
     })
-    dt["sum_penalty"] = dt.sum(1)
+    # dt["sum_penalty"] = dt.sum(1)
     dt["iter"] =  np.arange(0, dt.shape[0])
     return dt
 
