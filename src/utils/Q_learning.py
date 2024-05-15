@@ -40,7 +40,7 @@ class QLearningTrainer:
             return pd.DataFrame(index=[str(env.state_for_q_table())], columns=col).fillna(0)
 
     def __init__(self, env: Environment, num_episodes: int = 50, learning_rate: float = 0.1, discount_factor: float = 0.99,
-                 exploration_prob: list[float] = [0.2, 1], run_limit: int = 1000, decrease_prob_exp: float = 0.05,
+                 exploration_prob: list[float] = [0.1, 1], run_limit: int = 1000, decrease_prob_exp: float = 0.05,
                  convergence_criterion = 0.001, decay_type : str = "linear", verbose: bool = False):
         self.env = env
         if isinstance(num_episodes, int):
@@ -124,7 +124,7 @@ class QLearningTrainer:
         """
         if end is None:
             end = len(self.loss_episodes)
-        plt.plot(np.arange(start, end), self.loss_episodes[start, end])
+        plt.plot(np.arange(start, end), self.loss_episodes[start: end])
         plt.xlabel("Episodes")
         plt.ylabel("Loss")
         plt.title("Loss evolution")
@@ -146,18 +146,12 @@ class QLearningTrainer:
         # action_spaces = self.env.action_space
         if np.random.uniform(0, 1) < proba:
             return [str(np.random.choice(self.env.action_space[key]))  for key in self.env.action_space.keys()]
-        elif self.q_table.loc[[str(states)]].replace(0, np.nan).isna().sum(axis=1).to_list()[0] == self.q_table.shape[1]:
+        elif self.q_table.loc[[str(states)]].replace(np.min(self.q_table) -100, np.nan).isna().sum(axis=1).to_list()[0] == self.q_table.shape[1]:
             # if no value exist then choose random action
             return [str(np.random.choice(self.env.action_space[key]))  for key in self.env.action_space.keys()]
         else:
-            col = self.q_table.replace(0, np.nan).loc[str(states)].argmax()
+            col = self.q_table.replace(np.min(self.q_table) -100, np.nan).loc[str(states)].argmax()
             return list(self.q_table.loc[ [str(states)]].columns[col][1])
-
-    # def reset_envrionement_multi_agent(self):
-    #     num_agents = len(self.env.action_space.keys())
-    #     states = {key : self.env.state_for_q_table() for key, _ in zip(self.env.action_space.keys(), range(num_agents))}
-    #     # states, done, current_iter, iter_out_of_bound
-    #     return states, [False] * len(self.env.action_space.keys()), 0, 0
 
     def update_q_values(self,
                         current_state : str,
@@ -366,7 +360,7 @@ class QLearningTrainer:
                     print("Look like nothing to learn anymore, stop training")
                     break
         #replace 0 by nan
-        self.q_table.replace(self.q_table.values.min() - 100, np.nan)
+        # self.q_table.replace(self.q_table.values.min() - 100, np.nan)
 
     
     def pivot_index_dataframe(self, convert_state_variables = True, convert :str = "float", episode : int = -1) -> pd.DataFrame:
