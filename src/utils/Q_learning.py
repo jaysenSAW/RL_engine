@@ -170,11 +170,14 @@ class QLearningTrainer:
             reward (float): Immediate reward.
         """
         # 1st term
+        print("current_state : ", current_state)
         level0_col = self.q_table.columns[0][0]
         current_q_value = self.q_table.loc[
             [current_state],
             [(level0_col, tuple(actions))]
         ].to_numpy().flatten()[-1]
+        print("level0_col : ", level0_col)
+        print("current_q_value : ", current_q_value)
         # 2nd term
         # get maximum value for next state
         next_max_q_value = self.q_table.loc[str(next_state)].max()
@@ -191,9 +194,11 @@ class QLearningTrainer:
             # compute next state and its reward value
             _, next_rewards, done, problem, info = tmp.env.step(col[indice])
             next_max_q_value = sum(next_rewards.values())
+        print("next_max_q_value : ", next_max_q_value)
         # 3rd term
         updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value)
         # update q_table
+        print("updated_q : ", updated_q)
         self.q_table.loc[
             [current_state],
             [(level0_col, tuple(actions)) ]
@@ -341,8 +346,8 @@ class QLearningTrainer:
                         pd.DataFrame(self.env.rewards).add_prefix('reward_')
                     ], axis = 1)
             )
-            self.q_table_for_all_episodes.append(self.q_table.copy().replace(self.q_table.values.min() - 100, np.nan))
-            # self.all_episodes.append(self.q_table.copy())
+            # self.q_table_for_all_episodes.append(self.q_table.copy().replace(0, np.nan))
+            self.q_table_for_all_episodes.append(self.q_table.copy())
             ###############################################
             # self.max_prob -= self.decrease_prob_exp
             print("end while loop iteration : ", current_iter)

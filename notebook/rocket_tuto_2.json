@@ -1,5 +1,5 @@
 {
-    "states_variables" : ["pos_y",  "acceleration_y", "speed_y"],
+    "states_variables" : ["pos_y"],
     "agent_variables" : ["booster"],
     "initial_values" : {
       "pos_y" : [175.0],
@@ -19,7 +19,7 @@
       },
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
-      "pos_y" : [0.0, 200.0, 41],
+      "pos_y" : [0.0, 200.0, 51],
       "acceleration_y": [-20.0, 20.0, 21],
       "speed_y": [-50.0, 50.0, 21],
       "angle" : [-0.8, 0.8, 17],

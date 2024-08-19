@@ -1,2 +1,4 @@
 venv
 *.pyc
+**/next_state_compute.py
+next_state_compute.py
