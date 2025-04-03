@@ -1,5 +1,5 @@
 {
-    "states_variables" : ["pos_y", "weight_rocket"],
+    "states_variables" : ["pos_y", "weight_rocket", "speed_y"],
     "agent_variables" : ["booster"],
     "initial_values" : {
       "pos_y" : [175.0],
@@ -25,7 +25,8 @@
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
-      "m_fuel" : [0.0, 100, 201]
+      "m_fuel" : [0.0, 100, 201],
+      "weight_rocket" : [0.0, 105, 21]
     },
     "n_action" : {
       "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0}
