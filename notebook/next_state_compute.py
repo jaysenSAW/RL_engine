@@ -19,7 +19,7 @@ def compute_equations_variables(state) -> dict:
 
 
 def compute_equations_rewards(state) -> dict:
-	distance_y_reward = np.array([ np.abs( (state["pos_y"] - state["pos_y_star"])/(state["pos_y_ini"] - state["pos_y_star"]) ) ]).flatten()
+	distance_y_reward = np.array([ np.abs( state["pos_y"] - state["pos_y_star"]) ]).flatten()
 	acceleration_limit = np.array([ 5 ]).flatten()
 	acceleration_y_reward = np.array([ np.exp(1) - np.exp( np.max([ np.max( np.abs(state["acceleration_y"])/acceleration_limit), 1 ]) ) ]).flatten()
 	speed_limit = np.array([ 17 ]).flatten()
