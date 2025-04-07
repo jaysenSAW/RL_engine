@@ -1,16 +1,16 @@
 {
-    "states_variables" : ["pos_y", "weight_rocket", "speed_y"],
+    "states_variables" : ["pos_y", "speed_y", "weight_rocket"],
     "agent_variables" : ["booster"],
     "initial_values" : {
       "pos_y" : [175.0],
-      "acceleration_y": [0.0],
       "speed_y": [0.0],
+      "weight_rocket" : [105],
       "booster" : [0.0],
       "angle" : [0.0],
       "alpha" : [0.0],
+      "acceleration_y": [0.0],
       "m_fuel" : [100],
       "futur_pos_y" : [175.0],
-      "weight_rocket" : [105],
       "weight_dry_rocket" : [5],
       "G" : [1.62],
       "m_fuel_ini" : [100.0],
@@ -20,13 +20,13 @@
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
       "pos_y" : [0.0, 200.0, 51],
-      "acceleration_y": [-20.0, 20.0, 21],
       "speed_y": [-50.0, 50.0, 21],
+      "weight_rocket" : [0.0, 200.0, 201],
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
-      "m_fuel" : [0.0, 100, 201],
-      "weight_rocket" : [0.0, 105, 21]
+      "acceleration_y": [-20.0, 20.0, 21],
+      "m_fuel" : [0.0, 100, 201]
     },
     "n_action" : {
       "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0}

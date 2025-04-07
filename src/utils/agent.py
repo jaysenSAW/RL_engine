@@ -156,13 +156,13 @@ class Environment():
         self.rewards = {agent_var : compute_equations_rewards(
                 copy.deepcopy(self.last_state()))[agent_var] 
                        for agent_var in self.agent_variables }
-        self.start_pos = {key: value for key, value in initial_system.items() if key in self.states_variables + self.agent_variables}
-        self.current_pos = np.array([np.round(value, 6) for tmpkey, value in self.start_pos.items()]).flatten()
+        self.start_pos = {key: list(initial_system[key]) for key in self.states_variables + self.agent_variables if key in initial_system.keys()}
+        self.current_pos = np.array([np.round(initial_system[key],6) for key in self.states_variables + self.agent_variables if key in initial_system]).flatten()
         self.action_space = {tmpkey.replace(delimiter, '') : len(value) for tmpkey, value in syst_dic["n_action"].items()}
         self.actions = {tmpkey.replace(delimiter, '') : value for tmpkey, value in syst_dic["n_action"].items()}
         # Define the observation space based on your state variables
-        self.lower_lim = np.array([list(val)[0] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
-        self.upper_lim = np.array([list(val)[1] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
+        self.lower_lim = np.array([list(syst_dic['limit'][key])[0] for key in self.states_variables + self.agent_variables if key in syst_dic['limit']]).flatten()
+        self.upper_lim = np.array([list(syst_dic['limit'][key])[1] for key in self.states_variables + self.agent_variables if key in syst_dic['limit']]).flatten()
         if 'n_bins' in syst_dic.keys():
             self.n_bins = np.array([list(val)[2] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
         else:

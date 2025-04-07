@@ -31,7 +31,7 @@ def compute_equations_rewards(state) -> dict:
 	height_boundaries = np.array([ -2 + lower_boundary + upper_boundary ]).flatten()
 	ratio_fuel = np.array([ state["m_fuel"]/state["m_fuel_ini"] ]).flatten()
 	_booster = np.array([ 3 * distance_y_reward + acceleration_y_reward + speed_y_reward + 2 * height_boundaries + 0.5* ratio_fuel ]).flatten()
-	state["booster"] = np.array([ -distance_y_reward ]).flatten()
+	state["booster"] = np.array([ -distance_y_reward - np.abs(state["speed_y"]) ]).flatten()
 	return state
 
 
