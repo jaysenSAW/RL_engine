@@ -163,9 +163,12 @@ class Environment():
         # Define the observation space based on your state variables
         self.lower_lim = np.array([list(syst_dic['limit'][key])[0] for key in self.states_variables + self.agent_variables if key in syst_dic['limit']]).flatten()
         self.upper_lim = np.array([list(syst_dic['limit'][key])[1] for key in self.states_variables + self.agent_variables if key in syst_dic['limit']]).flatten()
-        if 'n_bins' in syst_dic.keys():
+        # if 'n_bins' in syst_dic.keys():
+        if all([len(item) == 3 for item in syst_dic['limit'].values()]):
             self.n_bins = np.array([list(val)[2] for key, val in syst_dic['limit'].items() if key in self.states_variables + self.agent_variables]).flatten()
         else:
+            print("number of bins was not specified for all variable.")
+            print("Use formula: \"upper_lim - lower_lim + 1\" to discretize space")
             # use upper and lower limit to discretize space with 1 unit step
             self.n_bins = self.upper_lim - self.lower_lim + 1
 
@@ -353,7 +356,8 @@ class Environment():
         labels = self.states_variables
         obs = self.discretized_observation(dico = True, start = start, end = end)
         # return tuple(obs[key] for key in labels)
-        return tuple([elmnt for key, elmnt in obs.items() if key in labels])
+        # return tuple([elmnt for key, elmnt in obs.items() if key in labels])
+        return tuple([elment[0] for key, elment in obs.items() if key in labels])
 
     def move_agent(self,
                     trigger_var : str,
