@@ -19,9 +19,9 @@
       },
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
-      "pos_y" : [0.0, 200.0, 51],
-      "speed_y": [-50.0, 50.0, 21],
-      "weight_rocket" : [0.0, 200.0, 201],
+      "pos_y" : [0.0, 200.0, 81],
+      "speed_y": [-100.0, 100.0, 101],
+      "weight_rocket" : [0.0, 200.0, 41],
       "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
@@ -29,7 +29,7 @@
       "m_fuel" : [0.0, 100, 201]
     },
     "n_action" : {
-      "booster": {"0" : 0.0, "1" : 0.5, "2" : 1.0}
+      "booster": {"0" : 0.0, "1" : 1.0, "2" : 2.0}
     },
     "_action_to_take" : "How action change agent_variables, value is taken from n_action dictionary",
     "action_to_take" : {
@@ -40,7 +40,7 @@
         "$F$" : "600",
         "$m_fuel$" : "$m_fuel$ - $booster$ *10 -$angle$ *10",
         "$weight_rocket$" : "$weight_dry_rocket$ + $m_fuel$",
-        "dt" : "0.5",
+        "dt" : "2.0",
         "$theta$" : "0.0",
         "$y_0$" : "$pos_y$",
         "$Vy_0$" : "$speed_y$",
@@ -63,7 +63,7 @@
       "height_boundaries" : "-2 + lower_boundary + upper_boundary",
       "ratio_fuel" : "$m_fuel$/$m_fuel_ini$",
       "_booster" : "3 * distance_y_reward + acceleration_y_reward + speed_y_reward + 2 * height_boundaries + 0.5* ratio_fuel",
-      "$booster$" : "-distance_y_reward - np.abs($speed_y$)" 
+      "$booster$" : "-distance_y_reward"
     }, 
     "_stop_episode" : "stop episode when goal is reach.", 
     "_stop_episode_info1" : "If feature has 1 value, its feature's value must be equal", 
