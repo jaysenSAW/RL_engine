@@ -178,8 +178,8 @@ class QLearningTrainer:
         ].to_numpy().flatten()[-1]
         print("level0_col : ", level0_col)
         print("current_q_value : ", current_q_value)
-        # 2nd term
-        # get maximum value for next state
+        # next max q_value term
+        # get maximu m value for next state
         next_max_q_value = self.q_table.loc[str(next_state)].max()
         # replace NaN values by zero to avoid error
         if np.isnan(current_q_value):
@@ -195,14 +195,16 @@ class QLearningTrainer:
             _, next_rewards, done, problem, info = tmp.env.step(col[indice])
             next_max_q_value = sum(next_rewards.values())
         print("next_max_q_value : ", next_max_q_value)
-        # 3rd term
-        updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value)
+        # 2nd term
+        # updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value)
+        updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value - current_q_value)
         # update q_table
         print("updated_q : ", updated_q)
+        print("new q value: {0:.2f} + {1:.2f} = {2:.2f}".format(current_q_value, updated_q[0], current_q_value + updated_q[0]))
         self.q_table.loc[
             [current_state],
             [(level0_col, tuple(actions)) ]
-        ] = (1 - self.learning_rate) * current_q_value + updated_q
+        ] = current_q_value + updated_q
 
     def control_loop(self,
                     current_iter : int) -> bool:
