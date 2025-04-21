@@ -1,12 +1,12 @@
 {
-    "states_variables" : ["pos_y", "speed_y", "weight_rocket"],
-    "agent_variables" : ["booster"],
+    "states_variables" : ["pos_x", "pos_y","angle", "speed_y", "weight_rocket"],
+    "agent_variables" : ["booster", "alpha"],
     "initial_values" : {
       "pos_y" : [175.0],
+      "angle" : [0.0],
       "speed_y": [0.0],
       "weight_rocket" : [105],
       "booster" : [0.0],
-      "angle" : [0.0],
       "alpha" : [0.0],
       "acceleration_y": [0.0],
       "m_fuel" : [100],
@@ -14,26 +14,32 @@
       "weight_dry_rocket" : [5],
       "G" : [1.62],
       "m_fuel_ini" : [100.0],
+      "pos_x_star": [120.0],
       "pos_y_star": [0.0],
-      "pos_y_ini" : [175.0]
+      "pos_y_ini" : [175.0],
+      "upper_boundary" : [0.0],
+      "lower_boundary" : [0.0]
       },
     "_limit" : ["min", "max", "n_bins"],
     "limit" : {
+      "pos_x" : [0.0, 300, 61],
       "pos_y" : [0.0, 200.0, 81],
+      "angle" : [-0.8, 0.8, 17],
       "speed_y": [-100.0, 100.0, 101],
       "weight_rocket" : [0.0, 200.0, 41],
-      "angle" : [-0.8, 0.8, 17],
       "booster" : [0.0, 1.0, 3],
       "alpha" : [-0.1, 0.1, 3],
       "acceleration_y": [-20.0, 20.0, 21],
       "m_fuel" : [0.0, 100, 201]
     },
     "n_action" : {
-      "booster": {"0" : 0.0, "1" : 1.0, "2" : 2.0}
+      "booster": {"0" : 0.0, "1" : 1.0, "2" : 2.0},
+      "alpha" : {"0" : -0.1, "1" : 0.0, "2" : 0.1}
     },
     "_action_to_take" : "How action change agent_variables, value is taken from n_action dictionary",
     "action_to_take" : {
-      "booster": {"$booster$" : "$action$"}
+      "booster": {"$booster$" : "$action$"},
+      "alpha": {"$alpha$" : "$alpha$ + $action$"}
     },
     "_equations" : "compute values for each equation. Variable are updated after the loop",
     "equations_variables": {
@@ -48,22 +54,27 @@
         "$acceleration_y$" : "($F$/(5+$weight_rocket$) * np.cos($angle$)) * $booster$ - $G$",
         "$speed_y$" : "($F$/(5+$weight_rocket$) * np.cos($angle$)) * $booster$ * $dt$ - $G$ * $dt$ + $Vy_0$",
         "$pos_y$": "(0.5 * $F$/(5+$weight_rocket$) * np.cos($angle$)) * $booster$ * $dt$**2 - $G$ * $dt$**2 + $Vy_0$ * $dt$ + $y_0$",
-        "$futur_pos_y$" : "$pos_y$ + 3 * $speed_y$"
+        "$futur_pos_y$" : "$pos_y$ + 3 * $speed_y$",
+        "y_lower_limit" : "0",
+        "y_upper_limit" : "200",
+        "$upper_boundary$": "-np.exp(0) + np.exp(np.min([ np.min(-$futur_pos_y$ + y_upper_limit), 0]))",
+        "$lower_boundary$": "-np.exp(0) + np.exp(np.min([ np.min($futur_pos_y$ -y_lower_limit), 0]))"
     },
     "equations_rewards": {
-      "distance_y_reward" : "np.abs( $pos_y$ - $pos_y_star$)",
+      "_distance_y_reward" : "np.abs( $pos_y$ - $pos_y_star$)",
+      "distance_y_reward" : "np.abs( ($pos_y$ - $pos_y_star$)/($pos_y_ini$ - $pos_y_star$) )",
       "acceleration_limit" : "5",
       "acceleration_y_reward" : "np.exp(1) - np.exp( np.max([ np.max( np.abs($acceleration_y$)/acceleration_limit), 1 ]) )",
-      "speed_limit" : "17",
+      "speed_limit" : "15",
       "speed_y_reward" : "np.exp(1) - np.exp( np.max([ np.max( np.abs($speed_y$)/speed_limit ), 1 ]) )",
       "y_lower_limit" : "0",
       "y_upper_limit" : "200",
-      "upper_boundary": "np.exp(np.min([ np.min(-$futur_pos_y$ + y_upper_limit), 0]))",
-      "lower_boundary": "np.exp(np.min([ np.min($futur_pos_y$ -y_lower_limit), 0]))",
+      "upper_boundary": "-np.exp(0) + np.exp(np.min([ np.min(-$futur_pos_y$ + y_upper_limit), 0]))",
+      "lower_boundary": "-np.exp(0) + np.exp(np.min([ np.min($futur_pos_y$ -y_lower_limit), 0]))",
       "height_boundaries" : "-2 + lower_boundary + upper_boundary",
       "ratio_fuel" : "$m_fuel$/$m_fuel_ini$",
       "_booster" : "3 * distance_y_reward + acceleration_y_reward + speed_y_reward + 2 * height_boundaries + 0.5* ratio_fuel",
-      "$booster$" : "-distance_y_reward"
+      "$booster$" : "-distance_y_reward * 3 + acceleration_y_reward + speed_y_reward + 0.5* ratio_fuel"
     }, 
     "_stop_episode" : "stop episode when goal is reach.", 
     "_stop_episode_info1" : "If feature has 1 value, its feature's value must be equal", 
