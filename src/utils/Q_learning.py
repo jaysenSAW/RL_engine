@@ -170,14 +170,14 @@ class QLearningTrainer:
             reward (float): Immediate reward.
         """
         # 1st term
-        print("current_state : ", current_state)
+        # print("current_state : ", current_state)
         level0_col = self.q_table.columns[0][0]
         current_q_value = self.q_table.loc[
             [current_state],
             [(level0_col, tuple(actions))]
         ].to_numpy().flatten()[-1]
-        print("level0_col : ", level0_col)
-        print("current_q_value : ", current_q_value)
+        # print("level0_col : ", level0_col)
+        # print("current_q_value : ", current_q_value)
         # next max q_value term
         # get maximu m value for next state
         next_max_q_value = self.q_table.loc[str(next_state)].max()
@@ -194,13 +194,13 @@ class QLearningTrainer:
             # compute next state and its reward value
             _, next_rewards, done, problem, info = tmp.env.step(col[indice])
             next_max_q_value = sum(next_rewards.values())
-        print("next_max_q_value : ", next_max_q_value)
+        # print("next_max_q_value : ", next_max_q_value)
         # 2nd term
         # updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value)
         updated_q = self.learning_rate * (reward + self.discount_factor * next_max_q_value - current_q_value)
         # update q_table
-        print("updated_q : ", updated_q)
-        print("new q value: {0:.2f} + {1:.2f} = {2:.2f}".format(current_q_value, updated_q[0], current_q_value + updated_q[0]))
+        # print("updated_q : ", updated_q)
+        # print("new q value: {0:.2f} + {1:.2f} = {2:.2f}".format(current_q_value, updated_q[0], current_q_value + updated_q[0]))
         self.q_table.loc[
             [current_state],
             [(level0_col, tuple(actions)) ]
