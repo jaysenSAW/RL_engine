@@ -142,3 +142,112 @@ def control_fall_simulation(JOSN_file,
     df_penalty["ratio_fuel"] = dt["m_fuel"]/dt["m_fuel_ini"]
     return dt, df_penalty
 
+def rocket_simulation(env_ref, acceleration_y_constraint = 10, speed_y_limit = 5, timestep = 0):
+    flag_booster = "0"
+    flag_to_continue = True
+    # monitor action takes for each iteration
+    actions = {"action_booster" : []} 
+    while flag_to_continue:    
+        current_state, rewards, done, problem, info = env_ref.step([flag_booster])
+        actions["action_booster"].append(flag_booster)
+        # stop simulation
+        if env_ref.pos_y[-1] < 0:
+            flag_to_continue = False
+            print("orcket is bellow the ground")
+            # delete last state because rocket is bellow to the ground
+            # env_ref.delete_last_states()
+            continue
+        elif env_ref.pos_y[-1] + timestep * env_ref.speed_y[-1] < 0 and env_ref.m_fuel[-1] > 0:
+            # to avoid futur crash, turn on rocket's engine
+            flag_booster = "1"
+            continue
+        # stop engine if there is no fuel
+        elif env_ref.m_fuel[-1] <= 0:
+            flag_booster = "0"
+            continue
+        elif np.abs(env_ref.speed_y[-1]) > speed_y_limit and env_ref.m_fuel[-1] > 0:
+            print("speed limit")
+            if env_ref.speed_y[-1] > 0:
+                print("turn off engine to reduce speed")
+                flag_booster = "0"
+            else:
+                print("turn on engine to increase speed")
+                flag_booster = "1"
+        elif np.abs(env_ref.acceleration_y[-1]) > acceleration_y_constraint and env_ref.m_fuel[-1] > 0:
+            if env_ref.acceleration_y[-1] > 0:
+                print("turn off engine to reduce acceleration")
+                flag_booster = "0"
+            else:
+                print("turn on engine to increase acceleration")
+                flag_booster = "1" 
+        elif any(done) and info[0] == "Reach goal":
+            print({val : current_state[val] for val in ['pos_y', 'acceleration_y', 'speed_y', 'booster']})
+            flag_to_continue = False
+            continue
+    tmp = pd.DataFrame(env_ref.all_states())
+    tmp["futur_position_dt+{0}".format(timestep)] = env_ref.pos_y + timestep * env_ref.speed_y
+    return tmp
+
+def plot_rocket_altitude(df):
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df.time, y=df.pos_y,
+                        mode='lines+markers',
+                        name='Height'))
+    for col in df.filter(like='futur_position_dt').columns:
+        fig.add_trace(go.Scatter(x=df.time, y=df[col],
+                            mode='lines+markers',
+                            name=col))
+    # Edit the layout
+    fig.update_layout(
+            title=dict(
+                text='Rocket\'s altitude'
+            ),
+            xaxis=dict(
+                title=dict(
+                    text='Time step'
+                )
+            ),
+            yaxis=dict(
+                title=dict(
+                    text='Altitude'
+                )
+            ),
+    )
+    fig.show()
+
+def plot_reward_rocket_monoagent(env):
+    """Plot reward component
+
+    Args:
+        env (environment): system 
+    """
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["distance_y_reward"],
+                        mode='lines+markers',
+                        name='distance_y_reward'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["speed_y_reward"],
+                        mode='lines+markers',
+                        name='speed_y_reward'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["ratio_fuel"],
+                        mode='lines+markers',
+                        name='ratio_fuel'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.rewards['booster'],
+                        mode='lines+markers',
+                        name='Sum of rewards'))
+    # Edit the layout
+    fig.update_layout(
+            title=dict(
+                text='Reward and its components'
+            ),
+            xaxis=dict(
+                title=dict(
+                    text='Time step'
+                )
+            ),
+            yaxis=dict(
+                title=dict(
+                    text='Score'
+                )
+            ),
+    )
+    fig.show()
