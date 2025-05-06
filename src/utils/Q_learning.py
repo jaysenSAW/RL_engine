@@ -90,6 +90,7 @@ class QLearningTrainer:
         self.q_table_old = self.global_q_tables(env)
         self.loss_train = None
         self.loss_episodes = []
+        self.train_sucess_episode = {}
 
     def get_epsilon(self,
                      tau : float = None,
@@ -281,7 +282,7 @@ class QLearningTrainer:
             axis = 0,
             ignore_index = True)
         
-    def training_q_learning(self, proba : float = 0.1) -> int:
+    def training_q_learning(self, proba : float = 0.1, episode : int = None) -> int:
         """
         """
         # Reset environment and get initial state for each agent (coordinate without trigger variable)
@@ -314,6 +315,11 @@ class QLearningTrainer:
             if self.monitor_action is not None:
                 self.record_actions(proba, actions)
             if any(done):
+                if info[-1] == "Reach goal":
+                    #save episode
+                    self.train_sucess_episode[episode] = {"proba" : proba,
+                                                          "states" : copy.deepcopy(self.env.all_states()),
+                                                          "rewards" : copy.deepcopy(self.env.rewards)}
                 # compute loss
                 if len(set(self.q_table.index) - set(self.q_table_old.index)) == 0:
                     self.loss_train = np.abs(np.sum([self.q_table - self.q_table_old]))
@@ -339,7 +345,7 @@ class QLearningTrainer:
             print("Episode {0}/{1}".format(episode+1, self.num_episodes))
             print("exploration_prob : {0:.3f}".format(proba[episode]))
             # save information 
-            current_iter = self.training_q_learning(proba[episode])
+            current_iter = self.training_q_learning(proba[episode], episode)
             # NEXT UPDATE SAVE Q8TALBE ACCORDING A FREQUENCY
             self.states_for_all_episodes.append(
                 pd.concat(
