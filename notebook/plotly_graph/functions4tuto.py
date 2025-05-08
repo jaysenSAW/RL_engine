@@ -153,7 +153,7 @@ def rocket_simulation(env_ref, acceleration_y_constraint = 10, speed_y_limit = 5
         # stop simulation
         if env_ref.pos_y[-1] < 0:
             flag_to_continue = False
-            print("orcket is bellow the ground")
+            print("rocket is bellow the ground")
             # delete last state because rocket is bellow to the ground
             # env_ref.delete_last_states()
             continue
