@@ -1,0 +1,4525 @@
+Episode 1/1000
+exploration_prob : 1.000
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -95.74002120016114
+end while loop iteration :  5
+Episode 2/1000
+exploration_prob : 0.985
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -17.19981044389755
+end while loop iteration :  6
+Episode 3/1000
+exploration_prob : 0.970
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -14.29134639316939
+end while loop iteration :  3
+Episode 4/1000
+exploration_prob : 0.956
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3487815251231527
+Loss : -14.29134639316939
+end while loop iteration :  3
+Episode 5/1000
+exploration_prob : 0.942
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -51.39965449851981
+end while loop iteration :  5
+Episode 6/1000
+exploration_prob : 0.928
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -229.87720495667782
+end while loop iteration :  22
+Episode 7/1000
+exploration_prob : 0.914
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -39.42948476749721
+end while loop iteration :  5
+Episode 8/1000
+exploration_prob : 0.900
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -433.8265401184934
+end while loop iteration :  14
+Episode 9/1000
+exploration_prob : 0.887
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -46.91365539038949
+end while loop iteration :  11
+Episode 10/1000
+exploration_prob : 0.874
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -11.328373096924246
+end while loop iteration :  9
+Episode 11/1000
+exploration_prob : 0.861
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -74.69854731302182
+end while loop iteration :  20
+Episode 12/1000
+exploration_prob : 0.848
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -254.09419670804033
+end while loop iteration :  20
+Episode 13/1000
+exploration_prob : 0.835
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -37.25781422512487
+end while loop iteration :  13
+Episode 14/1000
+exploration_prob : 0.823
+No action possible. Stop episode at 2th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -15.145059027596101
+end while loop iteration :  2
+Episode 15/1000
+exploration_prob : 0.811
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -47.297541865750546
+end while loop iteration :  3
+Episode 16/1000
+exploration_prob : 0.799
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -191.28376516597413
+end while loop iteration :  12
+Episode 17/1000
+exploration_prob : 0.787
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -30.31282219668199
+end while loop iteration :  9
+Episode 18/1000
+exploration_prob : 0.775
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4172227166984138
+Loss : -11.769059106682496
+end while loop iteration :  9
+Episode 19/1000
+exploration_prob : 0.763
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -23.756487198143173
+end while loop iteration :  7
+Episode 20/1000
+exploration_prob : 0.752
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -70.59293115814528
+end while loop iteration :  9
+Episode 21/1000
+exploration_prob : 0.741
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -35.441753447620506
+end while loop iteration :  10
+Episode 22/1000
+exploration_prob : 0.730
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -55.422631587017
+end while loop iteration :  9
+Episode 23/1000
+exploration_prob : 0.719
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -35.93938922689898
+end while loop iteration :  10
+Episode 24/1000
+exploration_prob : 0.708
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -39.30648118552083
+end while loop iteration :  18
+Episode 25/1000
+exploration_prob : 0.698
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -49.28728386330588
+end while loop iteration :  6
+Episode 26/1000
+exploration_prob : 0.687
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -49.535815331702004
+end while loop iteration :  8
+Episode 27/1000
+exploration_prob : 0.677
+No action possible. Stop episode at 2th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -10.749946442630739
+end while loop iteration :  2
+Episode 28/1000
+exploration_prob : 0.667
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -21.114867405202602
+end while loop iteration :  4
+Episode 29/1000
+exploration_prob : 0.657
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  9.990786167023096
+Loss : -96.28800254622422
+end while loop iteration :  5
+Episode 30/1000
+exploration_prob : 0.647
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -109.20312197956216
+end while loop iteration :  7
+Episode 31/1000
+exploration_prob : 0.638
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -270.2529829578226
+end while loop iteration :  8
+Episode 32/1000
+exploration_prob : 0.628
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -30.681003962551053
+end while loop iteration :  19
+Episode 33/1000
+exploration_prob : 0.619
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -85.80298817864178
+end while loop iteration :  5
+Episode 34/1000
+exploration_prob : 0.610
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.38619221944428095
+Loss : -15.110865159432858
+end while loop iteration :  3
+Episode 35/1000
+exploration_prob : 0.600
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -27.44320516411682
+end while loop iteration :  8
+Episode 36/1000
+exploration_prob : 0.592
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.078271337306596
+end while loop iteration :  11
+Episode 37/1000
+exploration_prob : 0.583
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -99.23108745997018
+end while loop iteration :  18
+Episode 38/1000
+exploration_prob : 0.574
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.2311883220871875
+Loss : -47.297541865750546
+end while loop iteration :  3
+Episode 39/1000
+exploration_prob : 0.566
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -154.7934928420379
+end while loop iteration :  15
+Episode 40/1000
+exploration_prob : 0.557
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  10.95031710817301
+Loss : -101.11097821175646
+end while loop iteration :  7
+Episode 41/1000
+exploration_prob : 0.549
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -14.887398675585294
+end while loop iteration :  17
+Episode 42/1000
+exploration_prob : 0.541
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -57.16609388236495
+end while loop iteration :  4
+Episode 43/1000
+exploration_prob : 0.533
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -116.21862105722015
+end while loop iteration :  12
+Episode 44/1000
+exploration_prob : 0.525
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -202.18727102090855
+end while loop iteration :  9
+Episode 45/1000
+exploration_prob : 0.517
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -85.03861876214943
+end while loop iteration :  10
+Episode 46/1000
+exploration_prob : 0.509
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -62.14713661168777
+end while loop iteration :  4
+Episode 47/1000
+exploration_prob : 0.502
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -67.21323210628296
+end while loop iteration :  12
+Episode 48/1000
+exploration_prob : 0.494
+No action possible. Stop episode at 2th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3303990893462469
+Loss : -10.749946442630739
+end while loop iteration :  2
+Episode 49/1000
+exploration_prob : 0.487
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.679203139920553
+Loss : -97.7891288661146
+end while loop iteration :  7
+Episode 50/1000
+exploration_prob : 0.480
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4184353197769228
+Loss : -12.48319107249307
+end while loop iteration :  9
+Episode 51/1000
+exploration_prob : 0.472
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -39.98384015045097
+end while loop iteration :  10
+Episode 52/1000
+exploration_prob : 0.465
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.492242469358231
+Loss : -26.708056296394773
+end while loop iteration :  8
+Episode 53/1000
+exploration_prob : 0.458
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -26.67204725234442
+end while loop iteration :  6
+Episode 54/1000
+exploration_prob : 0.452
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -319.63480973662735
+end while loop iteration :  22
+Episode 55/1000
+exploration_prob : 0.445
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.382293196825079
+Loss : -28.86229618657004
+end while loop iteration :  9
+Episode 56/1000
+exploration_prob : 0.438
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.543094850813695
+end while loop iteration :  12
+Episode 57/1000
+exploration_prob : 0.432
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -192.13134213710288
+end while loop iteration :  17
+Episode 58/1000
+exploration_prob : 0.425
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -63.685235089451425
+end while loop iteration :  17
+Episode 59/1000
+exploration_prob : 0.419
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  10.905800119528884
+Loss : -58.01241687450154
+end while loop iteration :  5
+Episode 60/1000
+exploration_prob : 0.413
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -46.42633163108059
+end while loop iteration :  11
+Episode 61/1000
+exploration_prob : 0.407
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -151.1282332051328
+end while loop iteration :  10
+Episode 62/1000
+exploration_prob : 0.401
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.480269670493695
+Loss : -38.82183899995777
+end while loop iteration :  6
+Episode 63/1000
+exploration_prob : 0.395
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -57.12464042979169
+end while loop iteration :  13
+Episode 64/1000
+exploration_prob : 0.389
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -18.222948734641875
+end while loop iteration :  8
+Episode 65/1000
+exploration_prob : 0.383
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -127.0168559944212
+end while loop iteration :  6
+Episode 66/1000
+exploration_prob : 0.377
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3768311742273393
+Loss : -24.93092620829961
+end while loop iteration :  6
+Episode 67/1000
+exploration_prob : 0.372
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -21.769850912666712
+end while loop iteration :  10
+Episode 68/1000
+exploration_prob : 0.366
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -253.89761101801633
+end while loop iteration :  28
+Episode 69/1000
+exploration_prob : 0.361
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3416686259282125
+Loss : -24.56422098660147
+end while loop iteration :  6
+Episode 70/1000
+exploration_prob : 0.355
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -40.48618277147502
+end while loop iteration :  13
+Episode 71/1000
+exploration_prob : 0.350
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -21.252812308270656
+end while loop iteration :  3
+Episode 72/1000
+exploration_prob : 0.345
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -59.58285721761183
+end while loop iteration :  14
+Episode 73/1000
+exploration_prob : 0.340
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -97.07884342482251
+end while loop iteration :  24
+Episode 74/1000
+exploration_prob : 0.335
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -37.3331545143819
+end while loop iteration :  15
+Episode 75/1000
+exploration_prob : 0.330
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3681991290096731
+Loss : -40.71206016091654
+end while loop iteration :  14
+Episode 76/1000
+exploration_prob : 0.325
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -82.87515162571674
+end while loop iteration :  14
+Episode 77/1000
+exploration_prob : 0.320
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.31843072238051
+Loss : -57.594911540559394
+end while loop iteration :  18
+Episode 78/1000
+exploration_prob : 0.315
+stop episode because agent reach goal
+No action possible. Stop episode at 31th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -296.45633164287045
+end while loop iteration :  31
+Episode 79/1000
+exploration_prob : 0.310
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -36.219875669620485
+end while loop iteration :  7
+Episode 80/1000
+exploration_prob : 0.306
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.194470006260438
+Loss : -36.450315020237696
+end while loop iteration :  7
+Episode 81/1000
+exploration_prob : 0.301
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -217.00568833128017
+end while loop iteration :  13
+Episode 82/1000
+exploration_prob : 0.297
+No action possible. Stop episode at 2th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -33.561087450218324
+end while loop iteration :  2
+Episode 83/1000
+exploration_prob : 0.292
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -37.797734403898545
+end while loop iteration :  23
+Episode 84/1000
+exploration_prob : 0.288
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -60.80493446776417
+end while loop iteration :  7
+Episode 85/1000
+exploration_prob : 0.284
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.312177693816202
+Loss : -47.68849527464583
+end while loop iteration :  7
+Episode 86/1000
+exploration_prob : 0.279
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -76.91968908257826
+end while loop iteration :  8
+Episode 87/1000
+exploration_prob : 0.275
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -79.97367455138208
+end while loop iteration :  5
+Episode 88/1000
+exploration_prob : 0.271
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -28.009540198779483
+end while loop iteration :  7
+Episode 89/1000
+exploration_prob : 0.267
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -131.06391081895495
+end while loop iteration :  6
+Episode 90/1000
+exploration_prob : 0.263
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  17.17596012702739
+Loss : -74.1119107603054
+end while loop iteration :  8
+Episode 91/1000
+exploration_prob : 0.259
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -61.47058692006627
+end while loop iteration :  6
+Episode 92/1000
+exploration_prob : 0.255
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.1489048221680065
+Loss : -28.99845485788638
+end while loop iteration :  7
+Episode 93/1000
+exploration_prob : 0.252
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -18.190630743753648
+end while loop iteration :  12
+Episode 94/1000
+exploration_prob : 0.248
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -48.501365789342344
+end while loop iteration :  17
+Episode 95/1000
+exploration_prob : 0.244
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.503768010678494
+Loss : -60.37034165981051
+end while loop iteration :  17
+Episode 96/1000
+exploration_prob : 0.241
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -77.52513284146492
+end while loop iteration :  7
+Episode 97/1000
+exploration_prob : 0.237
+No action possible. Stop episode at 3th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.1778806979906975
+Loss : -21.879467918469693
+end while loop iteration :  3
+Episode 98/1000
+exploration_prob : 0.233
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.770319029587081
+Loss : -219.55115460898708
+end while loop iteration :  20
+Episode 99/1000
+exploration_prob : 0.230
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.33631240915285116
+Loss : -18.175882578256136
+end while loop iteration :  6
+Episode 100/1000
+exploration_prob : 0.227
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.8052676886977
+Loss : -88.47843341304349
+end while loop iteration :  15
+Episode 101/1000
+exploration_prob : 0.223
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -110.5950645213129
+end while loop iteration :  11
+Episode 102/1000
+exploration_prob : 0.220
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -59.82186815767053
+end while loop iteration :  7
+Episode 103/1000
+exploration_prob : 0.217
+No action possible. Stop episode at 25th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -111.2751294608787
+end while loop iteration :  25
+Episode 104/1000
+exploration_prob : 0.213
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.55632133946613
+end while loop iteration :  6
+Episode 105/1000
+exploration_prob : 0.210
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -22.32771210536641
+end while loop iteration :  10
+Episode 106/1000
+exploration_prob : 0.207
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -19.724814882350014
+end while loop iteration :  15
+Episode 107/1000
+exploration_prob : 0.204
+No action possible. Stop episode at 39th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -128.3772358023838
+end while loop iteration :  39
+Episode 108/1000
+exploration_prob : 0.201
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3966949482466806
+Loss : -34.17937793152072
+end while loop iteration :  7
+Episode 109/1000
+exploration_prob : 0.198
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  17.616096195432224
+Loss : -82.47459892123878
+end while loop iteration :  12
+Episode 110/1000
+exploration_prob : 0.195
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  39.22504954218013
+Loss : -187.80392451744814
+end while loop iteration :  17
+Episode 111/1000
+exploration_prob : 0.192
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.931196730206494
+Loss : -58.73394241937554
+end while loop iteration :  13
+Episode 112/1000
+exploration_prob : 0.189
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -149.2170567480748
+end while loop iteration :  14
+Episode 113/1000
+exploration_prob : 0.186
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -60.521011021492065
+end while loop iteration :  33
+Episode 114/1000
+exploration_prob : 0.184
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -32.38790119058832
+end while loop iteration :  10
+Episode 115/1000
+exploration_prob : 0.181
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -10.696584673427678
+end while loop iteration :  14
+Episode 116/1000
+exploration_prob : 0.178
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -53.69756037824362
+end while loop iteration :  10
+Episode 117/1000
+exploration_prob : 0.176
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -74.57830206276844
+end while loop iteration :  19
+Episode 118/1000
+exploration_prob : 0.173
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.517919851391235
+Loss : -50.968147511860344
+end while loop iteration :  6
+Episode 119/1000
+exploration_prob : 0.170
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -29.503940614661374
+end while loop iteration :  21
+Episode 120/1000
+exploration_prob : 0.168
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  33.610063626579326
+Loss : -155.05451899100103
+end while loop iteration :  10
+Episode 121/1000
+exploration_prob : 0.165
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -39.911247930712904
+end while loop iteration :  11
+Episode 122/1000
+exploration_prob : 0.163
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.49832443722648945
+Loss : -47.42634162007495
+end while loop iteration :  8
+Episode 123/1000
+exploration_prob : 0.160
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.49124463590130674
+Loss : -26.729252057946553
+end while loop iteration :  8
+Episode 124/1000
+exploration_prob : 0.158
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  16.90601585324502
+Loss : -76.66331281679572
+end while loop iteration :  12
+Episode 125/1000
+exploration_prob : 0.156
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.6099242239397957
+Loss : -28.016661327865542
+end while loop iteration :  12
+Episode 126/1000
+exploration_prob : 0.153
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.3235084315879906
+Loss : -34.16565959761469
+end while loop iteration :  9
+Episode 127/1000
+exploration_prob : 0.151
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  12.73637051756384
+Loss : -59.42321938568544
+end while loop iteration :  9
+Episode 128/1000
+exploration_prob : 0.149
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -56.230068561158724
+end while loop iteration :  18
+Episode 129/1000
+exploration_prob : 0.147
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0965170174133883
+Loss : -26.020113292950445
+end while loop iteration :  5
+Episode 130/1000
+exploration_prob : 0.144
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -100.71987687144812
+end while loop iteration :  15
+Episode 131/1000
+exploration_prob : 0.142
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.325283510967677
+Loss : -39.35689797144513
+end while loop iteration :  9
+Episode 132/1000
+exploration_prob : 0.140
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -36.55290257635374
+end while loop iteration :  21
+Episode 133/1000
+exploration_prob : 0.138
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.865886171544791
+Loss : -39.704181252921934
+end while loop iteration :  14
+Episode 134/1000
+exploration_prob : 0.136
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -196.82394512874683
+end while loop iteration :  7
+Episode 135/1000
+exploration_prob : 0.134
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.21978125186895633
+Loss : -44.981974181538476
+end while loop iteration :  19
+Episode 136/1000
+exploration_prob : 0.132
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.377640355478349
+Loss : -76.10819439826234
+end while loop iteration :  7
+Episode 137/1000
+exploration_prob : 0.130
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.556420415700592
+Loss : -128.4947692401953
+end while loop iteration :  14
+Episode 138/1000
+exploration_prob : 0.128
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -12.741912611205288
+end while loop iteration :  27
+Episode 139/1000
+exploration_prob : 0.126
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  46.32911136308153
+Loss : -216.79364532066683
+end while loop iteration :  13
+Episode 140/1000
+exploration_prob : 0.124
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -40.81681704839605
+end while loop iteration :  8
+Episode 141/1000
+exploration_prob : 0.122
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.8476131454302032
+Loss : -29.09633904000924
+end while loop iteration :  6
+Episode 142/1000
+exploration_prob : 0.121
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  38.40327616295407
+Loss : -186.59518997869156
+end while loop iteration :  17
+Episode 143/1000
+exploration_prob : 0.119
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -55.10010658755718
+end while loop iteration :  15
+Episode 144/1000
+exploration_prob : 0.117
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.7988106925788765
+Loss : -70.44820036806249
+end while loop iteration :  8
+Episode 145/1000
+exploration_prob : 0.115
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2298969206159764
+Loss : -20.92691917479728
+end while loop iteration :  11
+Episode 146/1000
+exploration_prob : 0.114
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.080696818365853
+Loss : -28.679858171137045
+end while loop iteration :  15
+Episode 147/1000
+exploration_prob : 0.112
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -21.58488347138669
+end while loop iteration :  12
+Episode 148/1000
+exploration_prob : 0.110
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2310077114166071
+Loss : -23.40718829108792
+end while loop iteration :  11
+Episode 149/1000
+exploration_prob : 0.109
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -17.06134529938541
+end while loop iteration :  18
+Episode 150/1000
+exploration_prob : 0.107
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.517810513046159
+Loss : -30.605869393313114
+end while loop iteration :  11
+Episode 151/1000
+exploration_prob : 0.105
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -37.55407078633589
+end while loop iteration :  17
+Episode 152/1000
+exploration_prob : 0.104
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -68.44505800576037
+end while loop iteration :  16
+Episode 153/1000
+exploration_prob : 0.102
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -203.34411614653413
+end while loop iteration :  20
+Episode 154/1000
+exploration_prob : 0.101
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -56.61183629836394
+end while loop iteration :  28
+Episode 155/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.48699962655720475
+Loss : -23.35583200600049
+end while loop iteration :  5
+Episode 156/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -77.32624511993322
+end while loop iteration :  31
+Episode 157/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.715016493703148
+Loss : -18.53946524531395
+end while loop iteration :  13
+Episode 158/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0627524449413712
+Loss : -48.5687915231581
+end while loop iteration :  10
+Episode 159/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.572822609725286
+Loss : -57.216514519751954
+end while loop iteration :  17
+Episode 160/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  39.77842998935042
+Loss : -190.91651483948348
+end while loop iteration :  20
+Episode 161/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -145.6205622517363
+end while loop iteration :  10
+Episode 162/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.39178179941636665
+Loss : -21.915678193692205
+end while loop iteration :  7
+Episode 163/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -40.09759231414549
+end while loop iteration :  8
+Episode 164/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -158.5281775565063
+end while loop iteration :  18
+Episode 165/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+No action possible. Stop episode at 38th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -676.3866730683052
+end while loop iteration :  38
+Episode 166/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -305.50767562269675
+end while loop iteration :  19
+Episode 167/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -31.622347594074167
+end while loop iteration :  13
+Episode 168/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -7.754120944018075
+end while loop iteration :  14
+Episode 169/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -80.65318500391314
+end while loop iteration :  19
+Episode 170/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -24.3596145493295
+end while loop iteration :  10
+Episode 171/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.9824446400532217
+Loss : -63.124989327207004
+end while loop iteration :  16
+Episode 172/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.960932029000336
+Loss : -36.94596117642706
+end while loop iteration :  8
+Episode 173/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  29.744000159941436
+Loss : -126.0979840194017
+end while loop iteration :  6
+Episode 174/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4995644665940625
+Loss : -30.025323198639768
+end while loop iteration :  5
+Episode 175/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -118.69027843583659
+end while loop iteration :  26
+Episode 176/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.915738816563092
+Loss : -21.756548666712646
+end while loop iteration :  19
+Episode 177/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -68.36400741205912
+end while loop iteration :  23
+Episode 178/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3881456898547312
+Loss : -47.97852255697575
+end while loop iteration :  13
+Episode 179/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.5795604822460838
+Loss : -33.135431847234
+end while loop iteration :  6
+Episode 180/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -16.393075780141377
+end while loop iteration :  17
+Episode 181/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -27.82582453384563
+end while loop iteration :  15
+Episode 182/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -38.83330933221627
+end while loop iteration :  11
+Episode 183/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -82.5830168051449
+end while loop iteration :  10
+Episode 184/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.26172933109748797
+Loss : -8.19418682583863
+end while loop iteration :  19
+Episode 185/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -17.46026726836535
+end while loop iteration :  8
+Episode 186/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -59.82765572889325
+end while loop iteration :  20
+Episode 187/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.937876437297641
+Loss : -57.86426889523629
+end while loop iteration :  13
+Episode 188/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -50.55087374833119
+end while loop iteration :  26
+Episode 189/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -159.82094456604509
+end while loop iteration :  5
+Episode 190/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -127.62957208847384
+end while loop iteration :  11
+Episode 191/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.8572736227123358
+Loss : -13.264981839763765
+end while loop iteration :  15
+Episode 192/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  25.467331188845716
+Loss : -115.63235369350254
+end while loop iteration :  11
+Episode 193/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -282.70120491272826
+end while loop iteration :  16
+Episode 194/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  23.896384258186146
+Loss : -122.81349134449918
+end while loop iteration :  18
+Episode 195/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  9.34354003912569
+Loss : -41.65515076954082
+end while loop iteration :  10
+Episode 196/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -95.678632055845
+end while loop iteration :  21
+Episode 197/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  20.810832804625917
+Loss : -97.5231743635573
+end while loop iteration :  15
+Episode 198/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -298.2959123091377
+end while loop iteration :  12
+Episode 199/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3737853901910376
+Loss : -66.37269183869543
+end while loop iteration :  13
+Episode 200/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.38985964565282516
+Loss : -47.341704165989654
+end while loop iteration :  13
+Episode 201/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05425293432928496
+Loss : -32.432341138031745
+end while loop iteration :  21
+Episode 202/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.6859934131960992
+Loss : -30.66101455782205
+end while loop iteration :  12
+Episode 203/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.56858098536587
+Loss : -33.916091447456424
+end while loop iteration :  18
+Episode 204/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -11.79666709401165
+end while loop iteration :  21
+Episode 205/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  17.736604222721265
+Loss : -92.24388205436739
+end while loop iteration :  12
+Episode 206/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06346669198197848
+Loss : -47.72017045479394
+end while loop iteration :  21
+Episode 207/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -130.36275646484148
+end while loop iteration :  21
+Episode 208/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.573295183685003
+Loss : -82.9459744420744
+end while loop iteration :  16
+Episode 209/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.004425493977095
+end while loop iteration :  13
+Episode 210/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 211/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.1380320537658783
+Loss : -25.54976732616966
+end while loop iteration :  10
+Episode 212/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -70.86879675309471
+end while loop iteration :  18
+Episode 213/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.783017437614042
+Loss : -74.44246218036574
+end while loop iteration :  19
+Episode 214/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.7211716310002683
+Loss : -20.986211903858802
+end while loop iteration :  12
+Episode 215/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.1606467948053962
+Loss : -40.284188893745906
+end while loop iteration :  9
+Episode 216/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -29.361567461899938
+end while loop iteration :  12
+Episode 217/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.02237031662791962
+Loss : -8.229298216943844
+end while loop iteration :  14
+Episode 218/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3780171600736449
+Loss : -22.32405978227047
+end while loop iteration :  6
+Episode 219/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  13.597273358892707
+Loss : -68.40205858521958
+end while loop iteration :  16
+Episode 220/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4554257731088286
+Loss : -16.781231885734915
+end while loop iteration :  4
+Episode 221/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.299742500828855
+Loss : -45.59344883681935
+end while loop iteration :  18
+Episode 222/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -104.6502895070386
+end while loop iteration :  17
+Episode 223/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -35.93779510344937
+end while loop iteration :  8
+Episode 224/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.247072913357617
+Loss : -27.733586565067796
+end while loop iteration :  18
+Episode 225/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -23.662343613984937
+end while loop iteration :  17
+Episode 226/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0896035115378202
+Loss : -55.37044954920714
+end while loop iteration :  10
+Episode 227/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0353775084296373
+Loss : -46.406162658067856
+end while loop iteration :  13
+Episode 228/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.722379975705343
+Loss : -74.39874953434717
+end while loop iteration :  7
+Episode 229/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -105.02485698628686
+end while loop iteration :  12
+Episode 230/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.273097466657447
+Loss : -67.99695528226763
+end while loop iteration :  16
+Episode 231/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -121.4868249077011
+end while loop iteration :  21
+Episode 232/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3875226695566965
+Loss : -24.239656016801646
+end while loop iteration :  10
+Episode 233/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0241043362516871
+Loss : -17.81423362590662
+end while loop iteration :  13
+Episode 234/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4349073949276074
+Loss : -30.7771921172398
+end while loop iteration :  11
+Episode 235/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.7248140357459665
+Loss : -23.379650382075358
+end while loop iteration :  13
+Episode 236/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -170.4608767743429
+end while loop iteration :  23
+Episode 237/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -11.502402709337861
+end while loop iteration :  14
+Episode 238/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  15.223399191800622
+Loss : -116.56614277531429
+end while loop iteration :  19
+Episode 239/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -11.655758787764583
+end while loop iteration :  12
+Episode 240/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -24.33540094137874
+end while loop iteration :  25
+Episode 241/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -32.88266737427962
+end while loop iteration :  40
+Episode 242/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0026654983605439
+Loss : -28.166108880459
+end while loop iteration :  16
+Episode 243/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  40.76342838971371
+Loss : -210.33770910846778
+end while loop iteration :  20
+Episode 244/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -62.825490178928234
+end while loop iteration :  22
+Episode 245/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  15.178228222813292
+Loss : -93.33566757238339
+end while loop iteration :  19
+Episode 246/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03448390842818053
+Loss : -10.203447226413227
+end while loop iteration :  16
+Episode 247/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  18.059995840275427
+Loss : -83.25517207687108
+end while loop iteration :  12
+Episode 248/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05559395850704101
+Loss : -12.317385778650996
+end while loop iteration :  21
+Episode 249/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -89.66799134707645
+end while loop iteration :  22
+Episode 250/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05921112075382681
+Loss : -10.023435351727723
+end while loop iteration :  12
+Episode 251/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.3009132206335385
+Loss : -88.4679330639204
+end while loop iteration :  7
+Episode 252/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  24.10986793100724
+Loss : -135.74385689215643
+end while loop iteration :  21
+Episode 253/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -99.58985745909362
+end while loop iteration :  14
+Episode 254/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -12.928438060009407
+end while loop iteration :  19
+Episode 255/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.30498119421178416
+Loss : -24.93092620829961
+end while loop iteration :  6
+Episode 256/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  24.502527988477926
+Loss : -127.09456764180024
+end while loop iteration :  21
+Episode 257/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.16476842541287
+Loss : -48.62850618191415
+end while loop iteration :  12
+Episode 258/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -202.93001476153938
+end while loop iteration :  23
+Episode 259/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  23.377207613607222
+Loss : -157.1046503422164
+end while loop iteration :  21
+Episode 260/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.07693630292315085
+Loss : -8.315591234422428
+end while loop iteration :  12
+Episode 261/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.6727000108878274
+Loss : -68.77466048397933
+end while loop iteration :  8
+Episode 262/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.07735287784965456
+Loss : -13.63482592356506
+end while loop iteration :  12
+Episode 263/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -79.05121756554954
+end while loop iteration :  19
+Episode 264/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.36836758120565194
+Loss : -32.15854313169035
+end while loop iteration :  13
+Episode 265/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.013910014333834
+Loss : -14.157871449663343
+end while loop iteration :  10
+Episode 266/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -8.987329519693274
+end while loop iteration :  24
+Episode 267/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.9212288855344206
+Loss : -58.43594750496512
+end while loop iteration :  8
+Episode 268/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  12.963095258472274
+Loss : -58.099135077080675
+end while loop iteration :  9
+Episode 269/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.37324441610505765
+Loss : -26.867072073289695
+end while loop iteration :  13
+Episode 270/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.291958460840949
+Loss : -56.28938487390258
+end while loop iteration :  23
+Episode 271/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -12.131431998465636
+end while loop iteration :  11
+Episode 272/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.698682479966269
+Loss : -27.627672345394103
+end while loop iteration :  17
+Episode 273/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  24.988655270553593
+Loss : -114.85891616107601
+end while loop iteration :  11
+Episode 274/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.789728197179148
+Loss : -79.54882874630644
+end while loop iteration :  19
+Episode 275/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.877134570317697
+Loss : -102.23403512466405
+end while loop iteration :  12
+Episode 276/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04972359656399672
+Loss : -10.193591007304265
+end while loop iteration :  12
+Episode 277/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04724100787572327
+Loss : -8.315591234422428
+end while loop iteration :  12
+Episode 278/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2836525182315996
+Loss : -37.77955737418928
+end while loop iteration :  9
+Episode 279/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -27.238630399103172
+end while loop iteration :  19
+Episode 280/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.760792867823003
+Loss : -80.88747850048695
+end while loop iteration :  19
+Episode 281/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -26.19133513942251
+end while loop iteration :  4
+Episode 282/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -197.0023743890357
+end while loop iteration :  24
+Episode 283/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0422537827665343
+Loss : -8.108794874733027
+end while loop iteration :  12
+Episode 284/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.519838723405996
+Loss : -29.952318730509432
+end while loop iteration :  11
+Episode 285/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.319715347745396
+Loss : -77.16670256023748
+end while loop iteration :  22
+Episode 286/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -80.878326731962
+end while loop iteration :  8
+Episode 287/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -64.73798145866712
+end while loop iteration :  19
+Episode 288/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03014162670707221
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 289/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.94527478318063
+end while loop iteration :  14
+Episode 290/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0443266176213084
+Loss : -43.15808668877632
+end while loop iteration :  10
+Episode 291/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -143.53436581720763
+end while loop iteration :  39
+Episode 292/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  21.369985972042215
+Loss : -181.63234347804848
+end while loop iteration :  24
+Episode 293/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -48.41303696181636
+end while loop iteration :  6
+Episode 294/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 29th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -47.874024280926164
+end while loop iteration :  29
+Episode 295/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  47.44950023030674
+Loss : -216.98968542027563
+end while loop iteration :  13
+Episode 296/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05661492337134466
+Loss : -8.229405894618436
+end while loop iteration :  12
+Episode 297/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04567800774642411
+Loss : -8.26093894402102
+end while loop iteration :  12
+Episode 298/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 27th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -104.16501722178276
+end while loop iteration :  27
+Episode 299/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.766993159845379
+Loss : -65.96237994238689
+end while loop iteration :  17
+Episode 300/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.995370737623031
+Loss : -75.75664056044201
+end while loop iteration :  21
+Episode 301/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.8782432585491121
+Loss : -16.647973043303473
+end while loop iteration :  18
+Episode 302/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -18.732633918864288
+end while loop iteration :  6
+Episode 303/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.643186605107946
+Loss : -44.190736701030524
+end while loop iteration :  6
+Episode 304/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -69.51333999932075
+end while loop iteration :  15
+Episode 305/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2809592139833859
+Loss : -37.82112126995274
+end while loop iteration :  9
+Episode 306/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.8700423430299893
+Loss : -26.69503656968302
+end while loop iteration :  8
+Episode 307/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 27th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -175.99689618349117
+end while loop iteration :  27
+Episode 308/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0589288040788547
+Loss : -41.73110179823382
+end while loop iteration :  10
+Episode 309/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+No action possible. Stop episode at 41th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -279.78700615316495
+end while loop iteration :  41
+Episode 310/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -54.35093780411578
+end while loop iteration :  26
+Episode 311/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.222135108953294
+Loss : -84.75285835023547
+end while loop iteration :  11
+Episode 312/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.9497706954140086
+Loss : -54.279749166814284
+end while loop iteration :  10
+Episode 313/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  65.41194323893858
+Loss : -327.3596934627801
+end while loop iteration :  22
+Episode 314/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0606753612411291
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 315/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  32.97172654596573
+Loss : -156.01486935326818
+end while loop iteration :  14
+Episode 316/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 31th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -935.5926715664599
+end while loop iteration :  31
+Episode 317/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.98483748684603
+Loss : -44.395280001304336
+end while loop iteration :  19
+Episode 318/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  36.84613026056038
+Loss : -193.6875675864078
+end while loop iteration :  23
+Episode 319/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 40th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -145.68737013430282
+end while loop iteration :  40
+Episode 320/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -198.53639043614825
+end while loop iteration :  24
+Episode 321/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  15.138791321666458
+Loss : -230.2232567288471
+end while loop iteration :  19
+Episode 322/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.40040028956431
+Loss : -120.37699211627401
+end while loop iteration :  22
+Episode 323/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06110480060159845
+Loss : -7.616253968618429
+end while loop iteration :  12
+Episode 324/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.63779693995432
+Loss : -44.41660046962026
+end while loop iteration :  6
+Episode 325/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3716061480790983
+Loss : -48.895794932259804
+end while loop iteration :  13
+Episode 326/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 25th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.164558246935133
+Loss : -61.601856402260736
+end while loop iteration :  25
+Episode 327/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.901200743797969
+Loss : -78.82503165794103
+end while loop iteration :  28
+Episode 328/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -53.30495541281817
+end while loop iteration :  13
+Episode 329/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.569022257439935
+Loss : -57.00028101237324
+end while loop iteration :  12
+Episode 330/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  12.449156047122301
+Loss : -80.51600592504077
+end while loop iteration :  13
+Episode 331/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0546078251170162
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 332/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.22211077031245
+Loss : -82.24981457645293
+end while loop iteration :  16
+Episode 333/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -57.4673250626234
+end while loop iteration :  12
+Episode 334/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  39.72406239476199
+Loss : -233.55707270099748
+end while loop iteration :  20
+Episode 335/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.81792184189947
+Loss : -126.03424188513621
+end while loop iteration :  21
+Episode 336/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3986118161601245
+Loss : -30.15288234676094
+end while loop iteration :  7
+Episode 337/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03884911717613537
+Loss : -10.062739636785295
+end while loop iteration :  13
+Episode 338/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04914704260531458
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 339/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04462734878426011
+Loss : -11.425813863022167
+end while loop iteration :  12
+Episode 340/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 43th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -362.245874983146
+end while loop iteration :  43
+Episode 341/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+No action possible. Stop episode at 79th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -499.2689285729456
+end while loop iteration :  79
+Episode 342/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.666117055639651
+Loss : -74.93707259918874
+end while loop iteration :  13
+Episode 343/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -186.513781520204
+end while loop iteration :  26
+Episode 344/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.9961911036498109
+Loss : -46.88501481536715
+end while loop iteration :  13
+Episode 345/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.3680298281481384
+Loss : -80.24905880525006
+end while loop iteration :  19
+Episode 346/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  14.711965370329299
+Loss : -132.84638058861896
+end while loop iteration :  6
+Episode 347/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3750956868991834
+Loss : -18.882405162797916
+end while loop iteration :  6
+Episode 348/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6439203787950618
+Loss : -24.015023945435637
+end while loop iteration :  21
+Episode 349/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  29.590429411523218
+Loss : -200.64814895206285
+end while loop iteration :  26
+Episode 350/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  21.300247675606784
+Loss : -148.3705562135178
+end while loop iteration :  15
+Episode 351/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.959575668566105
+Loss : -67.70532214334186
+end while loop iteration :  9
+Episode 352/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  24.55762135217674
+Loss : -122.27980527083253
+end while loop iteration :  18
+Episode 353/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  9.166154099432907
+Loss : -73.16798719879071
+end while loop iteration :  17
+Episode 354/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -92.26870507909501
+end while loop iteration :  20
+Episode 355/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -40.507461562849755
+end while loop iteration :  11
+Episode 356/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -51.332569442260706
+end while loop iteration :  23
+Episode 357/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 43th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -67.59347126735726
+end while loop iteration :  43
+Episode 358/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -58.308119977500624
+end while loop iteration :  9
+Episode 359/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.854474928093379
+Loss : -32.33349811549202
+end while loop iteration :  21
+Episode 360/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  20.98065512844473
+Loss : -124.8897873724816
+end while loop iteration :  24
+Episode 361/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.36431460743244515
+Loss : -46.27287848089534
+end while loop iteration :  12
+Episode 362/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 32th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -156.11184073990918
+end while loop iteration :  32
+Episode 363/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03929859835922142
+Loss : -55.97063693599655
+end while loop iteration :  15
+Episode 364/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -63.28897431883246
+end while loop iteration :  28
+Episode 365/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06255963581855299
+Loss : -9.28139165392516
+end while loop iteration :  21
+Episode 366/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -19.678120118491698
+end while loop iteration :  13
+Episode 367/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -58.86390104978932
+end while loop iteration :  26
+Episode 368/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.029899904731176402
+Loss : -10.193591007304265
+end while loop iteration :  12
+Episode 369/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -31.19065188464765
+end while loop iteration :  22
+Episode 370/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.052004330068320975
+Loss : -7.616253968618429
+end while loop iteration :  12
+Episode 371/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 34th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -141.26469493070974
+end while loop iteration :  34
+Episode 372/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.1910571932695502
+Loss : -38.223598049293784
+end while loop iteration :  12
+Episode 373/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.2932497852689084
+Loss : -38.959500742094434
+end while loop iteration :  14
+Episode 374/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04680233294769959
+Loss : -8.26093894402102
+end while loop iteration :  12
+Episode 375/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.9806148181423944
+Loss : -53.516728660684244
+end while loop iteration :  13
+Episode 376/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.717391629183396
+Loss : -89.0654844032465
+end while loop iteration :  8
+Episode 377/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -86.58782467797155
+end while loop iteration :  23
+Episode 378/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05895551390540632
+Loss : -6.288879821242407
+end while loop iteration :  26
+Episode 379/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.035924678639156576
+Loss : -9.522932898172332
+end while loop iteration :  17
+Episode 380/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03609884077955473
+Loss : -26.320537034379832
+end while loop iteration :  15
+Episode 381/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.1341386603356598
+Loss : -107.58398994577867
+end while loop iteration :  10
+Episode 382/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -82.87743270974917
+end while loop iteration :  11
+Episode 383/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -63.065888904539946
+end while loop iteration :  48
+Episode 384/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06135105347059027
+Loss : -10.77714056789962
+end while loop iteration :  21
+Episode 385/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6840040706105074
+Loss : -56.41847936538977
+end while loop iteration :  11
+Episode 386/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04211163369153098
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 387/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0051322184674641004
+Loss : -15.995227210603101
+end while loop iteration :  20
+Episode 388/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -92.23923272149484
+end while loop iteration :  20
+Episode 389/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.037900470322377866
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 390/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -118.64123668359261
+end while loop iteration :  13
+Episode 391/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 29th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -125.71220214763628
+end while loop iteration :  29
+Episode 392/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.541665682990954
+Loss : -40.59163148900463
+end while loop iteration :  6
+Episode 393/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -81.64589149389148
+end while loop iteration :  11
+Episode 394/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.7777877563379392
+Loss : -64.55009450477164
+end while loop iteration :  11
+Episode 395/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  21.43514279045533
+Loss : -140.88132139674096
+end while loop iteration :  24
+Episode 396/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03411042329014008
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 397/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.9957351314979841
+Loss : -48.42367362502202
+end while loop iteration :  13
+Episode 398/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.6216783637852316
+Loss : -28.70705488273297
+end while loop iteration :  21
+Episode 399/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -76.96182267616423
+end while loop iteration :  19
+Episode 400/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.7496241623297415
+Loss : -47.94788304108414
+end while loop iteration :  26
+Episode 401/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 37th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -183.443973718422
+end while loop iteration :  37
+Episode 402/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.946476279550782
+Loss : -68.02617917893946
+end while loop iteration :  10
+Episode 403/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  13.3317423520404
+Loss : -140.44735510279045
+end while loop iteration :  6
+Episode 404/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.0061093781861274
+Loss : -58.957258744028756
+end while loop iteration :  13
+Episode 405/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.8132688001686041
+Loss : -88.41915095910329
+end while loop iteration :  18
+Episode 406/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -6.389697129506558
+end while loop iteration :  16
+Episode 407/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05144820947456908
+Loss : -6.984632949221415
+end while loop iteration :  21
+Episode 408/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.9141427528050876
+Loss : -65.85737413193337
+end while loop iteration :  12
+Episode 409/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.000347071055357
+Loss : -67.69979912799906
+end while loop iteration :  12
+Episode 410/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.04569449634634818
+Loss : -13.116769294345184
+end while loop iteration :  15
+Episode 411/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -13.756934775505783
+end while loop iteration :  30
+Episode 412/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 5th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4918085598088901
+Loss : -29.09544032284311
+end while loop iteration :  5
+Episode 413/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.173063664201365
+Loss : -44.373159073317254
+end while loop iteration :  18
+Episode 414/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 25th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.4847810265312
+Loss : -83.04610155736201
+end while loop iteration :  25
+Episode 415/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -74.34925710335325
+end while loop iteration :  16
+Episode 416/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.030699380961126066
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 417/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.01862480302398
+Loss : -87.91666859486298
+end while loop iteration :  15
+Episode 418/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  13.975809983292539
+Loss : -73.82336237738923
+end while loop iteration :  22
+Episode 419/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 45th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -210.44439772306515
+end while loop iteration :  45
+Episode 420/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.027629442865013454
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 421/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4203920856144467
+Loss : -52.419755660314365
+end while loop iteration :  14
+Episode 422/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.77108835993094
+Loss : -71.51124080609452
+end while loop iteration :  10
+Episode 423/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4453276917422481
+Loss : -65.7869028784668
+end while loop iteration :  17
+Episode 424/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.030929318964807634
+Loss : -8.246360352786166
+end while loop iteration :  17
+Episode 425/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.024866498578512086
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 426/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.022390314682059598
+Loss : -8.26093894402102
+end while loop iteration :  12
+Episode 427/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -85.56255952391442
+end while loop iteration :  15
+Episode 428/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -83.01458623692588
+end while loop iteration :  21
+Episode 429/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.020140817252454923
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 430/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 31th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -42.2201618123834
+end while loop iteration :  31
+Episode 431/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -81.22206464105673
+end while loop iteration :  11
+Episode 432/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0030328780437897107
+Loss : -8.108794874733027
+end while loop iteration :  12
+Episode 433/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 42th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.554233788468647
+Loss : -148.5290210881995
+end while loop iteration :  42
+Episode 434/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.045048471483616466
+Loss : -21.749445682564133
+end while loop iteration :  15
+Episode 435/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -26.68317044035703
+end while loop iteration :  19
+Episode 436/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 31th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -187.41392314267395
+end while loop iteration :  31
+Episode 437/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -342.425969396934
+end while loop iteration :  19
+Episode 438/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.018442053406776404
+Loss : -7.616253968618429
+end while loop iteration :  12
+Episode 439/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  35.04195740354373
+Loss : -156.9440896362185
+end while loop iteration :  10
+Episode 440/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.47744947256944015
+Loss : -54.84008994309505
+end while loop iteration :  17
+Episode 441/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.016585817990910745
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 442/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.45271923335828074
+Loss : -101.30760136578192
+end while loop iteration :  14
+Episode 443/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.400259144559218
+Loss : -44.87706342668331
+end while loop iteration :  6
+Episode 444/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.3244817355613716
+Loss : -103.39162478826688
+end while loop iteration :  24
+Episode 445/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.018204315429142
+Loss : -53.85368060608659
+end while loop iteration :  10
+Episode 446/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  8.101448979348374
+Loss : -101.02119244088885
+end while loop iteration :  11
+Episode 447/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 25th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  11.60599852462559
+Loss : -116.64588401357688
+end while loop iteration :  25
+Episode 448/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -84.64443353978248
+end while loop iteration :  14
+Episode 449/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 31th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -119.40010062886284
+end while loop iteration :  31
+Episode 450/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05558472869014658
+Loss : -14.054600215762763
+end while loop iteration :  12
+Episode 451/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.007682490095218486
+Loss : -8.024818299486212
+end while loop iteration :  12
+Episode 452/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -16.71474007996573
+end while loop iteration :  23
+Episode 453/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -99.45092736003826
+end while loop iteration :  23
+Episode 454/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.0069564662434964
+Loss : -63.962550032801474
+end while loop iteration :  13
+Episode 455/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -88.18911877631625
+end while loop iteration :  43
+Episode 456/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 24th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.3685637564029003
+Loss : -73.58465844524697
+end while loop iteration :  24
+Episode 457/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.42978380867490995
+Loss : -46.434768170808454
+end while loop iteration :  14
+Episode 458/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.923636701456162
+Loss : -97.74823115068591
+end while loop iteration :  12
+Episode 459/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.11459154793189
+Loss : -67.69390126527956
+end while loop iteration :  12
+Episode 460/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0067827759961877065
+Loss : -8.229405894618436
+end while loop iteration :  12
+Episode 461/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.004785850770038902
+Loss : -8.108794874733027
+end while loop iteration :  12
+Episode 462/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6898193945264305
+Loss : -30.43752584428157
+end while loop iteration :  11
+Episode 463/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -15.501583619331969
+end while loop iteration :  9
+Episode 464/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.053512314684915296
+Loss : -16.08515519180327
+end while loop iteration :  12
+Episode 465/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04471774118931954
+Loss : -16.261976691197123
+end while loop iteration :  12
+Episode 466/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.38262562897333113
+Loss : -56.31062742988723
+end while loop iteration :  19
+Episode 467/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -11.518706337728574
+end while loop iteration :  9
+Episode 468/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6310746303789738
+Loss : -28.39146434243033
+end while loop iteration :  11
+Episode 469/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06162795855746081
+Loss : -6.389697129506558
+end while loop iteration :  16
+Episode 470/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.4440620366683053
+Loss : -74.77703632246536
+end while loop iteration :  17
+Episode 471/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -104.47007047612684
+end while loop iteration :  13
+Episode 472/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05679897499370489
+Loss : -52.31046343655208
+end while loop iteration :  27
+Episode 473/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -110.70319169818899
+end while loop iteration :  16
+Episode 474/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.01685234787796419
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 475/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -89.56745126034292
+end while loop iteration :  17
+Episode 476/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.01556388063175973
+Loss : -10.690547017981887
+end while loop iteration :  12
+Episode 477/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -9.390236927966837
+end while loop iteration :  11
+Episode 478/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 21th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  23.351020481590375
+Loss : -176.96201362551727
+end while loop iteration :  21
+Episode 479/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  1.1844499090300233
+Loss : -13.616105124156979
+end while loop iteration :  11
+Episode 480/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3103964218615134
+Loss : -38.277052236898164
+end while loop iteration :  13
+Episode 481/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.013610725026991788
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 482/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.266376295135374
+Loss : -42.63845223225429
+end while loop iteration :  12
+Episode 483/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.012249652524292665
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 484/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.24817769309854132
+Loss : -10.514407471014467
+end while loop iteration :  19
+Episode 485/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 33th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -248.5503470229281
+end while loop iteration :  33
+Episode 486/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.011024687271863343
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 487/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -81.31681969021717
+end while loop iteration :  11
+Episode 488/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.027167335215421112
+Loss : -8.589467306034782
+end while loop iteration :  13
+Episode 489/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.009997941556034395
+Loss : -8.024818299486212
+end while loop iteration :  12
+Episode 490/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 35th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -321.62364804155885
+end while loop iteration :  35
+Episode 491/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.755729095837005
+Loss : -38.61106595181603
+end while loop iteration :  22
+Episode 492/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.007548034684392024
+Loss : -8.108794874733027
+end while loop iteration :  12
+Episode 493/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.34144395674837463
+Loss : -22.145280367840215
+end while loop iteration :  6
+Episode 494/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0692087266183992
+Loss : -8.102349133680116
+end while loop iteration :  12
+Episode 495/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -82.8952780374354
+end while loop iteration :  18
+Episode 496/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.011676816168719628
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 497/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 34th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -137.79855382888934
+end while loop iteration :  34
+Episode 498/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -70.80513099353514
+end while loop iteration :  29
+Episode 499/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.0312924025540755
+Loss : -59.711696179460006
+end while loop iteration :  13
+Episode 500/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.04578653793175089
+Loss : -11.893628197613587
+end while loop iteration :  21
+Episode 501/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.736293279399098
+Loss : -74.3989949050135
+end while loop iteration :  23
+Episode 502/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 27th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -419.50601620110945
+end while loop iteration :  27
+Episode 503/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  43.7147717087851
+Loss : -228.9329451171405
+end while loop iteration :  28
+Episode 504/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.38210228241115873
+Loss : -24.306563948183495
+end while loop iteration :  10
+Episode 505/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -42.38153131751075
+end while loop iteration :  31
+Episode 506/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.061264738860131424
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 507/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.043024681652979
+Loss : -34.15380500663861
+end while loop iteration :  15
+Episode 508/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.010509134551847765
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 509/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.0669413173237747
+Loss : -14.996670380558069
+end while loop iteration :  10
+Episode 510/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.819115989566504
+Loss : -317.74955089346975
+end while loop iteration :  20
+Episode 511/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.8684701655411775
+Loss : -101.68667957882445
+end while loop iteration :  9
+Episode 512/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 36th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -663.4868599368593
+end while loop iteration :  36
+Episode 513/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05594184706328792
+Loss : -7.437716001086596
+end while loop iteration :  21
+Episode 514/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03724577790350957
+Loss : -11.452415360754319
+end while loop iteration :  17
+Episode 515/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.009814362936829246
+Loss : -10.775916554735243
+end while loop iteration :  12
+Episode 516/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.045160610025308315
+Loss : -10.460407748035374
+end while loop iteration :  15
+Episode 517/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  37.68873296938775
+Loss : -219.43091068461445
+end while loop iteration :  23
+Episode 518/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  25.204392630060735
+Loss : -118.94112252496765
+end while loop iteration :  18
+Episode 519/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.008476784802979975
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 520/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.7409999132503512
+Loss : -81.38664823560359
+end while loop iteration :  18
+Episode 521/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 4th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -196.58500660513477
+end while loop iteration :  4
+Episode 522/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.007629106322681989
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 523/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  22.25405522338795
+Loss : -119.60288257769318
+end while loop iteration :  15
+Episode 524/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.006866195690413801
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 525/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.012032764210027191
+Loss : -8.518742225023562
+end while loop iteration :  12
+Episode 526/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.1389227539058526
+Loss : -72.47921957259787
+end while loop iteration :  16
+Episode 527/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.00738285254237514
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 528/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6576293033166
+Loss : -69.92197322152205
+end while loop iteration :  15
+Episode 529/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  7.698753164478062
+Loss : -57.52018375960101
+end while loop iteration :  23
+Episode 530/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.116378696580833
+Loss : -37.911971550709865
+end while loop iteration :  9
+Episode 531/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 25th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -320.17493592277015
+end while loop iteration :  25
+Episode 532/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 48th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -103.65429918904611
+end while loop iteration :  48
+Episode 533/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.44224285219840864
+Loss : -69.9909904938562
+end while loop iteration :  14
+Episode 534/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -23.2458857218743
+end while loop iteration :  28
+Episode 535/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.006656597363325578
+Loss : -7.616253968618429
+end while loop iteration :  12
+Episode 536/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.83775377505366
+Loss : -105.34687618244911
+end while loop iteration :  9
+Episode 537/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.005978907551805079
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 538/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 19th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.033090469002864
+Loss : -87.76433600267619
+end while loop iteration :  19
+Episode 539/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -125.84437262920098
+end while loop iteration :  18
+Episode 540/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -21.513299008835617
+end while loop iteration :  7
+Episode 541/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.005381016796624616
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 542/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.049865169625635926
+Loss : -7.474406984578602
+end while loop iteration :  12
+Episode 543/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.004853381078360752
+Loss : -8.26093894402102
+end while loop iteration :  12
+Episode 544/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -1577.2172072089472
+end while loop iteration :  14
+Episode 545/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 2th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.29735918041162224
+Loss : -10.749946442630739
+end while loop iteration :  2
+Episode 546/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.00435757700912609
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 547/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.01586687570298917
+Loss : -8.229405894618436
+end while loop iteration :  12
+Episode 548/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6635734570241296
+Loss : -51.71032760818947
+end while loop iteration :  15
+Episode 549/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -115.40428448835351
+end while loop iteration :  8
+Episode 550/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -13.54210184772226
+end while loop iteration :  22
+Episode 551/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -104.49188426831925
+end while loop iteration :  14
+Episode 552/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0055085068785123426
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 553/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -24.786066405809233
+end while loop iteration :  21
+Episode 554/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0049576561906611305
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 555/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.498965724903935
+Loss : -19.473443462460438
+end while loop iteration :  6
+Episode 556/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 8th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  4.444191377450728
+Loss : -38.393241054227545
+end while loop iteration :  8
+Episode 557/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -259.31788227233824
+end while loop iteration :  15
+Episode 558/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.023880811348987067
+Loss : -39.11232577335205
+end while loop iteration :  40
+Episode 559/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.015458269529116442
+Loss : -8.024818299486212
+end while loop iteration :  12
+Episode 560/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -39.55316301014942
+end while loop iteration :  16
+Episode 561/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.006007717524506684
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 562/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0054069457720560266
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 563/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.037134633133835776
+Loss : -6.671480027543587
+end while loop iteration :  13
+Episode 564/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 12th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.879729173399395
+Loss : -98.83852144839823
+end while loop iteration :  12
+Episode 565/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03342116982045221
+Loss : -6.671480027543587
+end while loop iteration :  13
+Episode 566/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 6th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.4935602779213724
+Loss : -29.09633904000924
+end while loop iteration :  6
+Episode 567/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.024508090822293327
+Loss : -11.534659320201126
+end while loop iteration :  13
+Episode 568/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -192.17586113114263
+end while loop iteration :  22
+Episode 569/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  43.743238112674966
+Loss : -266.38325624470974
+end while loop iteration :  28
+Episode 570/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.004866251194850402
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 571/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6381310230430561
+Loss : -108.75625807015722
+end while loop iteration :  15
+Episode 572/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.00437962607536535
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 573/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.00394166346782876
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 574/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0035595271962338693
+Loss : -7.616253968618429
+end while loop iteration :  12
+Episode 575/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 51th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -299.01136007281303
+end while loop iteration :  51
+Episode 576/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0031915444014225525
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 577/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.11001717082064971
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 578/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -106.93852604343012
+end while loop iteration :  41
+Episode 579/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.002872389961280253
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 580/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 10th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.19842594896909443
+Loss : -8.850434957378667
+end while loop iteration :  10
+Episode 581/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0025851509651522164
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 582/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 13th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.39252176433011476
+Loss : -40.88237082971112
+end while loop iteration :  13
+Episode 583/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03658041465316304
+Loss : -7.128270813682404
+end while loop iteration :  10
+Episode 584/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.002326635868637017
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 585/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 23th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2140952101986413
+Loss : -35.745186191065066
+end while loop iteration :  23
+Episode 586/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0020939722817733264
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 587/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0018845750535959604
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 588/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.030079052838406978
+Loss : -6.671480027543587
+end while loop iteration :  13
+Episode 589/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.040644549022777476
+Loss : -10.460407748035374
+end while loop iteration :  15
+Episode 590/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06424091095453693
+Loss : -10.643452209558218
+end while loop iteration :  12
+Episode 591/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0016961175482363977
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 592/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.011713522726294695
+Loss : -12.41750555777557
+end while loop iteration :  11
+Episode 593/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 26th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  30.884148168023906
+Loss : -188.78176400239187
+end while loop iteration :  26
+Episode 594/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0015265057934127357
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 595/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0013738552140715177
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 596/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 14th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -131.61445998555226
+end while loop iteration :  14
+Episode 597/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.014745561009595898
+Loss : -7.2138107872666755
+end while loop iteration :  12
+Episode 598/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0027110257936239224
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 599/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0024399232142615634
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 600/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+No action possible. Stop episode at 30th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -63.460925938849705
+end while loop iteration :  30
+Episode 601/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0021959308928354293
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 602/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.06381643983938326
+Loss : -12.903097494912068
+end while loop iteration :  21
+Episode 603/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0019763378035518864
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 604/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -396.6127466679464
+end while loop iteration :  17
+Episode 605/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.3549411961743218
+Loss : -45.794584839990065
+end while loop iteration :  24
+Episode 606/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0017787040231966866
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 607/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -37.95032821363692
+end while loop iteration :  16
+Episode 608/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 17th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.45630837764896504
+Loss : -69.28391014569422
+end while loop iteration :  17
+Episode 609/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -31.173491892552438
+end while loop iteration :  9
+Episode 610/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  5.744557608612152
+Loss : -99.47768581148276
+end while loop iteration :  9
+Episode 611/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0016008336208769292
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 612/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.001440750258789314
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 613/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.028029148894555482
+Loss : -6.133299831034173
+end while loop iteration :  16
+Episode 614/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.001296675232910327
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 615/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 7th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.2714489766631973
+Loss : -30.765506450718778
+end while loop iteration :  7
+Episode 616/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0011670077096193054
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 617/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.02707114755456627
+Loss : -6.671480027543587
+end while loop iteration :  13
+Episode 618/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.024364032799109647
+Loss : -6.671480027543587
+end while loop iteration :  13
+Episode 619/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.001050306938657375
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 620/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  6.2113237166778
+Loss : -30.280570259833233
+end while loop iteration :  11
+Episode 621/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.815457366331282
+Loss : -69.2999752099102
+end while loop iteration :  11
+Episode 622/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 15th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.0490016915719877
+Loss : -128.57759433102996
+end while loop iteration :  15
+Episode 623/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.05746754095855085
+Loss : -13.938761346923597
+end while loop iteration :  21
+Episode 624/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0009452762447916818
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 625/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0008507486203125358
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 626/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 16th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  13.951168930151411
+Loss : -111.12383724944385
+end while loop iteration :  16
+Episode 627/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 28th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  2.9695788702297885
+Loss : -106.36670995554368
+end while loop iteration :  28
+Episode 628/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.044561688156454476
+Loss : -6.934778262301784
+end while loop iteration :  21
+Episode 629/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.015216356943978937
+Loss : -7.2138107872666755
+end while loop iteration :  12
+Episode 630/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.02268759157080799
+Loss : -6.133299831034173
+end while loop iteration :  16
+Episode 631/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.002287309452679076
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 632/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  1.221621317711791
+Loss : -21.43194710076046
+end while loop iteration :  11
+Episode 633/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 20th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -296.7575971441348
+end while loop iteration :  20
+Episode 634/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0020585785074112017
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 635/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -670.4792176440126
+end while loop iteration :  108
+Episode 636/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 22th iterations
+Save last state even is out of bound
+Q table still growths
+Loss : -58.25625310576771
+end while loop iteration :  22
+Episode 637/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -138.74221588967131
+end while loop iteration :  45
+Episode 638/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.17957473919736655
+Loss : -9.095273592706732
+end while loop iteration :  19
+Episode 639/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0018527206566700816
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 640/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 18th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.3839592081707477
+Loss : -41.51932807970687
+end while loop iteration :  18
+Episode 641/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 11th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  0.6919174187072229
+Loss : -55.81665087627975
+end while loop iteration :  11
+Episode 642/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.014223184786777088
+Loss : -7.435695368850506
+end while loop iteration :  12
+Episode 643/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -115.38636312546936
+end while loop iteration :  59
+Episode 644/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+Q table still growths
+Loss : -22.822374991065978
+end while loop iteration :  33
+Episode 645/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.029972272038660087
+Loss : -7.87942699905414
+end while loop iteration :  16
+Episode 646/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.003089767069680782
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 647/1000
+exploration_prob : 0.100
+No action possible. Stop episode at 9th iterations
+Save last state even is out of bound
+diff Qtable_N - Qtable_N-1  3.2396313030005177
+Loss : -28.199003298817118
+end while loop iteration :  9
+Episode 648/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0389904660586588
+Loss : -7.128270813682404
+end while loop iteration :  10
+Episode 649/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.002780790362712726
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 650/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0025027113264414202
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 651/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0022524401937973337
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 652/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.0020271961744176004
+Loss : -6.7252764644466385
+end while loop iteration :  12
+Episode 653/1000
+exploration_prob : 0.100
+stop episode because agent reach goal
+stop episode because agent reach goal
+diff Qtable_N - Qtable_N-1  0.03509141945279293
+Loss : -7.128270813682404
+end while loop iteration :  10
+Look like nothing to learn anymore, stop training
