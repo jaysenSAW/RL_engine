@@ -459,6 +459,9 @@ class Environment():
                 info.append("Reach goal")
                 done.append(True)
                 problem.append(False)
+                # # replace last rewards by a value close to zero
+                # for key in self.rewards.keys():
+                #     self.rewards[key] = np.append(self.rewards[key][:-1], 10**-20)
                 return self.last_state(), rewards, done, problem, info
         if any(check_upper) or any(check_lower):
             info.append("new position is out of bound")
