@@ -1,4 +1,6 @@
+imageio
 jupyter
+kaleido
 matplotlib
 numpy
 pandas
