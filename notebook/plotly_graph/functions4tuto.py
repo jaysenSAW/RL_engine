@@ -4,6 +4,10 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 import sys
+import plotly.graph_objects as go
+import imageio
+import kaleido 
+import os
 sys.path.insert(1, "../src/utils/")
 from agent import Environment
 
