@@ -14,6 +14,9 @@ Reinforcement learning (RL) is a machine learning method that models events as M
 The idea of RL is to learn the actions to take in order to achieve a given objective. For this, our system will be modified by agents, who will perform actions at each time step. These actions are evaluated and scored relative to a target to be reached. After several training episodes, our algorithm will have learned the actions that maximize the reward to achieve the desired objective.
 The code implements the Q-learning algorithm. The key element is the Bellman equation serves as a foundation for many RL algorithms. It iteratively updates Q-values based on experiences collected during training. By iteratively improving Q-values using the Bellman equation, RL algorithms can learn effective policies for sequential decision-making tasks
 
+<img src="notebook\frames\rocket_trajectory.gif"/>
+
+
 ## <span style="color:orange">Bellman equation</span>
 
 The Bellman equation is a fundamental concept in reinforcement learning (RL) that helps in understanding how to compute the value of being in a particular state and taking a particular action. The Bellman equation expresses the relationship between the value of a state-action pair and the values of the subsequent state-action pairs that can be reached from it:
