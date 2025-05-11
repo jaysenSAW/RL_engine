@@ -4,7 +4,6 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 import sys
-import plotly.graph_objects as go
 import imageio
 import kaleido 
 import os
@@ -253,5 +252,99 @@ def plot_reward_rocket_monoagent(env):
                     text='Score'
                 )
             ),
+    )
+    fig.show()
+
+def plot_reward_rocket_2agents(env):
+    """Plot reward component
+
+    Args:
+        env (environment): system 
+    """
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["distance_x_reward"],
+                        mode='lines+markers',
+                        name='distance_x_reward'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["distance_y_reward"],
+                        mode='lines+markers',
+                        name='distance_y_reward'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["angle"],
+                        mode='lines+markers',
+                        name='angle'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.all_states()["ratio_fuel"],
+                        mode='lines+markers',
+                        name='ratio_fuel'))
+    fig.add_trace(go.Scatter(x=env.all_states()["time"], y=env.rewards['booster'],
+                        mode='lines+markers',
+                        name='Sum of rewards'))
+    # Edit the layout
+    fig.update_layout(
+            title=dict(
+                text='Reward and its components'
+            ),
+            xaxis=dict(
+                title=dict(
+                    text='Time step'
+                )
+            ),
+            yaxis=dict(
+                title=dict(
+                    text='Score'
+                )
+            ),
+    )
+    fig.show()
+
+    
+def plot_RL_2agents(dt):
+    # Define goal position
+    goal_x = dt["pos_x_star"][0]
+    goal_y = dt["pos_y_star"][0]
+    # Create frames for animation
+    frames = []
+    for i in range(len(dt)):
+        frame_data = [
+            go.Scatter(
+                x=dt["pos_x"].iloc[:i+1],
+                y=dt["pos_y"].iloc[:i+1],
+                mode="lines+markers",
+                name="Rocket Path",
+                line=dict(color="blue"),
+                marker=dict(size=8)
+            ),
+            go.Scatter(
+                x=[goal_x],
+                y=[goal_y],
+                mode="markers+text",
+                name="Goal",
+                marker=dict(size=12, color="red", symbol="x"),
+                text=["Goal"],
+                textposition="top center"
+            )
+        ]
+        frames.append(go.Frame(data=frame_data, name=str(i)))
+    # Initial frame
+    fig = go.Figure(
+        data=frames[0].data,
+        frames=frames,
+        layout=go.Layout(
+            title="Rocket Landing Animation",
+            xaxis=dict(range=[50, 200], title="X Position"),
+            yaxis=dict(range=[0, 250], title="Altitude"),
+            height=600,
+            updatemenus=[{
+                "type": "buttons",
+                "buttons": [
+                    {"label": "Play", "method": "animate", "args": [None, {"frame": {"duration": 200}, "fromcurrent": True}]},
+                    {"label": "Pause", "method": "animate", "args": [[None], {"mode": "immediate", "frame": {"duration": 0}}]}
+                ]
+            }],
+            sliders=[{
+                "steps": [
+                    {"method": "animate", "args": [[str(i)], {"mode": "immediate", "frame": {"duration": 0}}], "label": str(i)}
+                    for i in range(len(dt))
+                ]
+            }]
+        )
     )
     fig.show()
