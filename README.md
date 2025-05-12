@@ -21,7 +21,7 @@ The code implements the Q-learning algorithm. The key element is the Bellman equ
 
 The Bellman equation is a fundamental concept in reinforcement learning (RL) that helps in understanding how to compute the value of being in a particular state and taking a particular action. The Bellman equation expresses the relationship between the value of a state-action pair and the values of the subsequent state-action pairs that can be reached from it:
 
-$ Q(s, a) = \sum_{s', r} p(s', r | s, a) [r + \gamma \max_{a'} Q(s', a')] $
+$Q(s, a) = \sum_{s', r} p(s', r | s, a) [r + \gamma \max_{a'} Q(s', a')]$
 
 Where:
 - $Q(s, a)$ is the value of taking action $a$ in state $s$, which represents the expected cumulative reward obtained by starting in state $s$, taking action $a$, and then following the optimal policy thereafter.
