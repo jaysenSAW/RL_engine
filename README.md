@@ -3,6 +3,7 @@
 * [Jaysen SAW](https://www.linkedin.com/in/jaysen-sawmynaden-a5409367/)
 
 # <span style="color:orange">How to install it</span>
+`python version >= 3.10`
 
 `pip install -r requierement.txt`
 
