@@ -330,7 +330,113 @@ def plot_RL_2agents(dt):
         layout=go.Layout(
             title="Rocket Landing Animation",
             xaxis=dict(range=[50, 200], title="X Position"),
-            yaxis=dict(range=[0, 250], title="Altitude"),
+            yaxis=dict(range=[-10, 250], title="Altitude"),
+            height=600,
+            updatemenus=[{
+                "type": "buttons",
+                "buttons": [
+                    {"label": "Play", "method": "animate", "args": [None, {"frame": {"duration": 200}, "fromcurrent": True}]},
+                    {"label": "Pause", "method": "animate", "args": [[None], {"mode": "immediate", "frame": {"duration": 0}}]}
+                ]
+            }],
+            sliders=[{
+                "steps": [
+                    {"method": "animate", "args": [[str(i)], {"mode": "immediate", "frame": {"duration": 0}}], "label": str(i)}
+                    for i in range(len(dt))
+                ]
+            }]
+        )
+    )
+    fig.show()
+
+
+def plot_obstacle_penalty(obstacle_radius, exclusion, distance2obstacle = np.arange(0, 10)):
+    penalty = np.minimum(distance2obstacle -(obstacle_radius+exclusion),0)
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x = distance2obstacle,
+        y = penalty,
+        name='Distance',
+        mode='lines+markers'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=distance2obstacle[0:obstacle_radius+1],
+        y=penalty[0:obstacle_radius+1],
+        mode="lines+markers",
+        name="Obstacle radius",
+        marker=dict(color="black", symbol="x"),
+        text=["Obstacle radius"]
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=distance2obstacle[obstacle_radius:obstacle_radius+exclusion+1],
+        y=penalty[obstacle_radius:obstacle_radius+exclusion+1],
+        mode="lines+text",
+        name="Exclusion zone",
+        marker=dict(color="red", symbol="x"),
+        text=["Exclusion zone"]
+    ))
+
+    fig.update_xaxes(title_text = "Distance to the obstacle")
+    fig.update_yaxes(title_text = "Penalty")
+    fig.update_layout(height=400, width=600, title_text="Function to penalize obstacle")
+    fig.show()
+
+def plot_RL_2agents_comparaison(dt, dt2):
+    # Define goal position
+    goal_x = dt["pos_x_star"][0]
+    goal_y = dt["pos_y_star"][0]
+    obstacle_x = dt2["pos_x_obstacle"][0]
+    obstacle_y = dt2["pos_y_obstacle"][0]
+    # Create frames for animation
+    frames = []
+    for i in range(len(dt)):
+        frame_data = [
+            go.Scatter(
+                x=dt["pos_x"].iloc[:i+1],
+                y=dt["pos_y"].iloc[:i+1],
+                mode="lines+markers",
+                name="first model",
+                line=dict(color="blue"),
+                marker=dict(size=8)
+            ),
+            go.Scatter(
+                x=dt2["pos_x"].iloc[:i+1],
+                y=dt2["pos_y"].iloc[:i+1],
+                mode="lines+markers",
+                name="model trained to aviod obstacle",
+                line=dict(color="orange"),
+                marker=dict(size=8)
+            ),
+            go.Scatter(
+                x=[goal_x],
+                y=[goal_y],
+                mode="markers+text",
+                name="Goal",
+                marker=dict(size=12, color="red", symbol="x"),
+                text=["Goal"],
+                textposition="top center"
+            ),
+            go.Scatter(
+                x=[obstacle_x],
+                y=[obstacle_y],
+                mode="markers+text",
+                name="Obstacle",
+                marker=dict(size=12, color="black", symbol="x"),
+                text=["Obstacle"],
+                textposition="top center"
+            )
+        ]
+        frames.append(go.Frame(data=frame_data, name=str(i)))
+    # Initial frame
+    fig = go.Figure(
+        data=frames[0].data,
+        frames=frames,
+        layout=go.Layout(
+            title="Rocket Landing Animation",
+            xaxis=dict(range=[50, 200], title="X Position"),
+            yaxis=dict(range=[-10, 250], title="Altitude"),
             height=600,
             updatemenus=[{
                 "type": "buttons",
