@@ -105,7 +105,7 @@
       "height_boundaries" : "-2 + lower_boundary + upper_boundary",
       "_ratio_fuel" : "$m_fuel$/$m_fuel_ini$",
       "$booster$" : "2*(-distance_y_reward) + speed_y_reward + 0.5 * $ratio_fuel$",
-      "$alpha$" : "2*(-distance_x_reward)  + speed_x_reward  - 0.2*np.sin($angle$) + 0.5 * $ratio_fuel$"
+      "$alpha$" : "2*(-distance_x_reward)  + speed_x_reward  - 0.2*np.sin(np.abs($angle$)) + 0.5 * $ratio_fuel$"
     }, 
     "_stop_episode" : "stop episode when goal is reach.", 
     "_stop_episode_info1" : "If feature has 1 value, its feature's value must be equal", 
