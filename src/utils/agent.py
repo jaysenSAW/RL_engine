@@ -197,6 +197,26 @@ class Environment():
         for key in colnames:
             state[key] = self.__dict__[key]
         return state
+    
+    def state_for_dqn(self, colnames : list = self.states_variables, start : int = -1, end :int = None, normalize : bool = True) -> np.ndarray:
+        """Function to select states from the environment for DQN training.
+        Args:
+            env (Environment): The environment from which to select states.
+            colnames (list, optional): List of column names to select. Defaults to env.states_variables.
+            start (int, optional): Start index for selection. Defaults to -1.
+            end (int, optional): End index for selection. Defaults to None.
+            normalize (bool, optional): Whether to normalize the states. Defaults to True.
+        Returns:
+            np.ndarray: The selected states as a NumPy array.
+        """
+        if normalize:
+            borne_max = np.array([ self.json["limit"][key][1] for key in self.states_variables])
+            borne_min = np.array([ self.json["limit"][key][0] for key in self.states_variables])
+            states = np.array(list(self.select_states(start = start, end = end, colnames = colnames).values()), dtype=np.float32).T
+            states = (states - borne_min) / (borne_max - borne_min)
+            return states
+        else:
+            return np.array(list(self.select_states(start = start, end = end, colnames = colnames).values()), dtype=np.float32).T
 
     def last_state(self, colnames = None):
         """
