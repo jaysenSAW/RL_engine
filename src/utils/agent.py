@@ -210,15 +210,15 @@ class Environment():
             np.ndarray: The selected states as a NumPy array.
         """
         if colnames is None:
-                colnames = self.variable_names
+                colnames = self.states_variables
         if normalize:
             borne_max = np.array([ self.json["limit"][key][1] for key in colnames])
             borne_min = np.array([ self.json["limit"][key][0] for key in colnames])
             states = np.array(list(self.select_states(start = start, end = end, colnames = colnames).values()), dtype=np.float32).T
             states = (states - borne_min) / (borne_max - borne_min)
-            return states
+            return states.reshape(-1)
         else:
-            return np.array(list(self.select_states(start = start, end = end, colnames = colnames).values()), dtype=np.float32).T
+            return np.array(list(self.select_states(start = start, end = end, colnames = colnames).values()), dtype=np.float32).T.reshape(-1)
 
     def last_state(self, colnames = None):
         """
