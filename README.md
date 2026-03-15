@@ -33,6 +33,96 @@ Where:
 
 Bellman equation states that the value of being in a state-action pair is equal to the immediate reward obtained plus the discounted value of the best possible action that can be taken from the subsequent state.
 
+---
+
+## Getting Started
+
+### Prerequisites
+
+```bash
+pip install streamlit numpy pandas plotly torch
+```
+
+### Run the App
+
+```bash
+streamlit run app.py
+```
+
+### Typical Workflow
+
+1. **Configure** — Set the rocket's start position, target landing zone, and reward weights in the **Environment** tab.
+2. **Explore** — Visualise reward components in the **Reward Explorer** to verify the reward landscape makes sense.
+3. **Train** — Select Tabular Q-Learning or DQN, set hyperparameters, and click **Start Training**.
+4. **Analyse** — Inspect trajectories and convergence curves in the **Results** tab.
+5. **Export** — Download the JSON config for reproducibility.
+
+---
+
+## Configuration (JSON)
+
+The entire simulation is driven by a JSON config. You can edit it in the UI or upload a custom file. Key fields:
+
+| Field | Description |
+|-------|-------------|
+| `states_variables` | State variables used to build the Q-table index |
+| `agent_variables` | Controlled actuators (`booster`, `alpha`) |
+| `initial_values` | Starting values for all simulation variables |
+| `limit` | `[min, max, n_bins]` for each variable |
+| `n_action` | Discrete action values per agent |
+| `equations_variables` | Physics update equations (compiled at runtime) |
+| `equations_rewards` | Reward computation equations |
+| `stop_episode` | Conditions that define a successful landing |
+
+---
+
+## Episode Termination
+
+An episode ends when **all** of the following conditions are met simultaneously:
+
+| Variable | Target Range |
+|----------|-------------|
+| `pos_x` | 135 – 145 |
+| `pos_y` | 0 – 5 |
+| `acceleration_y` | −2 to +2 |
+| `speed_x` | −10 to +10 |
+| `speed_y` | −10 to +10 |
+
+An episode also terminates if the rocket exits the defined state-space bounds.
+
+---
+
+
+## <span style="color:orange">Programmatic Usage</span>
+
+You can also use the trainers directly outside of the Streamlit app:
+
+```python
+import json
+from agent import Environment
+from Q_learning import QLearningTrainer
+from deep_q_learning import DQNTrainer
+
+# Load config
+with open("rocket_config.json") as f:
+    config = json.load(f)
+
+env = Environment(config)
+
+# --- Tabular Q-Learning ---
+trainer = QLearningTrainer(env, num_episodes=200, learning_rate=0.1, discount_factor=0.99)
+trainer.q_learning()
+
+# --- Deep Q-Network ---
+trainer = DQNTrainer(env, num_episodes=200, hidden_sizes=[128, 128], lr=1e-3)
+trainer.dqn_learning()
+
+# Inspect results
+import pandas as pd
+last_episode = trainer.states_for_all_episodes[-1]
+print(last_episode[["pos_x", "pos_y", "speed_x", "speed_y"]].tail())
+```
+
 
 # <span style="color:orange">Bibliography</span>
 
